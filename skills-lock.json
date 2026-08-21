@@ -1,6 +1,18 @@
 {
   "version": 1,
   "skills": {
+    "git-commit": {
+      "source": "gokoruri007/skills",
+      "sourceType": "github",
+      "skillPath": "skills/git-commit/SKILL.md",
+      "computedHash": "f8ef93cb7f5bf97172366d97b9424e5e3e34cd0339b36db0ef0afa3f1295875f"
+    },
+    "git-squash": {
+      "source": "gokoruri007/skills",
+      "sourceType": "github",
+      "skillPath": "skills/git-squash/SKILL.md",
+      "computedHash": "538147ea47ee6d30db9027b6528033718765c88409c1a10004855995f6f5986a"
+    },
     "grill-me": {
       "source": "vinvcn/mattpocock-skills-zh-CN",
       "sourceType": "github",
