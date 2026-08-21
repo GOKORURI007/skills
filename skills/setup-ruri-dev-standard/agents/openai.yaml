@@ -1,0 +1,5 @@
+interface:
+  display_name: "初始化极简开发规范"
+  short_description: "为仓库创建 DEVELOPMENT.md 开发规范"
+policy:
+  allow_implicit_invocation: false
