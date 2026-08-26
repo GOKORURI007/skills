@@ -1,0 +1,15 @@
+[submodule "skills/guizang-ppt-skill"]
+	path = skills/guizang-ppt-skill
+	url = https://github.com/op7418/guizang-ppt-skill.git
+[submodule "skills/html-ppt-skill"]
+	path = skills/html-ppt-skill
+	url = https://github.com/lewislulu/html-ppt-skill.git
+[submodule "skills/writing-dna-skill"]
+	path = skills/writing-dna-skill
+	url = https://github.com/larashero3-dotcom/writing-dna-skill
+[submodule "skills/lieflat-less-ai-tone"]
+	path = skills/lieflat-less-ai-tone
+	url = https://github.com/larashero3-dotcom/lieflat-less-ai-tone
+[submodule "skills/lieflat-charts"]
+	path = skills/lieflat-charts
+	url = https://github.com/larashero3-dotcom/lieflat-charts
