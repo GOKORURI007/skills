@@ -1,2 +1,5 @@
-def main() -> None:
-    print("Hello from skills!")
+"""skills: install skills from this repo into agent skill directories."""
+
+from skills.cli import main
+
+__all__ = ["main"]
