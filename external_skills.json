@@ -30,6 +30,12 @@
       "source_path": ".",
       "target_path": "skills/lieflat-charts",
       "ref": "main"
+    },
+    {
+      "source": "https://github.com/vinvcn/mattpocock-skills-zh-CN.git",
+      "source_path": "skills",
+      "target_path": "skills/mattpocock-skills-zh-CN",
+      "ref": "main"
     }
   ]
 }
