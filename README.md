@@ -1,71 +1,87 @@
 # skills
 
-一个 skills 仓库 + 一个 `uvx` 可跑的安装 CLI，仿 [`npx skills`](https://github.com/vercel-labs/skills)。
+A collection of agent skills, installable via a `uvx`-runnable CLI.
 
-## 这是什么
+`skills add` 从本仓库的 `skills/` 目录里挑 skill，复制或符号链接到目标 agent 的 skill 目录。仿 [`npx skills`](https://github.com/vercel-labs/skills)。
 
-仓库内 `skills/` 顶层目录是**数据容器**：每个子目录（或更深的子目录）是一个可安装 skill，根目录下的 `SKILL.md` 是入口。
+## 特性
 
-仓库本身也是一个 Python 包（`name = "skills"`）。`name` 是包名 / `import` 路径 / `skills` CLI 命令名的同一字符串；与 `skills/` 数据目录同名是历史遗留的刻意保留——它们各管各的，别混淆。
+- **单一来源**：仓库根 `external_skills.json` 列出每个外部 skill 的源 URL；每日 CI 自动 sync 进 `skills/`
+- **多 target 支持**：`opencode` / `claude` / `agents` / `codex` / `cursor` 等内置，按需扩
+- **两种 scope**：project（当前目录）或 global（`~/.<target>/skills`）
+- **symlink 模式**：project 安装时默认 link 到 global 真源，与 npx skills 语义一致
+- **`.skill_ignore`**：仓库根 `.skill_ignore` 用与 `.gitignore` 相同的语法排除不想装的 skill
 
-## 装到自己的 agent 里
-
-不需要 clone 本仓库，一条命令拉起交互式安装：
+## 快速开始
 
 ```bash
 uvx --from git+https://github.com/GOKORURI007/skills skills add
 ```
 
-首次会逐项询问：安装到哪些 target、每个 target 是 project 还是 global、project 时用 symlink 还是 copy、选哪些分类与 skill、最后 preview 一遍让你确认。
+按提示一步步确认即可。裸 `skills` 显示 help；`skills add --help` 看全部 flag。
 
-裸 `skills`（无子命令）显示 help；`skills --help` 或 `skills add --help` 看完整 flag。
-
-非交互式（CI / 脚本友好）：
+非交互式：
 
 ```bash
-# 全部分类、所有 skill，全部装到 .agents/skills/（project + symlink）
 uvx --from git+https://github.com/GOKORURI007/skills skills add -y \
   -t agents -a --project --symlink
 ```
 
-flags 速览：`skills add --help` 看完整列表，要点：
+## 持久安装
 
-- `-t/--target`（可多次）· `-c/--category`（可多次）· `-s/--skill`（可多次）
-- `-a/--all`：跳过 category/skill prompt，装全部
-- `-y/--yes`：跳过全部 prompt（与 `-t/-c/-s` 同用）
-- `--global` / `--project`：默认 scope 偏好
-- `--symlink` / `--copy`：project scope 默认 method（global 永远 copy）
-
-### 持久安装到 PATH
-
-上面的 `uvx --from ...` 是**临时一次性**跑——每次都要从 git 拉、装 venv、跑完丢弃。如果你想让 `skills` 命令常驻 shell（多个项目反复调用、不想每次都等拉取），用 `uv tool`：
+`uvx` 是临时跑——每次都从 git 拉、装 venv、跑完丢弃。如果想让 `skills` 命令常驻 shell：
 
 ```bash
-# 装上：从此 `skills` 在任何目录都可直接调
 uv tool install --from git+https://github.com/GOKORURI007/skills skills
-
-# 升级到最新（@-tag 不写则拉 main 分支最新 commit）
 uv tool upgrade skills
-
-# 卸掉
 uv tool uninstall skills
 ```
 
-装完后跟 `uvx` 行为一致：`skills add` / `skills add --help` 都可用。
+## 用法
 
-> 两种方式任选：偶尔用用 `uvx`，频繁使用 `uv tool install`。两者都用 git URL，不需要把仓库 clone 到本地。
+`skills add` 的主要 flag：
+
+| Flag | 说明 |
+|------|------|
+| `-t/--target`（多次）| 目标 agent（opencode/claude/agents/...）|
+| `-c/--category`（多次）| 限定分类 |
+| `-s/--skill`（多次）| 限定 skill 名 |
+| `-a/--all` | 装所有 category 下所有 skill |
+| `-y/--yes` | 跳过所有 prompt |
+| `--global` / `--project` | 默认 scope（每个 target prompt 时偏好） |
+| `--symlink` / `--copy` | project scope 默认 method（global 永远 copy） |
 
 ### Symlink 与 global 真源
 
-选了 `project + symlink` 时，CLI 会先确认该 target 的 **global 路径** 下已经有同名 skill——没有就 SKIP 并提示"先 global install"。这与 `npx skills` 的 canonical 真源语义一致：global 路径是真源，project 路径是符号链接。
+`--symlink` 模式下，project 安装前会先检查该 target 的 global 路径是否已有同名 skill。没有就跳过并提示"先 global install"——因为 project 路径里放的是符号链接，需要真源存在。
 
-换句话说，**首次装某个 skill 到新 target 的 project 路径时，先 global install 一次；之后所有 project 都能 symlink 共享**。
+意味着首次装某个 skill 到新 target 的 project 路径时，先 global 一次；之后所有 project 都能 symlink 共享。
+
+## 仓库结构
+
+```
+skills/                  数据容器：每个子目录是一个 skill
+  <category>/<skill>/SKILL.md
+  ...
+install_targets.json     target 注册表（仓库根 reference 副本）
+src/skills/              Python 包 + CLI（`skills` 命令）
+  install_targets.json   包内副本（随 wheel 分发）
+  discovery.py           扫描 + 分类
+  config.py              读 install_targets.json
+  installer.py           copy / symlink 实现
+  prompts.py             questionary 交互
+  cli.py                 typer app
+  ...
+tests/                   pytest 单元测试
+external_skills.json     每日 sync 的外部 skill 清单
+.github/workflows/       sync-external-skills.yml（每日 cron）
+```
 
 ## 仓库维护者
 
 ### 加新 target
 
-编辑仓库根 `install_targets.json`：
+编辑仓库根 `install_targets.json`，加一条：
 
 ```json
 {
@@ -84,33 +100,31 @@ uv tool uninstall skills
 
 ### 排除某些 skill
 
-仓库根的 `.skill_ignore` 用与 `.gitignore` 相同的语法（pathspec `gitignore` 风格），让 `skills add` 跳过匹配的路径。仓库自带一份全注释的样板，照着改就行：
+仓库根 `.skill_ignore`，与 `.gitignore` 同一语法（pathspec `gitignore` 风格）：
 
 ```
-# 忽略整个分类
+# 整个分类
 skills/experimental/
-# 忽略特定 skill
+# 特定 skill
 skills/legacy/old-skill
-# 忽略任意深度的子目录
+# 任意深度的子目录
 **/node_modules/**
 # negation：取消之前的忽略
 !skills/experimental/keep-this
 ```
 
-`discovery` 在扫到 `SKILL.md` 时会拿它的相对路径喂给 `.skill_ignore` spec，命中就跳过。
-
-### 跑测试
+## 开发
 
 ```bash
 uv sync
 uv run --group dev pytest
 ```
 
-22 个测试覆盖 discovery 分类规则、`.skill_ignore` 5 种语义（路径、negation、`**`、注释/空行、缺失文件）、config JSON 解析与仓库根/包内一致性、installer 三种安装路径。
+22 个测试覆盖 discovery 分类规则、`.skill_ignore` 5 种语义、config JSON 解析与仓库根/包内一致性、installer 三种安装路径。
 
-## 不在本仓库范围
+`uv build` 打 wheel；`uvx --from dist/skills-*.whl skills add` 验证 wheel 行为。
 
-- 远程源（GitHub URL 拉别人的 skill 仓库）—— 后续可扩展
-- `add/list/find/remove/update` 子命令 —— 当前只有 `install`
-- `skills-lock.json` 自动更新 —— 当前未写 lock
-- 通过 PyPI 发布 —— 用 `uvx --from git+...` 就够，不必走 PyPI
+## 相关项目
+
+- [`vercel-labs/skills`](https://github.com/vercel-labs/skills) — `npx skills` 的实现，本 CLI 的设计参照
+- [uv](https://docs.astral.sh/uv/) — 包管理与 `uvx`/`uv tool` 工具链
