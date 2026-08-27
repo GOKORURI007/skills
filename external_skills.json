@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": [
+    {
+      "source": "https://github.com/op7418/guizang-ppt-skill.git",
+      "source_path": ".",
+      "target_path": "skills/guizang-ppt-skill",
+      "ref": "main"
+    },
+    {
+      "source": "https://github.com/lewislulu/html-ppt-skill.git",
+      "source_path": ".",
+      "target_path": "skills/html-ppt-skill",
+      "ref": "main"
+    },
+    {
+      "source": "https://github.com/larashero3-dotcom/writing-dna-skill.git",
+      "source_path": ".",
+      "target_path": "skills/writing-dna-skill",
+      "ref": "main"
+    },
+    {
+      "source": "https://github.com/larashero3-dotcom/lieflat-less-ai-tone.git",
+      "source_path": ".",
+      "target_path": "skills/lieflat-less-ai-tone",
+      "ref": "main"
+    },
+    {
+      "source": "https://github.com/larashero3-dotcom/lieflat-charts.git",
+      "source_path": ".",
+      "target_path": "skills/lieflat-charts",
+      "ref": "main"
+    }
+  ]
+}

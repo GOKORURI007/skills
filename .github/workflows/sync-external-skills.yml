@@ -1,0 +1,38 @@
+name: Sync External Skills
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-external-skills
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Pull and overlay external skills
+        run: |
+          python3 .github/scripts/sync_external_skills.py external_skills.json
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          if [[ -n $(git status --porcelain) ]]; then
+            git add external_skills.json skills .github
+            git commit -m "chore: sync external skills [skip ci]"
+            git push
+          else
+            echo "No external skill updates."
+          fi
