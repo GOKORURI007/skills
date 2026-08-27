@@ -36,6 +36,25 @@ flags 速览：`skills add --help` 看完整列表，要点：
 - `--global` / `--project`：默认 scope 偏好
 - `--symlink` / `--copy`：project scope 默认 method（global 永远 copy）
 
+### 持久安装到 PATH
+
+上面的 `uvx --from ...` 是**临时一次性**跑——每次都要从 git 拉、装 venv、跑完丢弃。如果你想让 `skills` 命令常驻 shell（多个项目反复调用、不想每次都等拉取），用 `uv tool`：
+
+```bash
+# 装上：从此 `skills` 在任何目录都可直接调
+uv tool install --from git+https://github.com/GOKORURI007/skills skills
+
+# 升级到最新（@-tag 不写则拉 main 分支最新 commit）
+uv tool upgrade skills
+
+# 卸掉
+uv tool uninstall skills
+```
+
+装完后跟 `uvx` 行为一致：`skills add` / `skills add --help` 都可用。
+
+> 两种方式任选：偶尔用用 `uvx`，频繁使用 `uv tool install`。两者都用 git URL，不需要把仓库 clone 到本地。
+
 ### Symlink 与 global 真源
 
 选了 `project + symlink` 时，CLI 会先确认该 target 的 **global 路径** 下已经有同名 skill——没有就 SKIP 并提示"先 global install"。这与 `npx skills` 的 canonical 真源语义一致：global 路径是真源，project 路径是符号链接。
