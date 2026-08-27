@@ -1,8 +1,11 @@
-"""读取 install_targets.json：安装目标 (target name → {project, global})。"""
+"""读取 install_targets.json：安装目标 (target name → {project, global})。
+
+target 表的 source of truth 是仓库内 `src/skills/install_targets.json`（仓库维护者维护）。
+用户不能本地覆盖；要加新 target 就发 request 让维护者改这个文件并发布新版本。
+"""
 
 from __future__ import annotations
 
-import hashlib
 import json
 import os
 from dataclasses import dataclass
@@ -49,14 +52,3 @@ def load_targets(cwd: Path | None = None) -> list[Target]:
 def get_targets(cwd: Path | None = None) -> dict[str, Target]:
     """以 name 为 key 的 target dict。"""
     return {t.name: t for t in load_targets(cwd)}
-
-
-def hash_install_targets() -> str:
-    """包内 install_targets.json 的 SHA256 hex，用于校验仓库根副本是否一致。"""
-    raw = resources.files("skills").joinpath("install_targets.json").read_bytes()
-    return hashlib.sha256(raw).hexdigest()
-
-
-def hash_file(path: Path) -> str:
-    """任意文件的 SHA256 hex。"""
-    return hashlib.sha256(path.read_bytes()).hexdigest()

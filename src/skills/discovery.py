@@ -29,11 +29,18 @@ class SkillEntry:
 def _classify(rel: Path) -> tuple[str, str]:
     """根据 SKILL.md 相对路径计算 (category, skill_name)。
 
-    规则：
-    1. 去掉末尾的 SKILL.md，剩下的第一段如果是 `skills`（顶层容器）→ 剥掉；
-    2. 如果之后再出现 `skills`（嵌套容器，如 `skills/<x>/skills/<y>/SKILL.md`），
-       视为内部容器边界，再次剥掉它之后的 segments 不算 category；
-    3. 最后一段是 skill 名；之前用 `.` 连接为 category；为空则为 "uncategorized"。
+    约定：SKILL.md 必须在 `skills/` 容器边界之内；`skills/` 可出现在路径任意位置。
+    反复剥掉 `skills/`，把每段剥之前的路径累加进 category；剥完之后剩的
+    最后一段是 skill 名，其余归入 category。两段都用 `.` 连接，空则为 "uncategorized"。
+
+    示例：
+        skills/foo/SKILL.md                                  → ('uncategorized', 'foo')
+        skills/productivity/foo/SKILL.md                      → ('productivity', 'foo')
+        src/skills/foo/SKILL.md                              → ('src', 'foo')
+        src/foo/SKILL.md                                     → ('src', 'foo')
+        foo/SKILL.md                                         → ('uncategorized', 'foo')
+        skills/writing-dna-skill/skills/lieflat-less-ai-tone/SKILL.md
+                                                            → ('uncategorized', 'lieflat-less-ai-tone')
     """
     parts = list(rel.parts)
     if parts and parts[-1] == "SKILL.md":
@@ -41,17 +48,20 @@ def _classify(rel: Path) -> tuple[str, str]:
     if not parts:
         raise ValueError(f"unexpected empty path: {rel}")
 
-    if parts and parts[0] == SKILLS_DIR:
-        parts = parts[1:]
-    if SKILLS_DIR in parts:
+    category_parts: list[str] = []
+    while SKILLS_DIR in parts:
         idx = parts.index(SKILLS_DIR)
+        category_parts = category_parts + parts[:idx]
         parts = parts[idx + 1:]
 
     if not parts:
-        raise ValueError(f"path falls under nested '{SKILLS_DIR}/' with no further segment: {rel}")
+        raise ValueError(
+            f"path falls under '{SKILLS_DIR}/' with no further segment: {rel}"
+        )
 
     skill_name = parts[-1]
-    category = ".".join(parts[:-1]) if len(parts) > 1 else UNCATEGORIZED
+    all_category_parts = category_parts + parts[:-1]
+    category = ".".join(all_category_parts) if all_category_parts else UNCATEGORIZED
     return category, skill_name
 
 
@@ -74,17 +84,22 @@ def _load_skill_ignore(repo_root: Path) -> pathspec.PathSpec | None:
 
 
 def scan(repo_root: Path) -> list[SkillEntry]:
-    """递归扫描 repo_root/skills 下的所有 SKILL.md；被 .skill_ignore 命中的跳过。"""
+    """全仓扫描 SKILL.md；被 .skill_ignore 命中或无法分类的跳过。
+
+    不限制 `skills/` 子树——任何位置的 SKILL.md 都视为候选 skill。
+    仓库维护者用 `.skill_ignore` 主动排除 `src/`、`tests/` 等非 skill 目录。
+    """
     spec = _load_skill_ignore(repo_root)
-    root = repo_root / SKILLS_DIR
-    if not root.is_dir():
-        return []
     entries: list[SkillEntry] = []
-    for skill_md in sorted(root.rglob("SKILL.md")):
+    for skill_md in sorted(repo_root.rglob("SKILL.md")):
         rel = skill_md.relative_to(repo_root)
         if spec and spec.match_file(rel):
             continue
-        category, name = _classify(rel)
+        try:
+            category, name = _classify(rel)
+        except ValueError:
+            # 路径无法分类（如仓库根的 SKILL.md）—— skip
+            continue
         entries.append(
             SkillEntry(
                 name=name,

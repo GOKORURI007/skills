@@ -1,20 +1,19 @@
-"""CLI 入口：typer app + add 子命令。"""
+"""CLI 入口：typer app + add 子命令（远端源拉取）。"""
 
 from __future__ import annotations
-
-from pathlib import Path
 
 import typer
 
 from . import prompts
 from .config import load_targets
-from .discovery import by_category, scan
+from .discovery import by_category
 from .installer import Status, install as install_one
+from .source import fetched
 
 
 app = typer.Typer(
     name="skills",
-    help="把仓库里的 skill 安装到指定 agent target 目录。",
+    help="从远端 GitHub 仓库拉 skill 安装到指定 agent target 目录。",
     no_args_is_help=True,
     invoke_without_command=True,
 )
@@ -30,6 +29,14 @@ def _root(ctx: typer.Context) -> None:
 
 @app.command()
 def add(
+    source: str = typer.Argument(
+        ...,
+        help=(
+            "skill 源 URL / 简写："
+            "owner/repo · github.com/owner/repo · "
+            "https://github.com/owner/repo · git@github.com:owner/repo"
+        ),
+    ),
     target: list[str] = typer.Option(
         [], "-t", "--target",
         help="target 名（可多次；缺省则 prompt 多选）",
@@ -67,90 +74,93 @@ def add(
         help="-y 模式下 project scope 默认 method = copy",
     ),
 ) -> None:
-    """把 skills/ 下的 skill 安装到指定 agent target。"""
+    """从远端源拉 skill 安装到指定 agent target。"""
     if global_scope and project:
         raise typer.BadParameter("--global 与 --project 互斥")
     if symlink and copy:
         raise typer.BadParameter("--symlink 与 --copy 互斥")
 
-    repo_root = Path.cwd()
-    skills = scan(repo_root)
-    if not skills:
-        typer.echo("error: 未在 skills/ 下找到任何 SKILL.md", err=True)
-        raise typer.Exit(code=1)
-
-    targets = load_targets(repo_root)
-    by_cat = by_category(skills)
-
-    selected_targets = prompts.pick_targets(targets, skip=yes, default=target)
-    if not selected_targets:
-        typer.echo("error: 未选任何 target", err=True)
-        raise typer.Exit(code=1)
-
-    scope_default = "global" if global_scope else "project"
-    method_default = "copy" if copy else "symlink"
-    decisions: list[tuple] = []
-    for t in selected_targets:
-        scope = prompts.pick_scope(t, skip=yes, default=scope_default)
-        method: str | None = None
-        if scope == "project":
-            method = prompts.pick_method(t, skip=yes, default=method_default)
-        decisions.append((t, scope, method))
-
-    if all_:
-        picked_skills = list(skills)
-    else:
-        picked_cats = prompts.pick_categories(
-            by_cat.keys(),
-            skip=yes,
-            default=category,
-        )
-        if not picked_cats:
-            typer.echo("error: 未选任何 category", err=True)
+    with fetched(source) as (_, skills):
+        if not skills:
+            typer.echo(
+                "error: 源仓库没有可装的 SKILL.md；"
+                "若 skill 在 src/、tests/ 等工具目录下，请让源仓库维护者在 .skill_ignore 排除",
+                err=True,
+            )
             raise typer.Exit(code=1)
-        picked_skills = []
-        for cat in picked_cats:
-            cat_skills = prompts.pick_skills(
-                cat,
-                by_cat[cat],
+
+        targets = load_targets()
+        by_cat = by_category(skills)
+
+        selected_targets = prompts.pick_targets(targets, skip=yes, default=target)
+        if not selected_targets:
+            typer.echo("error: 未选任何 target", err=True)
+            raise typer.Exit(code=1)
+
+        scope_default = "global" if global_scope else "project"
+        method_default = "copy" if copy else "symlink"
+        decisions: list[tuple] = []
+        for t in selected_targets:
+            scope = prompts.pick_scope(t, skip=yes, default=scope_default)
+            method: str | None = None
+            if scope == "project":
+                method = prompts.pick_method(t, skip=yes, default=method_default)
+            decisions.append((t, scope, method))
+
+        if all_:
+            picked_skills = list(skills)
+        else:
+            picked_cats = prompts.pick_categories(
+                by_cat.keys(),
                 skip=yes,
-                default=skill,
+                default=category,
             )
-            picked_skills.extend(cat_skills)
-        if not picked_skills:
-            typer.echo("error: 未选任何 skill", err=True)
+            if not picked_cats:
+                typer.echo("error: 未选任何 category", err=True)
+                raise typer.Exit(code=1)
+            picked_skills = []
+            for cat in picked_cats:
+                cat_skills = prompts.pick_skills(
+                    cat,
+                    by_cat[cat],
+                    skip=yes,
+                    default=skill,
+                )
+                picked_skills.extend(cat_skills)
+            if not picked_skills:
+                typer.echo("error: 未选任何 skill", err=True)
+                raise typer.Exit(code=1)
+
+        preview: list[str] = []
+        for t, scope, method in decisions:
+            method_tag = f" / {method}" if method else ""
+            for s in picked_skills:
+                base = t.global_path if scope == "global" else t.project_path
+                preview.append(
+                    f"  [{t.name}] {s.rel_path}  ->  {base / s.name}  ({scope}{method_tag})"
+                )
+        if not prompts.confirm_preview(preview, skip=yes):
+            typer.echo("已取消")
             raise typer.Exit(code=1)
 
-    preview: list[str] = []
-    for t, scope, method in decisions:
-        method_tag = f" / {method}" if method else ""
-        for s in picked_skills:
-            base = t.global_path if scope == "global" else t.project_path
-            preview.append(
-                f"  [{t.name}] {s.rel_path}  ->  {base / s.name}  ({scope}{method_tag})"
-            )
-    if not prompts.confirm_preview(preview, skip=yes):
-        typer.echo("已取消")
-        raise typer.Exit(code=1)
+        ok = skip_ = fail = 0
+        for t, scope, method in decisions:
+            for s in picked_skills:
+                r = install_one(target=t, scope=scope, method=method, skill=s)
+                tag = f"[{t.name}/{scope}{'/' + method if method else ''}] {s.name}"
+                if r.status is Status.OK:
+                    ok += 1
+                    typer.echo(f"  ✓ {tag}  ->  {r.detail}")
+                elif r.status is Status.SKIP:
+                    skip_ += 1
+                    typer.echo(f"  - {tag}  SKIP: {r.detail}", err=True)
+                else:
+                    fail += 1
+                    typer.echo(f"  ✗ {tag}  FAIL: {r.detail}", err=True)
 
-    ok = skip_ = fail = 0
-    for t, scope, method in decisions:
-        for s in picked_skills:
-            r = install_one(target=t, scope=scope, method=method, skill=s)
-            tag = f"[{t.name}/{scope}{'/' + method if method else ''}] {s.name}"
-            if r.status is Status.OK:
-                ok += 1
-                typer.echo(f"  ✓ {tag}  ->  {r.detail}")
-            elif r.status is Status.SKIP:
-                skip_ += 1
-                typer.echo(f"  - {tag}  SKIP: {r.detail}", err=True)
-            else:
-                fail += 1
-                typer.echo(f"  ✗ {tag}  FAIL: {r.detail}", err=True)
-
-    typer.echo(f"\n{ok} ok, {skip_} skip, {fail} fail")
-    if fail > 0:
-        raise typer.Exit(code=1)
+        typer.echo(f"\n{ok} ok, {skip_} skip, {fail} fail")
+        if fail > 0:
+            raise typer.Exit(code=1)
 
 
 def main() -> None:
