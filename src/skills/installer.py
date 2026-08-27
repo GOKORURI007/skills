@@ -25,6 +25,7 @@ class InstallResult:
     status: Status
     detail: str  # OK 时为安装后路径；SKIP/FAIL 时为原因
     dst: Path
+    warn: str | None = None  # OK 时若附带 warning（如 fallback），给 caller 打印
 
 
 def install(
@@ -51,22 +52,30 @@ def install(
     if method == "symlink":
         canonical = target.global_path / skill.name
         if not canonical.exists():
-            return InstallResult(
-                Status.SKIP,
-                f"symlink 前置未满足：{canonical} 不存在；请先 global install {skill.name}",
-                dst,
-            )
+            # global 真源不存在，fallback 到 copy
+            return _copy(skill, dst, dry_run, fallback_reason="global 不存在")
         return _symlink(canonical, dst, dry_run)
 
     return _copy(skill, dst, dry_run)
 
 
-def _copy(skill: SkillEntry, dst: Path, dry_run: bool) -> InstallResult:
+def _copy(
+    skill: SkillEntry,
+    dst: Path,
+    dry_run: bool,
+    *,
+    fallback_reason: str | None = None,
+) -> InstallResult:
     if dry_run:
-        return InstallResult(Status.OK, f"[dry-run] copy {skill.rel_path} -> {dst}", dst)
+        return InstallResult(
+            Status.OK,
+            f"[dry-run] copy {skill.rel_path} -> {dst}",
+            dst,
+            warn=fallback_reason,
+        )
     try:
         shutil.copytree(skill.abs_path.parent, dst)
-        return InstallResult(Status.OK, str(dst), dst)
+        return InstallResult(Status.OK, str(dst), dst, warn=fallback_reason)
     except OSError as exc:
         return InstallResult(Status.FAIL, f"copy 失败: {exc}", dst)
 

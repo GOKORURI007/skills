@@ -56,7 +56,9 @@ uvx --from git+https://github.com/GOKORURI007/skills skills add \
 
 ### Symlink 与 global 真源
 
-`--symlink` 模式下，project 安装前会先检查该 target 的 global 路径是否已有同名 skill。没有就跳过并提示"先 global install"——project 路径里放的是符号链接，需要真源存在。
+`--symlink` 模式下，project 安装前会先检查该 target 的 global 路径是否已有同名 skill。没有就**自动 fallback 到 copy**，同时打 `⚠ global 不存在（已 fallback 到 copy）` 提示——而不是 SKIP 报错。
+
+这意味着首次装某个 skill 到新 target 的 project 路径时，第一次直接选 `--symlink` 也能成功（fallback 后变成 copy）。想要真正的符号链接时，先 `--global` 装一次，再 `--project --symlink` 就能共享真源。
 
 ## 仓库结构
 

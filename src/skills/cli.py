@@ -151,6 +151,8 @@ def add(
                 if r.status is Status.OK:
                     ok += 1
                     typer.echo(f"  ✓ {tag}  ->  {r.detail}")
+                    if r.warn:
+                        typer.echo(f"    ⚠ {r.warn}（已 fallback 到 copy）", err=True)
                 elif r.status is Status.SKIP:
                     skip_ += 1
                     typer.echo(f"  - {tag}  SKIP: {r.detail}", err=True)

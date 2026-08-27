@@ -67,14 +67,19 @@ def test_project_scope_symlink_with_global_installed(tmp_path: Path) -> None:
     assert (link / "SKILL.md").read_text() == "# hi"
 
 
-def test_project_scope_symlink_without_global_is_skipped(tmp_path: Path) -> None:
+def test_project_scope_symlink_without_global_falls_back_to_copy(tmp_path: Path) -> None:
     skill = _make_skill(tmp_path, ("skills", "foo"))
     target = _target("agent", tmp_path)
 
     res = install(target=target, scope="project", method="symlink", skill=skill)
-    assert res.status is Status.SKIP
-    assert "symlink 前置未满足" in res.detail
-    assert not (target.project_path / "foo").exists()
+    # 没装到 global 真源时，symlink 应 fallback 到 copy
+    assert res.status is Status.OK
+    assert res.warn == "global 不存在"
+    dst = target.project_path / "foo"
+    assert dst.exists()
+    assert (dst / "SKILL.md").read_text() == "# hi"
+    # fallback 出来的应该是真实目录，不是 symlink
+    assert not dst.is_symlink()
 
 
 def test_existing_destination_is_skipped(tmp_path: Path) -> None:
