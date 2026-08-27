@@ -1,0 +1,15 @@
+# .skill_ignore — 让 `skills install` 跳过这些路径。
+# 语法与 .gitignore 一致（pathspec gitwildmatch）。
+# 取消注释或新增行来启用。
+
+# 忽略整个分类目录
+# skills/experimental/
+
+# 忽略特定 skill
+# skills/legacy/old-skill
+
+# 忽略任意深度的子目录
+# **/node_modules/**
+
+# negation：取消之前的忽略
+# !skills/experimental/keep-this

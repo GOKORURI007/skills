@@ -5,8 +5,11 @@ from __future__ import annotations
 from dataclasses import dataclass
 from pathlib import Path
 
+import pathspec
+
 SKILLS_DIR = "skills"
 UNCATEGORIZED = "uncategorized"
+SKILL_IGNORE = ".skill_ignore"
 
 
 @dataclass(frozen=True)
@@ -52,14 +55,35 @@ def _classify(rel: Path) -> tuple[str, str]:
     return category, skill_name
 
 
+def _load_skill_ignore(repo_root: Path) -> pathspec.PathSpec | None:
+    """读取仓库根 .skill_ignore，不存在返回 None。
+
+    语法与 .gitignore 一致（pathspec 的 gitwildmatch 风格）：
+    - `#` 起头是注释
+    - 空行跳过
+    - `!` 前缀为 negation（取消之前的忽略）
+    - `/` 起头只匹配仓库根（不递归）
+    - 行尾 `/` 只匹配目录
+    - `**` 匹配任意层级
+    """
+    p = repo_root / SKILL_IGNORE
+    if not p.is_file():
+        return None
+    with p.open(encoding="utf-8") as f:
+        return pathspec.PathSpec.from_lines("gitignore", f)
+
+
 def scan(repo_root: Path) -> list[SkillEntry]:
-    """递归扫描 repo_root/skills 下的所有 SKILL.md。"""
+    """递归扫描 repo_root/skills 下的所有 SKILL.md；被 .skill_ignore 命中的跳过。"""
+    spec = _load_skill_ignore(repo_root)
     root = repo_root / SKILLS_DIR
     if not root.is_dir():
         return []
     entries: list[SkillEntry] = []
     for skill_md in sorted(root.rglob("SKILL.md")):
         rel = skill_md.relative_to(repo_root)
+        if spec and spec.match_file(rel):
+            continue
         category, name = _classify(rel)
         entries.append(
             SkillEntry(

@@ -61,6 +61,23 @@ flags 速览：`--help` 看完整列表，要点：
 
 把新 skill 放进 `skills/<分类路径>/<skill-name>/SKILL.md`。分类按目录层级用 `.` 连接（如 `skills/foo/bar/SKILL.md` → category `foo`，skill `bar`）。嵌套 `skills/`（如 `skills/<x>/skills/<y>/SKILL.md`）视为内部容器边界，剥掉后只剩 skill 名。
 
+### 排除某些 skill
+
+仓库根的 `.skill_ignore` 用与 `.gitignore` 相同的语法（pathspec `gitignore` 风格），让 `skills install` 跳过匹配的路径。仓库自带一份全注释的样板，照着改就行：
+
+```
+# 忽略整个分类
+skills/experimental/
+# 忽略特定 skill
+skills/legacy/old-skill
+# 忽略任意深度的子目录
+**/node_modules/**
+# negation：取消之前的忽略
+!skills/experimental/keep-this
+```
+
+`discovery` 在扫到 `SKILL.md` 时会拿它的相对路径喂给 `.skill_ignore` spec，命中就跳过。
+
 ### 跑测试
 
 ```bash
@@ -68,7 +85,7 @@ uv sync
 uv run --group dev pytest
 ```
 
-17 个测试覆盖 discovery 分类规则、config JSON 解析与仓库根/包内一致性、installer 三种安装路径。
+22 个测试覆盖 discovery 分类规则、`.skill_ignore` 5 种语义（路径、negation、`**`、注释/空行、缺失文件）、config JSON 解析与仓库根/包内一致性、installer 三种安装路径。
 
 ## 不在本仓库范围
 
