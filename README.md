@@ -13,20 +13,22 @@
 不需要 clone 本仓库，一条命令拉起交互式安装：
 
 ```bash
-uvx --from git+https://github.com/GOKORURI007/skills skills install
+uvx --from git+https://github.com/GOKORURI007/skills skills add
 ```
 
 首次会逐项询问：安装到哪些 target、每个 target 是 project 还是 global、project 时用 symlink 还是 copy、选哪些分类与 skill、最后 preview 一遍让你确认。
+
+裸 `skills`（无子命令）显示 help；`skills --help` 或 `skills add --help` 看完整 flag。
 
 非交互式（CI / 脚本友好）：
 
 ```bash
 # 全部分类、所有 skill，全部装到 .agents/skills/（project + symlink）
-uvx --from git+https://github.com/GOKORURI007/skills skills install -y \
+uvx --from git+https://github.com/GOKORURI007/skills skills add -y \
   -t agents -a --project --symlink
 ```
 
-flags 速览：`--help` 看完整列表，要点：
+flags 速览：`skills add --help` 看完整列表，要点：
 
 - `-t/--target`（可多次）· `-c/--category`（可多次）· `-s/--skill`（可多次）
 - `-a/--all`：跳过 category/skill prompt，装全部
@@ -63,7 +65,7 @@ flags 速览：`--help` 看完整列表，要点：
 
 ### 排除某些 skill
 
-仓库根的 `.skill_ignore` 用与 `.gitignore` 相同的语法（pathspec `gitignore` 风格），让 `skills install` 跳过匹配的路径。仓库自带一份全注释的样板，照着改就行：
+仓库根的 `.skill_ignore` 用与 `.gitignore` 相同的语法（pathspec `gitignore` 风格），让 `skills add` 跳过匹配的路径。仓库自带一份全注释的样板，照着改就行：
 
 ```
 # 忽略整个分类
