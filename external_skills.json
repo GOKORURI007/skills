@@ -36,6 +36,24 @@
       "source_path": "skills",
       "target_path": "skills/mattpocock-skills-zh-CN",
       "ref": "main"
+    },
+    {
+      "source": "https://github.com/ConardLi/garden-skills.git",
+      "source_path": "skills",
+      "target_path": "skills/garden-skills",
+      "ref": "main"
+    },
+    {
+      "source": "https://github.com/thePlannerIvan/planners-ppt-hell.git",
+      "source_path": ".",
+      "target_path": "skills/planners-ppt-hell",
+      "ref": "main"
+    },
+    {
+      "source": "https://github.com/thePlannerIvan/Planners-Proposal-System.git",
+      "source_path": ".",
+      "target_path": "skills/Planners-Proposal-System",
+      "ref": "main"
     }
   ]
 }
