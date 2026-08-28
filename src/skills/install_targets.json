@@ -1,4 +1,12 @@
 {
+  "common": {
+    "project": ".agents/skills",
+    "global": "~/.agents/skills"
+  },
+  "hanaagent": {
+    "project": ".hanaagent/skills",
+    "global": "~/.hanaagent/skills"
+  },
   "opencode": {
     "project": ".opencode/skills",
     "global": "~/.opencode/skills"
@@ -6,10 +14,6 @@
   "claude": {
     "project": ".claude/skills",
     "global": "~/.claude/skills"
-  },
-  "agents": {
-    "project": ".agents/skills",
-    "global": "~/.agents/skills"
   },
   "codex": {
     "project": ".codex/skills",
