@@ -3,9 +3,9 @@
     "project": ".agents/skills",
     "global": "~/.agents/skills"
   },
-  "hanaagent": {
-    "project": ".hanaagent/skills",
-    "global": "~/.hanaagent/skills"
+  "hanako": {
+    "project": ".hanako/skills",
+    "global": "~/.hanako/skills"
   },
   "opencode": {
     "project": ".opencode/skills",
