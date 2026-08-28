@@ -13,3 +13,5 @@
 
 # negation：取消之前的忽略
 # !skills/experimental/keep-this
+
+.agent/
