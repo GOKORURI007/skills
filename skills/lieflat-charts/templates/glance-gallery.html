@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Lieflat Charts — Glance Gallery · 22 张参考实现</title>
+<title>Lieflat Charts — Glance Gallery · 20 张参考实现</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@6/dist/echarts.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,26 +43,12 @@
 <body>
 <div class="pagehead">
 
-  <h1>Glance 系（快读）· 22 张参考实现</h1>
+  <h1>Glance 系（快读）· 20 张参考实现</h1>
   <p>粗笔画 · 提前聚合 · 3 秒读完。每张卡是一个图型的参考实现；代码在页内 <code>// ════ 图型名 ════</code> 注释块里，按 catalog.md 的卡内标题检索。</p>
 </div>
 <div class="grid2">
 
   <!-- ══ mono-demo ══ -->
-  <div class="card">
-    <h2>Daily active range</h2>
-    <div class="sub">min – max concurrent users · 1–14 Feb</div>
-    <div class="wrap"><canvas id="c1"></canvas></div>
-    <div class="src">RANGE CAPSULES · MONO-DEMO · LIVE OPS</div>
-  </div>
-
-  <div class="card dark">
-    <h2>How releases made us feel</h2>
-    <div class="sub">reactions tagged in retro · H1 2026</div>
-    <div class="ch" id="rose"></div>
-    <div class="src">PETAL ROSE · MONO-DEMO · TEAM RETRO BOARD</div>
-  </div>
-
   <div class="card">
     <h2>Revenue by plan</h2>
     <div class="sub">Q2 2026 · MRR, $K</div>
@@ -262,57 +248,6 @@ Chart.defaults.plugins.tooltip.bodyColor='#A5A49E';
 Chart.defaults.plugins.tooltip.padding=12;
 Chart.defaults.plugins.tooltip.cornerRadius=12;
 Chart.defaults.plugins.tooltip.displayColors=false;
-
-// ════ mono-demo · 1: floating range capsules ════
-(()=>{
-const ranges=[[195,235],[165,192],[150,232],[73,168],[122,202],[182,192],[138,178],[162,227],[195,235],[228,305],[218,232],[165,232],[118,210],[195,232]];
-cReveal('c1',()=>({
-  type:'bar',
-  data:{labels:ranges.map((_,i)=>i+1),
-    datasets:[{data:ranges,backgroundColor:INK,borderRadius:99,borderSkipped:false,barPercentage:.32}]},
-  options:{
-    maintainAspectRatio:false,
-    animation:{duration:800,easing:'easeOutQuart',delay:c=>c.type==='data'?c.dataIndex*40:0},
-    plugins:{tooltip:{callbacks:{label:i=>i.raw[0]+'K – '+i.raw[1]+'K users'}}},
-    scales:{
-      x:{grid:{display:false},border:{display:false},
-         ticks:{padding:6,font:{size:9},callback:v=>[0,6,13].includes(v)?(v+1)+' FEB':''}},
-      y:{min:50,max:320,grid:{display:false},border:{display:false},
-         ticks:{padding:8,maxTicksLimit:6,callback:v=>v+'K',font:{size:9.5}}},
-    },
-  },
-}));
-})();
-
-// ════ mono-demo · 2: petal rose on dark ════
-(()=>{
-const EMO=[
-  ['Happiness',12],['Awe',10],['Admiration',5],['Surprise',12],
-  ['Sadness',6],['Fear',4],['Anger',2],['Anticipation',5],
-];
-const MAXV=12;
-const petal=v=>{const t=v/MAXV;return t>.8?'#F2F1ED':t>.6?'#E4E3DD':t>.35?'#C9C8C1':'#A8A7A0'};
-eReveal('rose',{
-  animationDuration:1100,animationEasing:'quarticOut',
-  tooltip:{...tipDark,formatter:p=>p.name+' — '+EMO[p.dataIndex][1]},
-  series:[
-    {type:'pie',silent:false,radius:['14%','92%'],center:['50%','50%'],
-     itemStyle:{color:'#32312D',borderRadius:16,borderColor:'#1C1C1A',borderWidth:5},
-     label:{show:false},emphasis:{scale:false},
-     data:EMO.map(([n])=>({name:n,value:1})),z:1},
-    {type:'pie',silent:true,radius:['14%','92%'],center:['50%','50%'],
-     itemStyle:{color:'transparent'},label:{position:'inside'},
-     data:EMO.map(([n,v])=>({name:n,value:1,
-       label:{formatter:`{n|${v}}\n{l|${n}}`,rich:{
-         n:{fontSize:17,fontWeight:700,fontFamily:'Inter',lineHeight:20,color:v>=8?'#1C1C1A':'#C8C7C1'},
-         l:{fontSize:9.5,fontFamily:'Inter',color:v>=8?'#55554F':'#8F8E88'},
-       }}})),z:3},
-    {type:'pie',roseType:'area',silent:true,radius:['14%','88%'],center:['50%','50%'],
-     itemStyle:{borderRadius:14,borderColor:'#1C1C1A',borderWidth:5},label:{show:false},
-     data:EMO.map(([n,v])=>({name:n,value:v,itemStyle:{color:petal(v)}})),z:2},
-  ],
-});
-})();
 
 // ════ mono-demo · 3: chunky bars, values on top ════
 (()=>{
@@ -927,7 +862,7 @@ obsReveal('stroke',el=>{
 })();
 
 addEventListener('resize',()=>{
-  ['rose','forest','circular','tree','rainfall','morph','negbar','force','wave',
+  ['forest','circular','tree','rainfall','morph','negbar','force','wave',
    'custompie','singleaxis','jitter','race','stream','stroke']
     .forEach(id=>echarts.getInstanceByDom(document.getElementById(id))?.resize());
 });
@@ -942,7 +877,7 @@ const tip=(n,s)=>{const t=document.createElementNS(NS,'title');t.textContent=s;n
 const rnd=(i,k)=>Math.abs(((i*73856093)^(k*19349663))%1000)/1000;
 
 // ════ G19 · violin ════
-// 小提琴：提前聚合的密度剪影，Glance 世界观（beeswarm 的姊妹）。
+// 小提琴：提前聚合的密度剪影，Glance 世界观。
 // 四个 plan 各一把琴，宽度 = 该时长的工单密度（KDE），
 // 明度按中位数快慢排：越快越黑。纸色横档 = 中位数。
 (()=>{

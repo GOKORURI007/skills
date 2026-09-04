@@ -58,13 +58,13 @@ const galleryGroups = {
   },
   lupi: {
     label: 'Lupi',
-    // mono gallery 用「20 张」，色板版用「L1–L20」，两种写法都算已更新。
-    range: /L1–L20|20 张/,
-    ids: ['matheat', 'calheat', 'beeswarm', 'ridge', 'parallel'],
+    // mono gallery 用「19 张」，色板版用「L1–L19」，两种写法都算已更新。
+    range: /L1–L19|19 张/,
+    ids: ['matheat', 'calheat', 'ridge', 'parallel'],
   },
   glance: {
     label: 'Glance',
-    range: /22 张|Glance 22/,
+    range: /20 张|Glance 20/,
     ids: ['violin', 'gheat', 'rankstrip', 'sankey'],
   },
   maps: {
@@ -155,8 +155,7 @@ const catalogRows = [
   '| F17 | Candlestick |',
   '| L16 | Matrix Heat |',
   '| L17 | Calendar Heat |',
-  '| L18 | Beeswarm |',
-  '| L19 | Ridgeline |',
+    '| L19 | Ridgeline |',
   '| L20 | Parallel Coordinates |',
   '| G19 | Violin |',
   '| G20 | Matrix Heat (Glance) |',

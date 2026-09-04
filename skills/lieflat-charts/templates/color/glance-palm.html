@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Lieflat Glance 22 × PALM</title>
+<title>Lieflat Glance 20 × PALM</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
 <script src="https://cdn.jsdelivr.net/npm/echarts@6/dist/echarts.min.js"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,27 +43,13 @@
 </head>
 <body>
 <div class="pagehead">
-    <h1>Glance 系（快读）· 22 张 × PALM</h1>
+    <h1>Glance 系（快读）· 20 张 × PALM</h1>
   <p><span class="chip" style="background:#43593B"></span><span class="chip" style="background:#F2D17E"></span><span class="chip" style="background:#77835A"></span><span class="chip" style="background:#ACAD79"></span><span class="chip" style="background:#58402E"></span> &nbsp;椰林 · 绿黄六色板：麦黄 → 橄榄 → 浅苔 → 苔绿 → 中绿 → 深绿。深绿当主墨、琥珀当主角、浓咖当文字；暗卡上强调改麦黄（最宽波幅 / 直播灯 / 集成中枢）——深绿在浓咖底上读不出。</p>
   <p style="margin-top:7px">颜色在每张图里都编码一个维度，不是全图一个墨色：分类型（5 个来源 / 4 条产品线 / 5 个工作日 / 10 支小队 / 12 个集成）各走一个分类位，序数型（8 年营收排名 / 50 个市场 / 4 档优先级 / 树木年份 / 面板停留时长 / 情绪票数）走 5 档梯，深色卡换纸色梯、末档落在强调色。几何、动画、数据与 glance-gallery 逐节点一致；结构线仍是文字色的透明档，不引入新色相。滚入播动画，点击重播。</p>
 </div>
 <div class="grid2">
 
   <!-- ══ mono-demo ══ -->
-  <div class="card">
-    <h2>Daily active range</h2>
-    <div class="sub">min – max concurrent users · 1–14 Feb</div>
-    <div class="wrap"><canvas id="c1"></canvas></div>
-    <div class="src">RANGE CAPSULES · MONO-DEMO · LIVE OPS</div>
-  </div>
-
-  <div class="card dark">
-    <h2>How releases made us feel</h2>
-    <div class="sub">reactions tagged in retro · H1 2026</div>
-    <div class="ch" id="rose"></div>
-    <div class="src">PETAL ROSE · MONO-DEMO · TEAM RETRO BOARD</div>
-  </div>
-
   <div class="card">
     <h2>Revenue by plan</h2>
     <div class="sub">Q2 2026 · MRR, $K</div>
@@ -287,62 +273,6 @@ Chart.defaults.plugins.tooltip.bodyColor=alpha(BG,.72);
 Chart.defaults.plugins.tooltip.padding=12;
 Chart.defaults.plugins.tooltip.cornerRadius=12;
 Chart.defaults.plugins.tooltip.displayColors=false;
-
-// ════ mono-demo · 1: floating range capsules ════
-(()=>{
-const WIDEST=r=>r.reduce((b,x,i)=>x[1]-x[0]>r[b][1]-r[b][0]?i:b,0);
-const ranges=[[195,235],[165,192],[150,232],[73,168],[122,202],[182,192],[138,178],[162,227],[195,235],[228,305],[218,232],[165,232],[118,210],[195,232]];
-cReveal('c1',()=>({
-  type:'bar',
-  data:{labels:ranges.map((_,i)=>i+1),
-    datasets:[{data:ranges,backgroundColor:ranges.map((_,i)=>i===WIDEST(ranges)?HERO:DATA),borderRadius:99,borderSkipped:false,barPercentage:.32}]},
-  options:{
-    maintainAspectRatio:false,
-    animation:{duration:800,easing:'easeOutQuart',delay:c=>c.type==='data'?c.dataIndex*40:0},
-    plugins:{tooltip:{callbacks:{label:i=>i.raw[0]+'K – '+i.raw[1]+'K users'}}},
-    scales:{
-      x:{grid:{display:false},border:{display:false},
-         ticks:{padding:6,font:{size:9},callback:v=>[0,6,13].includes(v)?(v+1)+' FEB':''}},
-      y:{min:50,max:320,grid:{display:false},border:{display:false},
-         ticks:{padding:8,maxTicksLimit:6,callback:v=>v+'K',font:{size:9.5}}},
-    },
-  },
-}));
-})();
-
-// ════ mono-demo · 2: petal rose on dark ════
-(()=>{
-const EMO=[
-  ['Happiness',12],['Awe',10],['Admiration',5],['Surprise',12],
-  ['Sadness',6],['Fear',4],['Anger',2],['Anticipation',5],
-];
-const MAXV=12;
-const petal=v=>{const t=v/MAXV;return t>.8?DRAMP4[0]:t>.6?DRAMP4[1]:t>.35?DRAMP4[2]:DRAMP4[3]};
-// 标签固定落在环宽中段，只有票数够多的花瓣才铺到那儿；没铺到的按卡底配字色
-const onPetal=v=>v/MAXV>.6;
-eReveal('rose',{
-  animationDuration:1100,animationEasing:'quarticOut',
-  tooltip:{...tipDark,formatter:p=>p.name+' — '+EMO[p.dataIndex][1]},
-  series:[
-    {type:'pie',silent:false,radius:['14%','92%'],center:['50%','50%'],
-     itemStyle:{color:DSHELL,borderRadius:16,borderColor:DARK,borderWidth:5},
-     label:{show:false},emphasis:{scale:false},
-     data:EMO.map(([n])=>({name:n,value:1})),z:1},
-    {type:'pie',silent:true,radius:['14%','92%'],center:['50%','50%'],
-     itemStyle:{color:'transparent'},label:{position:'inside'},
-     data:EMO.map(([n,v])=>({name:n,value:1,
-       label:{formatter:`{n|${v}}\n{l|${n}}`,rich:{
-         n:{fontSize:17,fontWeight:700,fontFamily:'Inter',lineHeight:20,
-              color:onPetal(v)?readable(petal(v)):DMID},
-         l:{fontSize:9.5,fontFamily:'Inter',
-              color:onPetal(v)?alpha(readable(petal(v)),.66):DQ},
-       }}})),z:3},
-    {type:'pie',roseType:'area',silent:true,radius:['14%','88%'],center:['50%','50%'],
-     itemStyle:{borderRadius:14,borderColor:DARK,borderWidth:5},label:{show:false},
-     data:EMO.map(([n,v])=>({name:n,value:v,itemStyle:{color:petal(v)}})),z:2},
-  ],
-});
-})();
 
 // ════ mono-demo · 3: chunky bars, values on top ════
 (()=>{
@@ -963,7 +893,7 @@ obsReveal('stroke',el=>{
 })();
 
 addEventListener('resize',()=>{
-  ['rose','forest','circular','tree','rainfall','morph','negbar','force','wave',
+  ['forest','circular','tree','rainfall','morph','negbar','force','wave',
    'custompie','singleaxis','jitter','race','stream','stroke']
     .forEach(id=>echarts.getInstanceByDom(document.getElementById(id))?.resize());
 });
@@ -978,7 +908,7 @@ const tip=(n,s)=>{const t=document.createElementNS(NS,'title');t.textContent=s;n
 const rnd=(i,k)=>Math.abs(((i*73856093)^(k*19349663))%1000)/1000;
 
 // ════ G19 · violin ════
-// 小提琴：提前聚合的密度剪影，Glance 世界观（beeswarm 的姊妹）。
+// 小提琴：提前聚合的密度剪影，Glance 世界观。
 // 四个 plan 各一把琴，宽度 = 该时长的工单密度（KDE），
 // 明度按中位数快慢排：越快越黑。纸色横档 = 中位数。
 (()=>{
