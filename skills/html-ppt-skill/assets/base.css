@@ -11,6 +11,14 @@
   --text-2: #55596a;
   --text-3: #8a8f9e;
   --accent: #3b6cff;
+  /* Text drawn on top of an --accent fill. Every theme in assets/themes/
+   * and every full-deck style.css overrides this with whichever of white /
+   * near-black clears WCAG AA against its own accent — a hardcoded ink
+   * cannot, because accents here range from #ffffff to #000000.
+   * This default is black rather than white on purpose: against the default
+   * --accent #3b6cff, white measures 4.40:1 and black 4.77:1, so only black
+   * clears AA for normal text. Reached by any deck that links no theme. */
+  --accent-ink: #000000;
   --accent-2: #7a5cff;
   --accent-3: #ff5c8a;
   --good: #1aaf6c;
@@ -180,7 +188,10 @@ h4,.h4{font-size:22px;line-height:1.3;font-weight:600;margin:0 0 8px}
 .deck-logo:not([data-pos])          {top:28px;right:40px}
 
 /* ================= PRESENTER / OVERVIEW ================= */
-.notes{display:none!important}
+/* Keep this list in sync with NOTE_SEL in assets/runtime.js — the runtime
+ * reads speaker notes from all of these, so all of them must be hidden
+ * from the audience. */
+.notes,.speaker-notes{display:none!important}
 .notes-overlay{position:fixed;inset:auto 0 0 0;max-height:42vh;background:rgba(20,22,30,.95);color:#e8ebf4;
   padding:20px 32px;font-size:16px;line-height:1.6;border-top:1px solid rgba(255,255,255,.1);transform:translateY(100%);
   transition:transform .3s var(--ease);z-index:40;overflow:auto;font-family:var(--font-sans)}
@@ -209,9 +220,21 @@ h4,.h4{font-size:22px;line-height:1.3;font-weight:600;margin:0 0 8px}
 
 /* ================= PRINT ================= */
 @media print{
-  body{display:block;width:auto;height:auto;overflow:visible}
-  .deck{transform:none;width:100%;height:auto}
-  .slide{position:relative;opacity:1!important;transform:none!important;page-break-after:always;height:100vh}
+  /* Every declaration here is !important on purpose. A template stylesheet
+   * scopes its rules as `.tpl-name .slide`, which is specificity (0,2,0) and
+   * beats a bare `.slide` at (0,1,0) — so without !important a template
+   * silently keeps its screen layout in print. That is how dir-key-nav-minimal
+   * (position:absolute) printed 8 slides onto 1 page and xhs-post printed 9
+   * onto 2: only the opacity/transform declarations on this rule carried
+   * !important, and the ones that decide pagination did not. */
+  body{display:block!important;width:auto!important;height:auto!important;overflow:visible!important}
+  .deck{transform:none!important;width:100%!important;height:auto!important;
+        min-height:0!important;display:block!important}
+  .slide{position:relative!important;inset:auto!important;
+         opacity:1!important;transform:none!important;
+         page-break-after:always;break-after:page;
+         width:100%!important;height:100vh!important;max-height:100vh!important}
+  .slide:last-child{page-break-after:auto;break-after:auto}
   .deck-header,.deck-footer,.progress-bar,.notes-overlay,.overview{display:none!important}
 
   /* Logo in print. The .deck-logo element is position:absolute inside .deck,
