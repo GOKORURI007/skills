@@ -35,13 +35,23 @@
       "source": "https://github.com/vinvcn/mattpocock-skills-zh-CN.git",
       "source_path": "skills",
       "target_path": "skills/mattpocock-skills-zh-CN",
-      "ref": "main"
+      "ref": "main",
+      "apm_plugin": {
+        "name": "mattpocock-skills-zh-CN",
+        "version": "0.1.0",
+        "description": "Chinese translations of Matt Pocock's agent skills"
+      }
     },
     {
       "source": "https://github.com/ConardLi/garden-skills.git",
       "source_path": "skills",
       "target_path": "skills/garden-skills",
-      "ref": "main"
+      "ref": "main",
+      "apm_plugin": {
+        "name": "garden-skills",
+        "version": "0.1.0",
+        "description": "Garden agent skill collection"
+      }
     },
     {
       "source": "https://github.com/thePlannerIvan/planners-ppt-hell.git",

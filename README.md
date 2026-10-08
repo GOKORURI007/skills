@@ -35,6 +35,44 @@ uv tool uninstall skills
 
 ## 用法
 
+### 使用 APM 安装
+
+支持 Microsoft [Agent Package Manager (APM)](https://github.com/microsoft/apm)。
+单个技能目录可以直接安装；按分类组织的 `mattpocock-skills-zh-CN` 和
+`garden-skills` 集合提供自动生成的 `plugin.json`，让 APM 能找到集合中的每个技能。
+
+```bash
+# 在使用技能的项目目录执行；本仓库分支为 master
+apm install GOKORURI007/skills/skills/mattpocock-skills-zh-CN#master --target codex
+
+# 只安装一个技能（也可用 --target claude 等其他 APM 目标）
+apm install GOKORURI007/skills/skills/mattpocock-skills-zh-CN#master --skill productivity/grill-me --target codex
+
+# 另一个技能集合
+apm install GOKORURI007/skills/skills/garden-skills#master --target codex
+
+# 单个技能直接安装，无需集合清单
+apm install GOKORURI007/skills/skills/git-commit#master --target codex
+```
+
+集合中的技能分别部署到目标目录，不会把整个集合当成一个技能。
+目录结构和技能内容不变，现有 `skills add` 用法仍然可用。
+APM 的 `--skill` 可以使用清单中的相对路径，例如 `productivity/grill-me`。
+
+如果 APM 报 `not accessible or doesn't exist`，先检查分支、目录和清单是否已经推送到远端。
+日志中对 `apm.yml`、`SKILL.md` 和 `plugin.json` 的连续 404 表示没有找到包入口；
+不要仅凭最后的认证提示判断问题。私有仓库仍需配置 GitHub 访问凭据。
+
+集合适配配置保存在 `external_skills.json` 的 `apm_plugin` 字段中。
+每日同步在复制上游内容后重新生成 `plugin.json`，自动纳入新增技能并移除已删除的技能。
+更改配置后，可在本地重新生成清单：
+
+```bash
+uv run --no-project .github/scripts/sync_external_skills.py --apm-only
+```
+
+### 使用本仓库 CLI
+
 `skills add <source>` 主要 flag：
 
 | Flag | 说明 |

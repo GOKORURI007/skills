@@ -4,7 +4,8 @@ Sync external skills defined in external_skills.json into this repo.
 
 For each entry:
   - clone source repo (shallow, single branch)
-  - copy source_path contents into target_path (incremental overlay)
+  - replace target_path with source_path contents
+  - generate configured APM collection manifests after copying
 
 The script only touches target_path directories declared in the manifest and
 leaves all other paths in the repo untouched.
@@ -52,8 +53,28 @@ def remove_path(p: Path) -> None:
         shutil.rmtree(p)
 
 
+def write_apm_plugin(target_path: Path, metadata: dict) -> None:
+    """Expose a categorized skill collection without moving upstream files."""
+    skill_paths = sorted(
+        "./" + skill.parent.relative_to(target_path).as_posix()
+        for skill in target_path.rglob("SKILL.md")
+        if not any(part.startswith(".") for part in skill.relative_to(target_path).parts)
+    )
+    if not skill_paths:
+        raise ValueError(f"No skills found for APM collection: {target_path}")
+    plugin = {**metadata, "skills": skill_paths}
+    (target_path / "plugin.json").write_text(
+        json.dumps(plugin, ensure_ascii=False, indent=2) + "\n", encoding="utf-8"
+    )
+
+
 def main() -> int:
     ap = argparse.ArgumentParser(description="Sync external skills.")
+    ap.add_argument(
+        "--apm-only",
+        action="store_true",
+        help="regenerate configured APM manifests without downloading upstream skills",
+    )
     ap.add_argument(
         "manifest",
         nargs="?",
@@ -72,6 +93,12 @@ def main() -> int:
     manifest_path = args.workdir / args.manifest
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
     skills = manifest.get("skills", [])
+
+    if args.apm_only:
+        for entry in skills:
+            if "apm_plugin" in entry:
+                write_apm_plugin(args.workdir / entry["target_path"], entry["apm_plugin"])
+        return 0
 
     failures = 0
     with tempfile.TemporaryDirectory(prefix="ext-skill-") as tmp_str:
@@ -115,6 +142,8 @@ def main() -> int:
                 target_path,
                 ignore=shutil.ignore_patterns(".git"),
             )
+            if "apm_plugin" in entry:
+                write_apm_plugin(target_path, entry["apm_plugin"])
             print(f"[sync] {slug}: copied to {target_path}", flush=True)
 
     return 1 if failures else 0
