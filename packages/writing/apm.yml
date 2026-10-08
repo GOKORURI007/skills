@@ -4,9 +4,6 @@ description: Writing style, editing and article publishing skills
 dependencies:
   apm:
     - git: larashero3-dotcom/writing-dna-skill
-      ref: "ee3d97ee27268004b5187d97711161f44fc4aae4"
     - git: larashero3-dotcom/lieflat-less-ai-tone
-      ref: "27d29232f10124db904ca9c0536d0b67cb3b2833"
     - git: ConardLi/garden-skills
-      ref: "aaf9a82f5efd73e87cc0998edc398e75bfc35901"
       path: skills/beautiful-article

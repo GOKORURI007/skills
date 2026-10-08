@@ -1,7 +1,0 @@
-name: writing-dna-skill
-version: 0.1.0
-description: "写作与文章 / writing-dna-skill"
-dependencies:
-  apm:
-    - git: larashero3-dotcom/writing-dna-skill
-      ref: "ee3d97ee27268004b5187d97711161f44fc4aae4"

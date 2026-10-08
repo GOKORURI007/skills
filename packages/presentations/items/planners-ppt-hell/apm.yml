@@ -1,7 +1,0 @@
-name: planners-ppt-hell
-version: 0.1.0
-description: "演示与 PPT / planners-ppt-hell"
-dependencies:
-  apm:
-    - git: thePlannerIvan/planners-ppt-hell
-      ref: "9e438dcd1398f6f4a2e0071a6dfd1ea7053f4b2d"

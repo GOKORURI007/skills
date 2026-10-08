@@ -4,20 +4,14 @@ description: Experimental Matt Pocock skills in Chinese
 dependencies:
   apm:
     - git: vinvcn/mattpocock-skills-zh-CN
-      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
       path: skills/in-progress/claude-handoff
     - git: vinvcn/mattpocock-skills-zh-CN
-      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
       path: skills/in-progress/loop-me
     - git: vinvcn/mattpocock-skills-zh-CN
-      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
       path: skills/in-progress/setup-ts-deep-modules
     - git: vinvcn/mattpocock-skills-zh-CN
-      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
       path: skills/in-progress/writing-beats
     - git: vinvcn/mattpocock-skills-zh-CN
-      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
       path: skills/in-progress/writing-fragments
     - git: vinvcn/mattpocock-skills-zh-CN
-      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
       path: skills/in-progress/writing-shape

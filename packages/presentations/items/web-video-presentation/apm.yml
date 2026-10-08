@@ -1,8 +1,0 @@
-name: web-video-presentation
-version: 0.1.0
-description: "演示与 PPT / web-video-presentation"
-dependencies:
-  apm:
-    - git: ConardLi/garden-skills
-      ref: "aaf9a82f5efd73e87cc0998edc398e75bfc35901"
-      path: skills/web-video-presentation

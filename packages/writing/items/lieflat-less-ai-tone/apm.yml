@@ -1,7 +1,0 @@
-name: lieflat-less-ai-tone
-version: 0.1.0
-description: "写作与文章 / lieflat-less-ai-tone"
-dependencies:
-  apm:
-    - git: larashero3-dotcom/lieflat-less-ai-tone
-      ref: "27d29232f10124db904ca9c0536d0b67cb3b2833"

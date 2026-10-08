@@ -4,4 +4,3 @@ description: Proposal planning and knowledge maintenance skills
 dependencies:
   apm:
     - git: thePlannerIvan/Planners-Proposal-System
-      ref: "d3fd31fdc21224e222ad5a04c7231e44b151926f"

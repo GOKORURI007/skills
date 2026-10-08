@@ -13,67 +13,11 @@
       "source": "./packages/dev-tools"
     },
     {
-      "name": "add-external-skill",
-      "description": "开发与 Git 工具 / add-external-skill",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/dev-tools/skills/add-external-skill"
-    },
-    {
-      "name": "create-codetour",
-      "description": "开发与 Git 工具 / create-codetour",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/dev-tools/skills/create-codetour"
-    },
-    {
-      "name": "create-scoop-manifest",
-      "description": "开发与 Git 工具 / create-scoop-manifest",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/dev-tools/skills/create-scoop-manifest"
-    },
-    {
-      "name": "gh-debug-action",
-      "description": "开发与 Git 工具 / gh-debug-action",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/dev-tools/skills/gh-debug-action"
-    },
-    {
-      "name": "git-commit",
-      "description": "开发与 Git 工具 / git-commit",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/dev-tools/skills/git-commit"
-    },
-    {
-      "name": "git-squash",
-      "description": "开发与 Git 工具 / git-squash",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/dev-tools/skills/git-squash"
-    },
-    {
-      "name": "setup-ruri-dev-standard",
-      "description": "开发与 Git 工具 / setup-ruri-dev-standard",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/dev-tools/skills/setup-ruri-dev-standard"
-    },
-    {
       "name": "obsidian",
       "description": "Obsidian vault maintenance skills",
       "version": "0.1.0",
       "category": "Productivity",
       "source": "./packages/obsidian"
-    },
-    {
-      "name": "obsidian-autotag",
-      "description": "Obsidian 笔记 / obsidian-autotag",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/obsidian/skills/obsidian-autotag"
     },
     {
       "name": "writing",
@@ -83,53 +27,11 @@
       "source": "./packages/writing"
     },
     {
-      "name": "writing-dna-skill",
-      "description": "写作与文章 / writing-dna-skill",
-      "version": "0.1.0",
-      "category": "Writing",
-      "source": "./packages/writing/items/writing-dna-skill"
-    },
-    {
-      "name": "lieflat-less-ai-tone",
-      "description": "写作与文章 / lieflat-less-ai-tone",
-      "version": "0.1.0",
-      "category": "Writing",
-      "source": "./packages/writing/items/lieflat-less-ai-tone"
-    },
-    {
-      "name": "beautiful-article",
-      "description": "写作与文章 / beautiful-article",
-      "version": "0.1.0",
-      "category": "Writing",
-      "source": "./packages/writing/items/beautiful-article"
-    },
-    {
       "name": "visual-design",
       "description": "Charts, image generation and web design skills",
       "version": "0.1.0",
       "category": "Design",
       "source": "./packages/visual-design"
-    },
-    {
-      "name": "lieflat-charts",
-      "description": "图表与视觉设计 / lieflat-charts",
-      "version": "0.1.0",
-      "category": "Design",
-      "source": "./packages/visual-design/items/lieflat-charts"
-    },
-    {
-      "name": "gpt-image-2",
-      "description": "图表与视觉设计 / gpt-image-2",
-      "version": "0.1.0",
-      "category": "Design",
-      "source": "./packages/visual-design/items/gpt-image-2"
-    },
-    {
-      "name": "web-design-engineer",
-      "description": "图表与视觉设计 / web-design-engineer",
-      "version": "0.1.0",
-      "category": "Design",
-      "source": "./packages/visual-design/items/web-design-engineer"
     },
     {
       "name": "presentations",
@@ -139,46 +41,11 @@
       "source": "./packages/presentations"
     },
     {
-      "name": "guizang-ppt-skill",
-      "description": "演示与 PPT / guizang-ppt-skill",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/presentations/items/guizang-ppt-skill"
-    },
-    {
-      "name": "html-ppt-skill",
-      "description": "演示与 PPT / html-ppt-skill",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/presentations/items/html-ppt-skill"
-    },
-    {
-      "name": "web-video-presentation",
-      "description": "演示与 PPT / web-video-presentation",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/presentations/items/web-video-presentation"
-    },
-    {
-      "name": "planners-ppt-hell",
-      "description": "演示与 PPT / planners-ppt-hell",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/presentations/items/planners-ppt-hell"
-    },
-    {
       "name": "proposals",
       "description": "Proposal planning and knowledge maintenance skills",
       "version": "0.1.0",
       "category": "Productivity",
       "source": "./packages/proposals"
-    },
-    {
-      "name": "planners-proposal-system",
-      "description": "策划与提案 / planners-proposal-system",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/proposals/items/planners-proposal-system"
     },
     {
       "name": "knowledge",
@@ -188,67 +55,11 @@
       "source": "./packages/knowledge"
     },
     {
-      "name": "kb-retriever",
-      "description": "知识检索 / kb-retriever",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/knowledge/items/kb-retriever"
-    },
-    {
       "name": "matt-productivity",
       "description": "Matt Pocock productivity skills in Chinese",
       "version": "0.1.0",
       "category": "Productivity",
       "source": "./packages/matt-productivity"
-    },
-    {
-      "name": "matt-grill-me",
-      "description": "Matt Pocock · Productivity / matt-grill-me",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-productivity/items/matt-grill-me"
-    },
-    {
-      "name": "matt-grilling",
-      "description": "Matt Pocock · Productivity / matt-grilling",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-productivity/items/matt-grilling"
-    },
-    {
-      "name": "matt-handoff",
-      "description": "Matt Pocock · Productivity / matt-handoff",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-productivity/items/matt-handoff"
-    },
-    {
-      "name": "matt-teach",
-      "description": "Matt Pocock · Productivity / matt-teach",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-productivity/items/matt-teach"
-    },
-    {
-      "name": "matt-to-questionnaire",
-      "description": "Matt Pocock · Productivity / matt-to-questionnaire",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-productivity/items/matt-to-questionnaire"
-    },
-    {
-      "name": "matt-wait-what",
-      "description": "Matt Pocock · Productivity / matt-wait-what",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-productivity/items/matt-wait-what"
-    },
-    {
-      "name": "matt-writing-for-agents",
-      "description": "Matt Pocock · Productivity / matt-writing-for-agents",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-productivity/items/matt-writing-for-agents"
     },
     {
       "name": "matt-engineering",
@@ -258,132 +69,6 @@
       "source": "./packages/matt-engineering"
     },
     {
-      "name": "matt-ask-matt",
-      "description": "Matt Pocock · Engineering / matt-ask-matt",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-ask-matt"
-    },
-    {
-      "name": "matt-code-review",
-      "description": "Matt Pocock · Engineering / matt-code-review",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-code-review"
-    },
-    {
-      "name": "matt-codebase-design",
-      "description": "Matt Pocock · Engineering / matt-codebase-design",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-codebase-design"
-    },
-    {
-      "name": "matt-diagnosing-bugs",
-      "description": "Matt Pocock · Engineering / matt-diagnosing-bugs",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-diagnosing-bugs"
-    },
-    {
-      "name": "matt-domain-modeling",
-      "description": "Matt Pocock · Engineering / matt-domain-modeling",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-domain-modeling"
-    },
-    {
-      "name": "matt-grill-with-docs",
-      "description": "Matt Pocock · Engineering / matt-grill-with-docs",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-grill-with-docs"
-    },
-    {
-      "name": "matt-implement",
-      "description": "Matt Pocock · Engineering / matt-implement",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-implement"
-    },
-    {
-      "name": "matt-improve-codebase-architecture",
-      "description": "Matt Pocock · Engineering / matt-improve-codebase-architecture",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-improve-codebase-architecture"
-    },
-    {
-      "name": "matt-prototype",
-      "description": "Matt Pocock · Engineering / matt-prototype",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-prototype"
-    },
-    {
-      "name": "matt-research",
-      "description": "Matt Pocock · Engineering / matt-research",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-research"
-    },
-    {
-      "name": "matt-resolving-merge-conflicts",
-      "description": "Matt Pocock · Engineering / matt-resolving-merge-conflicts",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-resolving-merge-conflicts"
-    },
-    {
-      "name": "matt-setup-matt-pocock-skills",
-      "description": "Matt Pocock · Engineering / matt-setup-matt-pocock-skills",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-setup-matt-pocock-skills"
-    },
-    {
-      "name": "matt-tdd",
-      "description": "Matt Pocock · Engineering / matt-tdd",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-tdd"
-    },
-    {
-      "name": "matt-to-spec",
-      "description": "Matt Pocock · Engineering / matt-to-spec",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-to-spec"
-    },
-    {
-      "name": "matt-to-tickets",
-      "description": "Matt Pocock · Engineering / matt-to-tickets",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-to-tickets"
-    },
-    {
-      "name": "matt-triage",
-      "description": "Matt Pocock · Engineering / matt-triage",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-triage"
-    },
-    {
-      "name": "matt-wayfinder",
-      "description": "Matt Pocock · Engineering / matt-wayfinder",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-wayfinder"
-    },
-    {
-      "name": "matt-wizard",
-      "description": "Matt Pocock · Engineering / matt-wizard",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-engineering/items/matt-wizard"
-    },
-    {
       "name": "matt-misc",
       "description": "Matt Pocock miscellaneous skills in Chinese",
       "version": "0.1.0",
@@ -391,81 +76,11 @@
       "source": "./packages/matt-misc"
     },
     {
-      "name": "matt-git-guardrails-claude-code",
-      "description": "Matt Pocock · Misc / matt-git-guardrails-claude-code",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-misc/items/matt-git-guardrails-claude-code"
-    },
-    {
-      "name": "matt-migrate-to-shoehorn",
-      "description": "Matt Pocock · Misc / matt-migrate-to-shoehorn",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-misc/items/matt-migrate-to-shoehorn"
-    },
-    {
-      "name": "matt-scaffold-exercises",
-      "description": "Matt Pocock · Misc / matt-scaffold-exercises",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-misc/items/matt-scaffold-exercises"
-    },
-    {
-      "name": "matt-setup-pre-commit",
-      "description": "Matt Pocock · Misc / matt-setup-pre-commit",
-      "version": "0.1.0",
-      "category": "Development",
-      "source": "./packages/matt-misc/items/matt-setup-pre-commit"
-    },
-    {
       "name": "matt-experimental",
       "description": "Experimental Matt Pocock skills in Chinese",
       "version": "0.1.0",
       "category": "Productivity",
       "source": "./packages/matt-experimental"
-    },
-    {
-      "name": "matt-claude-handoff",
-      "description": "Matt Pocock · In progress / matt-claude-handoff",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-experimental/items/matt-claude-handoff"
-    },
-    {
-      "name": "matt-loop-me",
-      "description": "Matt Pocock · In progress / matt-loop-me",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-experimental/items/matt-loop-me"
-    },
-    {
-      "name": "matt-setup-ts-deep-modules",
-      "description": "Matt Pocock · In progress / matt-setup-ts-deep-modules",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-experimental/items/matt-setup-ts-deep-modules"
-    },
-    {
-      "name": "matt-writing-beats",
-      "description": "Matt Pocock · In progress / matt-writing-beats",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-experimental/items/matt-writing-beats"
-    },
-    {
-      "name": "matt-writing-fragments",
-      "description": "Matt Pocock · In progress / matt-writing-fragments",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-experimental/items/matt-writing-fragments"
-    },
-    {
-      "name": "matt-writing-shape",
-      "description": "Matt Pocock · In progress / matt-writing-shape",
-      "version": "0.1.0",
-      "category": "Productivity",
-      "source": "./packages/matt-experimental/items/matt-writing-shape"
     }
   ]
 }
