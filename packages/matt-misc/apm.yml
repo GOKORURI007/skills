@@ -1,13 +1,3 @@
 name: matt-misc
 version: 0.1.0
 description: Matt Pocock miscellaneous skills in Chinese
-dependencies:
-  apm:
-    - git: vinvcn/mattpocock-skills-zh-CN
-      path: skills/misc/git-guardrails-claude-code
-    - git: vinvcn/mattpocock-skills-zh-CN
-      path: skills/misc/migrate-to-shoehorn
-    - git: vinvcn/mattpocock-skills-zh-CN
-      path: skills/misc/scaffold-exercises
-    - git: vinvcn/mattpocock-skills-zh-CN
-      path: skills/misc/setup-pre-commit

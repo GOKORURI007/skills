@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "repository": "ConardLi/garden-skills",
+      "skills": [
+        {
+          "path": "skills/kb-retriever",
+          "target": "packages/knowledge/skills/kb-retriever"
+        },
+        {
+          "path": "skills/web-video-presentation",
+          "target": "packages/presentations/skills/web-video-presentation"
+        },
+        {
+          "path": "skills/gpt-image-2",
+          "target": "packages/visual-design/skills/gpt-image-2"
+        },
+        {
+          "path": "skills/web-design-engineer",
+          "target": "packages/visual-design/skills/web-design-engineer"
+        },
+        {
+          "path": "skills/beautiful-article",
+          "target": "packages/writing/skills/beautiful-article"
+        }
+      ]
+    },
+    {
+      "repository": "vinvcn/mattpocock-skills-zh-CN",
+      "skills": [
+        {
+          "path": "skills/engineering/ask-matt",
+          "target": "packages/matt-engineering/skills/ask-matt"
+        },
+        {
+          "path": "skills/engineering/code-review",
+          "target": "packages/matt-engineering/skills/code-review"
+        },
+        {
+          "path": "skills/engineering/codebase-design",
+          "target": "packages/matt-engineering/skills/codebase-design"
+        },
+        {
+          "path": "skills/engineering/diagnosing-bugs",
+          "target": "packages/matt-engineering/skills/diagnosing-bugs"
+        },
+        {
+          "path": "skills/engineering/domain-modeling",
+          "target": "packages/matt-engineering/skills/domain-modeling"
+        },
+        {
+          "path": "skills/engineering/grill-with-docs",
+          "target": "packages/matt-engineering/skills/grill-with-docs"
+        },
+        {
+          "path": "skills/engineering/implement",
+          "target": "packages/matt-engineering/skills/implement"
+        },
+        {
+          "path": "skills/engineering/improve-codebase-architecture",
+          "target": "packages/matt-engineering/skills/improve-codebase-architecture"
+        },
+        {
+          "path": "skills/engineering/prototype",
+          "target": "packages/matt-engineering/skills/prototype"
+        },
+        {
+          "path": "skills/engineering/research",
+          "target": "packages/matt-engineering/skills/research"
+        },
+        {
+          "path": "skills/engineering/setup-matt-pocock-skills",
+          "target": "packages/matt-engineering/skills/setup-matt-pocock-skills"
+        },
+        {
+          "path": "skills/engineering/tdd",
+          "target": "packages/matt-engineering/skills/tdd"
+        },
+        {
+          "path": "skills/engineering/to-spec",
+          "target": "packages/matt-engineering/skills/to-spec"
+        },
+        {
+          "path": "skills/engineering/to-tickets",
+          "target": "packages/matt-engineering/skills/to-tickets"
+        },
+        {
+          "path": "skills/engineering/triage",
+          "target": "packages/matt-engineering/skills/triage"
+        },
+        {
+          "path": "skills/engineering/wayfinder",
+          "target": "packages/matt-engineering/skills/wayfinder"
+        },
+        {
+          "path": "skills/engineering/wizard",
+          "target": "packages/matt-engineering/skills/wizard"
+        },
+        {
+          "path": "skills/in-progress/claude-handoff",
+          "target": "packages/matt-experimental/skills/claude-handoff"
+        },
+        {
+          "path": "skills/in-progress/loop-me",
+          "target": "packages/matt-experimental/skills/loop-me"
+        },
+        {
+          "path": "skills/in-progress/setup-ts-deep-modules",
+          "target": "packages/matt-experimental/skills/setup-ts-deep-modules"
+        },
+        {
+          "path": "skills/in-progress/writing-beats",
+          "target": "packages/matt-experimental/skills/writing-beats"
+        },
+        {
+          "path": "skills/in-progress/writing-fragments",
+          "target": "packages/matt-experimental/skills/writing-fragments"
+        },
+        {
+          "path": "skills/in-progress/writing-shape",
+          "target": "packages/matt-experimental/skills/writing-shape"
+        },
+        {
+          "path": "skills/misc/git-guardrails-claude-code",
+          "target": "packages/matt-misc/skills/git-guardrails-claude-code"
+        },
+        {
+          "path": "skills/misc/migrate-to-shoehorn",
+          "target": "packages/matt-misc/skills/migrate-to-shoehorn"
+        },
+        {
+          "path": "skills/misc/scaffold-exercises",
+          "target": "packages/matt-misc/skills/scaffold-exercises"
+        },
+        {
+          "path": "skills/misc/setup-pre-commit",
+          "target": "packages/matt-misc/skills/setup-pre-commit"
+        },
+        {
+          "path": "skills/productivity/grill-me",
+          "target": "packages/matt-productivity/skills/grill-me"
+        },
+        {
+          "path": "skills/productivity/grilling",
+          "target": "packages/matt-productivity/skills/grilling"
+        },
+        {
+          "path": "skills/productivity/handoff",
+          "target": "packages/matt-productivity/skills/handoff"
+        },
+        {
+          "path": "skills/productivity/teach",
+          "target": "packages/matt-productivity/skills/teach"
+        },
+        {
+          "path": "skills/productivity/to-questionnaire",
+          "target": "packages/matt-productivity/skills/to-questionnaire"
+        },
+        {
+          "path": "skills/productivity/wait-what",
+          "target": "packages/matt-productivity/skills/wait-what"
+        },
+        {
+          "path": "skills/productivity/writing-for-agents",
+          "target": "packages/matt-productivity/skills/writing-for-agents"
+        }
+      ]
+    },
+    {
+      "repository": "op7418/guizang-ppt-skill",
+      "skills": [
+        {
+          "path": ".",
+          "target": "packages/presentations/skills/guizang-ppt-skill"
+        }
+      ]
+    },
+    {
+      "repository": "lewislulu/html-ppt-skill",
+      "skills": [
+        {
+          "path": ".",
+          "target": "packages/presentations/skills/html-ppt-skill"
+        }
+      ]
+    },
+    {
+      "repository": "thePlannerIvan/planners-ppt-hell",
+      "skills": [
+        {
+          "path": ".",
+          "target": "packages/presentations/skills/planners-ppt-hell"
+        }
+      ]
+    },
+    {
+      "repository": "thePlannerIvan/Planners-Proposal-System",
+      "skills": [
+        {
+          "path": ".",
+          "target": "packages/proposals/skills/planners-proposal-system"
+        }
+      ]
+    },
+    {
+      "repository": "larashero3-dotcom/lieflat-charts",
+      "skills": [
+        {
+          "path": ".",
+          "target": "packages/visual-design/skills/lieflat-charts"
+        }
+      ]
+    },
+    {
+      "repository": "larashero3-dotcom/writing-dna-skill",
+      "skills": [
+        {
+          "path": ".",
+          "target": "packages/writing/skills/writing-dna-skill"
+        }
+      ]
+    },
+    {
+      "repository": "larashero3-dotcom/lieflat-less-ai-tone",
+      "skills": [
+        {
+          "path": ".",
+          "target": "packages/writing/skills/lieflat-less-ai-tone"
+        }
+      ]
+    }
+  ]
+}

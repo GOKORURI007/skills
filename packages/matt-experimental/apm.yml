@@ -1,17 +1,3 @@
 name: matt-experimental
 version: 0.1.0
 description: Experimental Matt Pocock skills in Chinese
-dependencies:
-  apm:
-    - git: vinvcn/mattpocock-skills-zh-CN
-      path: skills/in-progress/claude-handoff
-    - git: vinvcn/mattpocock-skills-zh-CN
-      path: skills/in-progress/loop-me
-    - git: vinvcn/mattpocock-skills-zh-CN
-      path: skills/in-progress/setup-ts-deep-modules
-    - git: vinvcn/mattpocock-skills-zh-CN
-      path: skills/in-progress/writing-beats
-    - git: vinvcn/mattpocock-skills-zh-CN
-      path: skills/in-progress/writing-fragments
-    - git: vinvcn/mattpocock-skills-zh-CN
-      path: skills/in-progress/writing-shape

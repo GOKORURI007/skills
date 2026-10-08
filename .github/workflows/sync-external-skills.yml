@@ -1,0 +1,36 @@
+name: Sync External Skills
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+concurrency:
+  group: sync-external-skills
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+      - name: Test sync behavior
+        run: python3 -m unittest discover -s tests -v
+      - name: Sync default branches
+        run: python3 .github/scripts/sync_external_skills.py
+      - name: Commit and push mirror changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Archives contain upstream-tracked files, even when upstream ignores them.
+          git add --force -- packages
+          if ! git diff --cached --quiet; then
+            git commit -m "chore(skills): 同步外部技能默认分支 [skip ci]"
+            git push
+          fi

@@ -1,9 +1,3 @@
 name: writing
 version: 0.1.0
 description: Writing style, editing and article publishing skills
-dependencies:
-  apm:
-    - git: larashero3-dotcom/writing-dna-skill
-    - git: larashero3-dotcom/lieflat-less-ai-tone
-    - git: ConardLi/garden-skills
-      path: skills/beautiful-article

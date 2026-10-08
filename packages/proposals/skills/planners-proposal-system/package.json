@@ -1,0 +1,20 @@
+{
+  "name": "planners-proposal-system",
+  "version": "0.2.0",
+  "description": "项目策略共创、Storyline 与结构审阅，交接 planners-bypage 展开内容",
+  "license": "AGPL-3.0-only",
+  "type": "module",
+  "scripts": {
+    "test:router": "node evals/router/run.mjs",
+    "test:co-creation": "node evals/co-creation/run.mjs",
+    "test": "node evals/run-all.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thePlannerIvan/Planners-Proposal-System.git"
+  },
+  "bugs": {
+    "url": "https://github.com/thePlannerIvan/Planners-Proposal-System/issues"
+  },
+  "homepage": "https://github.com/thePlannerIvan/Planners-Proposal-System#readme"
+}

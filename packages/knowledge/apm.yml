@@ -1,7 +1,3 @@
 name: knowledge
 version: 0.1.0
 description: Knowledge retrieval skills
-dependencies:
-  apm:
-    - git: ConardLi/garden-skills
-      path: skills/kb-retriever

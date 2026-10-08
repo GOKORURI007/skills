@@ -1,6 +1,3 @@
 name: proposals
 version: 0.1.0
 description: Proposal planning and knowledge maintenance skills
-dependencies:
-  apm:
-    - git: thePlannerIvan/Planners-Proposal-System
