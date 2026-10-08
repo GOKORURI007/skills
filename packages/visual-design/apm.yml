@@ -1,0 +1,13 @@
+name: visual-design
+version: 0.1.0
+description: Charts, image generation and web design skills
+dependencies:
+  apm:
+    - git: larashero3-dotcom/lieflat-charts
+      ref: "eace082a317b696c5570c25826a53a7fa113e984"
+    - git: ConardLi/garden-skills
+      ref: "aaf9a82f5efd73e87cc0998edc398e75bfc35901"
+      path: skills/gpt-image-2
+    - git: ConardLi/garden-skills
+      ref: "aaf9a82f5efd73e87cc0998edc398e75bfc35901"
+      path: skills/web-design-engineer

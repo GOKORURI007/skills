@@ -1,0 +1,26 @@
+name: matt-productivity
+version: 0.1.0
+description: Matt Pocock productivity skills in Chinese
+dependencies:
+  apm:
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/productivity/grill-me
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/productivity/grilling
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/productivity/handoff
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/productivity/teach
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/productivity/to-questionnaire
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/productivity/wait-what
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/productivity/writing-for-agents

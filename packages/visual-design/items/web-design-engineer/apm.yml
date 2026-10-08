@@ -1,0 +1,8 @@
+name: web-design-engineer
+version: 0.1.0
+description: "图表与视觉设计 / web-design-engineer"
+dependencies:
+  apm:
+    - git: ConardLi/garden-skills
+      ref: "aaf9a82f5efd73e87cc0998edc398e75bfc35901"
+      path: skills/web-design-engineer

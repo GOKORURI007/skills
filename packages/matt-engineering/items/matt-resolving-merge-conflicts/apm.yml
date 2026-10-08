@@ -1,0 +1,8 @@
+name: matt-resolving-merge-conflicts
+version: 0.1.0
+description: "Matt Pocock · Engineering / matt-resolving-merge-conflicts"
+dependencies:
+  apm:
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/resolving-merge-conflicts

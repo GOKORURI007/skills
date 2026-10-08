@@ -1,0 +1,7 @@
+name: guizang-ppt-skill
+version: 0.1.0
+description: "演示与 PPT / guizang-ppt-skill"
+dependencies:
+  apm:
+    - git: op7418/guizang-ppt-skill
+      ref: "c91369c449d34755d320a8b81d0734000d99d1ab"

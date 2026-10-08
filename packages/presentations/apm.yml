@@ -1,0 +1,14 @@
+name: presentations
+version: 0.1.0
+description: Presentation and editable PowerPoint creation skills
+dependencies:
+  apm:
+    - git: op7418/guizang-ppt-skill
+      ref: "c91369c449d34755d320a8b81d0734000d99d1ab"
+    - git: lewislulu/html-ppt-skill
+      ref: "fd1629067909ff55b36b905476de4e5f26062a1f"
+    - git: ConardLi/garden-skills
+      ref: "aaf9a82f5efd73e87cc0998edc398e75bfc35901"
+      path: skills/web-video-presentation
+    - git: thePlannerIvan/planners-ppt-hell
+      ref: "9e438dcd1398f6f4a2e0071a6dfd1ea7053f4b2d"

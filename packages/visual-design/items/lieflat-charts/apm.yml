@@ -1,0 +1,7 @@
+name: lieflat-charts
+version: 0.1.0
+description: "图表与视觉设计 / lieflat-charts"
+dependencies:
+  apm:
+    - git: larashero3-dotcom/lieflat-charts
+      ref: "eace082a317b696c5570c25826a53a7fa113e984"

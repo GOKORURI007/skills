@@ -1,0 +1,7 @@
+name: html-ppt-skill
+version: 0.1.0
+description: "演示与 PPT / html-ppt-skill"
+dependencies:
+  apm:
+    - git: lewislulu/html-ppt-skill
+      ref: "fd1629067909ff55b36b905476de4e5f26062a1f"

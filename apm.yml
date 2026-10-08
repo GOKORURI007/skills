@@ -1,0 +1,341 @@
+name: ruri-skills
+version: 0.1.0
+description: Curated first-party and external agent skills
+marketplace:
+  owner:
+    name: GOKORURI007
+    url: https://github.com/GOKORURI007
+  outputs:
+    claude: {}
+    codex: {}
+  packages:
+    - name: dev-tools
+      source: "./packages/dev-tools"
+      version: "0.1.0"
+      description: "Development, Git and repository maintenance skills"
+      category: "Development"
+    - name: add-external-skill
+      source: "./packages/dev-tools/skills/add-external-skill"
+      version: "0.1.0"
+      description: "开发与 Git 工具 / add-external-skill"
+      category: "Development"
+    - name: create-codetour
+      source: "./packages/dev-tools/skills/create-codetour"
+      version: "0.1.0"
+      description: "开发与 Git 工具 / create-codetour"
+      category: "Development"
+    - name: create-scoop-manifest
+      source: "./packages/dev-tools/skills/create-scoop-manifest"
+      version: "0.1.0"
+      description: "开发与 Git 工具 / create-scoop-manifest"
+      category: "Development"
+    - name: gh-debug-action
+      source: "./packages/dev-tools/skills/gh-debug-action"
+      version: "0.1.0"
+      description: "开发与 Git 工具 / gh-debug-action"
+      category: "Development"
+    - name: git-commit
+      source: "./packages/dev-tools/skills/git-commit"
+      version: "0.1.0"
+      description: "开发与 Git 工具 / git-commit"
+      category: "Development"
+    - name: git-squash
+      source: "./packages/dev-tools/skills/git-squash"
+      version: "0.1.0"
+      description: "开发与 Git 工具 / git-squash"
+      category: "Development"
+    - name: setup-ruri-dev-standard
+      source: "./packages/dev-tools/skills/setup-ruri-dev-standard"
+      version: "0.1.0"
+      description: "开发与 Git 工具 / setup-ruri-dev-standard"
+      category: "Development"
+    - name: obsidian
+      source: "./packages/obsidian"
+      version: "0.1.0"
+      description: "Obsidian vault maintenance skills"
+      category: "Productivity"
+    - name: obsidian-autotag
+      source: "./packages/obsidian/skills/obsidian-autotag"
+      version: "0.1.0"
+      description: "Obsidian 笔记 / obsidian-autotag"
+      category: "Productivity"
+    - name: writing
+      source: "./packages/writing"
+      version: "0.1.0"
+      description: "Writing style, editing and article publishing skills"
+      category: "Writing"
+    - name: writing-dna-skill
+      source: "./packages/writing/items/writing-dna-skill"
+      description: "写作与文章 / writing-dna-skill"
+      category: "Writing"
+      version: "0.1.0"
+    - name: lieflat-less-ai-tone
+      source: "./packages/writing/items/lieflat-less-ai-tone"
+      description: "写作与文章 / lieflat-less-ai-tone"
+      category: "Writing"
+      version: "0.1.0"
+    - name: beautiful-article
+      source: "./packages/writing/items/beautiful-article"
+      description: "写作与文章 / beautiful-article"
+      category: "Writing"
+      version: "0.1.0"
+    - name: visual-design
+      source: "./packages/visual-design"
+      version: "0.1.0"
+      description: "Charts, image generation and web design skills"
+      category: "Design"
+    - name: lieflat-charts
+      source: "./packages/visual-design/items/lieflat-charts"
+      description: "图表与视觉设计 / lieflat-charts"
+      category: "Design"
+      version: "0.1.0"
+    - name: gpt-image-2
+      source: "./packages/visual-design/items/gpt-image-2"
+      description: "图表与视觉设计 / gpt-image-2"
+      category: "Design"
+      version: "0.1.0"
+    - name: web-design-engineer
+      source: "./packages/visual-design/items/web-design-engineer"
+      description: "图表与视觉设计 / web-design-engineer"
+      category: "Design"
+      version: "0.1.0"
+    - name: presentations
+      source: "./packages/presentations"
+      version: "0.1.0"
+      description: "Presentation and editable PowerPoint creation skills"
+      category: "Productivity"
+    - name: guizang-ppt-skill
+      source: "./packages/presentations/items/guizang-ppt-skill"
+      description: "演示与 PPT / guizang-ppt-skill"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: html-ppt-skill
+      source: "./packages/presentations/items/html-ppt-skill"
+      description: "演示与 PPT / html-ppt-skill"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: web-video-presentation
+      source: "./packages/presentations/items/web-video-presentation"
+      description: "演示与 PPT / web-video-presentation"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: planners-ppt-hell
+      source: "./packages/presentations/items/planners-ppt-hell"
+      description: "演示与 PPT / planners-ppt-hell"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: proposals
+      source: "./packages/proposals"
+      version: "0.1.0"
+      description: "Proposal planning and knowledge maintenance skills"
+      category: "Productivity"
+    - name: planners-proposal-system
+      source: "./packages/proposals/items/planners-proposal-system"
+      description: "策划与提案 / planners-proposal-system"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: knowledge
+      source: "./packages/knowledge"
+      version: "0.1.0"
+      description: "Knowledge retrieval skills"
+      category: "Productivity"
+    - name: kb-retriever
+      source: "./packages/knowledge/items/kb-retriever"
+      description: "知识检索 / kb-retriever"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-productivity
+      source: "./packages/matt-productivity"
+      version: "0.1.0"
+      description: "Matt Pocock productivity skills in Chinese"
+      category: "Productivity"
+    - name: matt-grill-me
+      source: "./packages/matt-productivity/items/matt-grill-me"
+      description: "Matt Pocock · Productivity / matt-grill-me"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-grilling
+      source: "./packages/matt-productivity/items/matt-grilling"
+      description: "Matt Pocock · Productivity / matt-grilling"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-handoff
+      source: "./packages/matt-productivity/items/matt-handoff"
+      description: "Matt Pocock · Productivity / matt-handoff"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-teach
+      source: "./packages/matt-productivity/items/matt-teach"
+      description: "Matt Pocock · Productivity / matt-teach"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-to-questionnaire
+      source: "./packages/matt-productivity/items/matt-to-questionnaire"
+      description: "Matt Pocock · Productivity / matt-to-questionnaire"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-wait-what
+      source: "./packages/matt-productivity/items/matt-wait-what"
+      description: "Matt Pocock · Productivity / matt-wait-what"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-writing-for-agents
+      source: "./packages/matt-productivity/items/matt-writing-for-agents"
+      description: "Matt Pocock · Productivity / matt-writing-for-agents"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-engineering
+      source: "./packages/matt-engineering"
+      version: "0.1.0"
+      description: "Matt Pocock engineering skills in Chinese"
+      category: "Development"
+    - name: matt-ask-matt
+      source: "./packages/matt-engineering/items/matt-ask-matt"
+      description: "Matt Pocock · Engineering / matt-ask-matt"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-code-review
+      source: "./packages/matt-engineering/items/matt-code-review"
+      description: "Matt Pocock · Engineering / matt-code-review"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-codebase-design
+      source: "./packages/matt-engineering/items/matt-codebase-design"
+      description: "Matt Pocock · Engineering / matt-codebase-design"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-diagnosing-bugs
+      source: "./packages/matt-engineering/items/matt-diagnosing-bugs"
+      description: "Matt Pocock · Engineering / matt-diagnosing-bugs"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-domain-modeling
+      source: "./packages/matt-engineering/items/matt-domain-modeling"
+      description: "Matt Pocock · Engineering / matt-domain-modeling"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-grill-with-docs
+      source: "./packages/matt-engineering/items/matt-grill-with-docs"
+      description: "Matt Pocock · Engineering / matt-grill-with-docs"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-implement
+      source: "./packages/matt-engineering/items/matt-implement"
+      description: "Matt Pocock · Engineering / matt-implement"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-improve-codebase-architecture
+      source: "./packages/matt-engineering/items/matt-improve-codebase-architecture"
+      description: "Matt Pocock · Engineering / matt-improve-codebase-architecture"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-prototype
+      source: "./packages/matt-engineering/items/matt-prototype"
+      description: "Matt Pocock · Engineering / matt-prototype"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-research
+      source: "./packages/matt-engineering/items/matt-research"
+      description: "Matt Pocock · Engineering / matt-research"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-resolving-merge-conflicts
+      source: "./packages/matt-engineering/items/matt-resolving-merge-conflicts"
+      description: "Matt Pocock · Engineering / matt-resolving-merge-conflicts"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-setup-matt-pocock-skills
+      source: "./packages/matt-engineering/items/matt-setup-matt-pocock-skills"
+      description: "Matt Pocock · Engineering / matt-setup-matt-pocock-skills"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-tdd
+      source: "./packages/matt-engineering/items/matt-tdd"
+      description: "Matt Pocock · Engineering / matt-tdd"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-to-spec
+      source: "./packages/matt-engineering/items/matt-to-spec"
+      description: "Matt Pocock · Engineering / matt-to-spec"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-to-tickets
+      source: "./packages/matt-engineering/items/matt-to-tickets"
+      description: "Matt Pocock · Engineering / matt-to-tickets"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-triage
+      source: "./packages/matt-engineering/items/matt-triage"
+      description: "Matt Pocock · Engineering / matt-triage"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-wayfinder
+      source: "./packages/matt-engineering/items/matt-wayfinder"
+      description: "Matt Pocock · Engineering / matt-wayfinder"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-wizard
+      source: "./packages/matt-engineering/items/matt-wizard"
+      description: "Matt Pocock · Engineering / matt-wizard"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-misc
+      source: "./packages/matt-misc"
+      version: "0.1.0"
+      description: "Matt Pocock miscellaneous skills in Chinese"
+      category: "Development"
+    - name: matt-git-guardrails-claude-code
+      source: "./packages/matt-misc/items/matt-git-guardrails-claude-code"
+      description: "Matt Pocock · Misc / matt-git-guardrails-claude-code"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-migrate-to-shoehorn
+      source: "./packages/matt-misc/items/matt-migrate-to-shoehorn"
+      description: "Matt Pocock · Misc / matt-migrate-to-shoehorn"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-scaffold-exercises
+      source: "./packages/matt-misc/items/matt-scaffold-exercises"
+      description: "Matt Pocock · Misc / matt-scaffold-exercises"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-setup-pre-commit
+      source: "./packages/matt-misc/items/matt-setup-pre-commit"
+      description: "Matt Pocock · Misc / matt-setup-pre-commit"
+      category: "Development"
+      version: "0.1.0"
+    - name: matt-experimental
+      source: "./packages/matt-experimental"
+      version: "0.1.0"
+      description: "Experimental Matt Pocock skills in Chinese"
+      category: "Productivity"
+    - name: matt-claude-handoff
+      source: "./packages/matt-experimental/items/matt-claude-handoff"
+      description: "Matt Pocock · In progress / matt-claude-handoff"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-loop-me
+      source: "./packages/matt-experimental/items/matt-loop-me"
+      description: "Matt Pocock · In progress / matt-loop-me"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-setup-ts-deep-modules
+      source: "./packages/matt-experimental/items/matt-setup-ts-deep-modules"
+      description: "Matt Pocock · In progress / matt-setup-ts-deep-modules"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-writing-beats
+      source: "./packages/matt-experimental/items/matt-writing-beats"
+      description: "Matt Pocock · In progress / matt-writing-beats"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-writing-fragments
+      source: "./packages/matt-experimental/items/matt-writing-fragments"
+      description: "Matt Pocock · In progress / matt-writing-fragments"
+      category: "Productivity"
+      version: "0.1.0"
+    - name: matt-writing-shape
+      source: "./packages/matt-experimental/items/matt-writing-shape"
+      description: "Matt Pocock · In progress / matt-writing-shape"
+      category: "Productivity"
+      version: "0.1.0"

@@ -1,0 +1,59 @@
+name: matt-engineering
+version: 0.1.0
+description: Matt Pocock engineering skills in Chinese
+dependencies:
+  apm:
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/ask-matt
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/code-review
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/codebase-design
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/diagnosing-bugs
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/domain-modeling
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/grill-with-docs
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/implement
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/improve-codebase-architecture
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/prototype
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/research
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/resolving-merge-conflicts
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/setup-matt-pocock-skills
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/tdd
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/to-spec
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/to-tickets
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/triage
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/wayfinder
+    - git: vinvcn/mattpocock-skills-zh-CN
+      ref: "3f92a83668ef8f303e6278f31c49fed9543cbc51"
+      path: skills/engineering/wizard
