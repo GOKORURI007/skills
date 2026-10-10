@@ -1,9 +1,16 @@
-name: Sync External Skills
+name: Sync Skills and Marketplace Descriptions
 
 on:
   schedule:
     - cron: '0 0 * * *'
   workflow_dispatch:
+  push:
+    paths:
+      - 'packages/**'
+      - 'apm.yml'
+      - '.github/scripts/**'
+      - '.github/workflows/sync-external-skills.yml'
+      - 'tests/**'
 
 concurrency:
   group: sync-external-skills
@@ -14,22 +21,31 @@ permissions:
 
 jobs:
   sync:
+    if: github.event_name != 'push' || github.ref_name == github.event.repository.default_branch
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
       - uses: actions/checkout@v7
         with:
           ref: ${{ github.event.repository.default_branch }}
+      - name: Install metadata dependencies
+        run: python3 -m pip install -r .github/scripts/requirements.txt
       - name: Test sync behavior
         run: python3 -m unittest discover -s tests -v
       - name: Sync default branches
+        if: github.event_name != 'push'
         run: python3 .github/scripts/sync_external_skills.py
+      - name: Generate marketplace descriptions
+        run: |
+          python3 .github/scripts/generate_marketplace_descriptions.py
+          python3 .github/scripts/generate_marketplace_descriptions.py --check
       - name: Commit and push mirror changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Archives contain upstream-tracked files, even when upstream ignores them.
           git add --force -- packages
+          git add -- apm.yml .claude-plugin/marketplace.json
           if ! git diff --cached --quiet; then
             git commit -m "chore(skills): 同步外部技能默认分支 [skip ci]"
             git push

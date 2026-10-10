@@ -11,6 +11,10 @@
 apm marketplace add GOKORURI007/skills --name ruri-skills --ref master
 apm marketplace browse ruri-skills
 
+# 远端查看分类里的技能清单，无需克隆或安装
+apm marketplace update ruri-skills
+apm view dev-tools@ruri-skills
+
 # 安装完整分类
 apm install writing@ruri-skills --target codex
 
@@ -197,13 +201,17 @@ apm update --target codex
 
 ```powershell
 python .github/scripts/sync_external_skills.py
+python -m pip install -r .github/scripts/requirements.txt
+python .github/scripts/generate_marketplace_descriptions.py
 python -m unittest discover -s tests -v
 apm marketplace check --offline
 apm pack --offline
 apm pack --check-clean --offline
 ```
 
-同步工作流只提交镜像内容；分类目录或元数据变更时，由维护者运行 `apm pack` 更新市场清单。工作流推送依赖仓库允许 Actions 写入默认分支；配置提交并推送后才会开始运行。
+工作流每天北京时间 08:00 同步外部技能后，自动更新根 `apm.yml` 和 `.claude-plugin/marketplace.json` 的中文描述；默认分支提交技能、脚本或根清单的改动时也会更新描述（不重新下载外部技能）。可手动触发完整同步。工作流推送依赖仓库允许 Actions 写入默认分支；配置提交并推送后才会开始运行。
+
+描述按技能目录名排序，每行使用 `SKILL.md` frontmatter 中 `description` 的第一句，最长 160 字符；只列顶层技能，不收录嵌套示例。`.github/scripts/marketplace_descriptions.json` 维护分类中文简介和少数英文技能的中文摘要，不调用翻译或 AI 服务。新增分类时补充简介；普通技能增删与描述变化会自动反映到清单。`python .github/scripts/generate_marketplace_descriptions.py --check` 可检查生成结果是否过期。APM 的 Codex 市场输出不包含 description，因此保留 `.agents/plugins/marketplace.json` 的原生结构；分类、来源等其他市场元数据变化时仍需运行 `apm pack`。
 
 ## 仓库结构
 

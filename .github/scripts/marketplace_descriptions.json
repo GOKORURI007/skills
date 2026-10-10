@@ -1,0 +1,20 @@
+{
+  "introductions": {
+    "dev-tools": "开发、Git 和仓库维护。",
+    "obsidian": "Obsidian 笔记整理与维护。",
+    "writing": "写作风格分析、编辑与文章发布。",
+    "visual-design": "图表、图像生成与网页视觉设计。",
+    "presentations": "演示文稿与可编辑 PPT 制作。",
+    "proposals": "提案策划与方案整理。",
+    "knowledge": "知识检索与问答。",
+    "matt-productivity": "Matt Pocock 效率与协作技能（中文版）。",
+    "matt-engineering": "Matt Pocock 软件工程技能（中文版）。",
+    "matt-misc": "Matt Pocock 开发工具与维护技能（中文版）。",
+    "matt-experimental": "Matt Pocock 实验性技能（中文版）。"
+  },
+  "summaries": {
+    "add-external-skill": "将上游技能加入本仓库的自动同步集合。",
+    "html-ppt": "基于模板制作支持多种风格、布局和动画的 HTML 演示文稿。",
+    "web-design-engineer": "使用 HTML、CSS、JavaScript 或 React 创建和改进网页、仪表盘、原型及数据可视化。"
+  }
+}

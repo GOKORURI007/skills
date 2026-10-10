@@ -7,77 +7,77 @@
   "plugins": [
     {
       "name": "dev-tools",
-      "description": "Development, Git and repository maintenance skills",
+      "description": "开发、Git 和仓库维护。\n技能：\n- add-external-skill: 将上游技能加入本仓库的自动同步集合。\n- create-codetour: 为指定功能生成 CodeTour `.tour` 导览文件。\n- create-scoop-manifest: 为 Windows 应用生成 Scoop bucket manifest(bucket/<appname>.json),让它可以通过 Scoop 包管理器安装。\n- gh-debug-action: 用 gh 命令定位一次失败的 GitHub Action run，找到失败的 step 和 root cause。\n- git-commit: 分析工作区改动，按功能模块拆分并原子化提交。\n- git-squash: 把一段历史 commit 压缩合并为一个 Group Commit。\n- setup-ruri-dev-standard: 为仓库初始化极简与可控工程开发规范（Minimalist Development Guidelines）——创建根目录的 DEVELOPMENT.md，并在 AGENTS.md / CLAUDE.md 中登记指向它的 context pointer。",
       "version": "0.1.0",
       "category": "Development",
       "source": "./packages/dev-tools"
     },
     {
       "name": "obsidian",
-      "description": "Obsidian vault maintenance skills",
+      "description": "Obsidian 笔记整理与维护。\n技能：\n- obsidian-autotag: 为 vault 里没有 tag 的笔记自动补 tag，自动跳过 0-Unstruct 文件夹和 Templates 模板。",
       "version": "0.1.0",
       "category": "Productivity",
       "source": "./packages/obsidian"
     },
     {
       "name": "writing",
-      "description": "Writing style, editing and article publishing skills",
+      "description": "写作风格分析、编辑与文章发布。\n技能：\n- beautiful-article: 把用户提供的素材（网页 URL / PDF / DOCX / Markdown / 纯文本 / 截图 / 粘贴材料）编辑、设计成一篇美丽的、可离线打开和分享的**单文件 HTML 网页文章**。\n- lieflat-less-ai-tone: 按 SKILL.md 明确列出的规则识别并改写写作中的 AI 痕迹。\n- writing-dna-skill: 从至少 20 篇完整文章中蒸馏可复用的写作 DNA，分析语言、文章结构、选题逻辑、素材策略、认知框架和视觉风格，并生成 Writing-DNA.md；按该 DNA 写作时会读取全部蒸馏产物和 5 篇相关原文。",
       "version": "0.1.0",
       "category": "Writing",
       "source": "./packages/writing"
     },
     {
       "name": "visual-design",
-      "description": "Charts, image generation and web design skills",
+      "description": "图表、图像生成与网页视觉设计。\n技能：\n- gpt-image-2: 面向 GPT Image 2 的图像生成 / 编辑技能。\n- lieflat-charts: 一套模板驱动的数据可视化与报告生成 skill，既能严格从 Lupi、Basics、Glance、Maps 与 Interactive gallery 的真实实现生成 HTML 图表，也能从 12 套中英文整页报告模板生成可发布的 HTML 报告；以 Mono 为保底，能按数据语义自动选择内置彩色预设，也支持用户明确…\n- web-design-engineer: 使用 HTML、CSS、JavaScript 或 React 创建和改进网页、仪表盘、原型及数据可视化。",
       "version": "0.1.0",
       "category": "Design",
       "source": "./packages/visual-design"
     },
     {
       "name": "presentations",
-      "description": "Presentation and editable PowerPoint creation skills",
+      "description": "演示文稿与可编辑 PPT 制作。\n技能：\n- guizang-ppt-skill: 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、演讲者视图、观众屏同步、讲稿备注、章节幕封、数据大字报、图片网格等模板。\n- html-ppt-skill: HTML PPT Studio — author professional static HTML presentations in many styles, layouts, and animations, all driven by templates.\n- planners-ppt-hell: 制作与持续修改 SVG 页面工作台，从逐页内容稿或 video-idea-system 的 visual-plan.json 与素材出发，输出可编辑 PPT 或固定版本的视频画面快照。\n- web-video-presentation: 把一篇文章或口播稿，做成\"看起来像视频\"的点击驱动 16:9 网页演示，可选合成口播音频。",
       "version": "0.1.0",
       "category": "Productivity",
       "source": "./packages/presentations"
     },
     {
       "name": "proposals",
-      "description": "Proposal planning and knowledge maintenance skills",
+      "description": "提案策划与方案整理。\n技能：\n- planners-proposal-system: 从 Brief、研究资料和已有分析出发，与用户共创策略判断，组织有说服力的 Storyline 和结构参考，交给 planners-bypage 展开逐页内容。",
       "version": "0.1.0",
       "category": "Productivity",
       "source": "./packages/proposals"
     },
     {
       "name": "knowledge",
-      "description": "Knowledge retrieval skills",
+      "description": "知识检索与问答。\n技能：\n- kb-retriever: 面向本地知识库目录的检索和问答助手。",
       "version": "0.1.0",
       "category": "Productivity",
       "source": "./packages/knowledge"
     },
     {
       "name": "matt-productivity",
-      "description": "Matt Pocock productivity skills in Chinese",
+      "description": "Matt Pocock 效率与协作技能（中文版）。\n技能：\n- grill-me: 一个用来打磨计划或设计的持续追问式访谈。\n- grilling: 围绕计划、decision 或 idea 持续追问用户。\n- handoff: 把当前对话压缩成交接文档，让另一个代理接手。\n- teach: 在这个工作区中教用户一个新技能或概念。\n- to-questionnaire: 把你无法完整回答的 decision 转成一份交给他人填写的 questionnaire。\n- wait-what: 停一下：刚才那条消息没有说清楚，重新表述一遍。\n- writing-for-agents: 为 agent 编写文档。",
       "version": "0.1.0",
       "category": "Productivity",
       "source": "./packages/matt-productivity"
     },
     {
       "name": "matt-engineering",
-      "description": "Matt Pocock engineering skills in Chinese",
+      "description": "Matt Pocock 软件工程技能（中文版）。\n技能：\n- ask-matt: 询问当前情境适合哪个技能或流程；它是本仓库所有 skills 的路由器。\n- code-review: 从固定点（commit、branch、tag 或 merge-base）开始，按 Standards（代码是否符合本仓库记录的编码标准？\n- codebase-design: 用于设计深模块的共享词汇。\n- diagnosing-bugs: 面向棘手缺陷和性能回退的诊断循环。\n- domain-modeling: 构建并打磨项目的领域模型。\n- grill-with-docs: 一个用来打磨计划或设计的持续追问式访谈，并在过程中创建文档（ADRs 和词汇表）。\n- implement: 基于 spec 或 ticket 集合实现一段工作。\n- improve-codebase-architecture: 扫描代码库中的深化机会，生成可视化 HTML 报告，然后围绕你选中的候选项继续追问。\n- prototype: 构建一次性原型来回答一个设计问题。\n- research: 对照高可信一手来源调研问题，并把发现保存为仓库中的 Markdown 文件。\n- setup-matt-pocock-skills: 为此仓库配置 engineering skills：设置其 issue tracker、triage labels 词汇与 domain docs 布局。\n- tdd: 测试驱动开发。\n- to-spec: 把当前对话转成 spec 并发布到项目 issue tracker：不做访谈，只综合已经讨论的内容。\n- to-tickets: 把 plan、spec 或当前对话拆成一组 tracer-bullet tickets，每个 ticket 声明 blocking edges，并发布到已配置的 tracker；本地用每 ticket 一个文件中的文本 edge，真实 tracker 用 native blocking links。\n- triage: 让 issues 和 external PRs 通过一组 triage roles 状态机，分类、验证、必要时 grilling，并写出 agent-ready briefs。\n- wayfinder: 把单个 agent session 装不下的一大块工作规划成 issue tracker 上的 decision tickets shared map，并逐一解决，直到通往 destination 的路清晰。\n- wizard: 生成一个交互式 bash wizard，逐步引导人完成只有他们能执行的手动流程。",
       "version": "0.1.0",
       "category": "Development",
       "source": "./packages/matt-engineering"
     },
     {
       "name": "matt-misc",
-      "description": "Matt Pocock miscellaneous skills in Chinese",
+      "description": "Matt Pocock 开发工具与维护技能（中文版）。\n技能：\n- git-guardrails-claude-code: 设置 Claude Code hooks，在危险 git commands（push、reset --hard、clean、branch -D 等）执行前阻止它们。\n- migrate-to-shoehorn: 将测试文件从 `as` 类型断言迁移到 @total-typescript/shoehorn。\n- scaffold-exercises: 创建包含章节、题目、答案和讲解的练习目录结构，并确保通过 linting。\n- setup-pre-commit: 在当前仓库设置 Husky pre-commit hooks，集成 lint-staged (Prettier)、类型检查和测试。",
       "version": "0.1.0",
       "category": "Development",
       "source": "./packages/matt-misc"
     },
     {
       "name": "matt-experimental",
-      "description": "Experimental Matt Pocock skills in Chinese",
+      "description": "Matt Pocock 实验性技能（中文版）。\n技能：\n- claude-handoff: 把当前对话交接给一个全新的 background agent，让它立即接手工作。\n- loop-me: 在这个工作区中，就我想构建的工作流规格访谈我。\n- setup-ts-deep-modules: 在 TypeScript repo 中接入 dependency-cruiser，让每个 package 成为 deep module：implementation 隐藏在 subfolders 中，只能通过 entry-point files 访问。\n- writing-beats: Writing, exploit——把原始素材组装成一段节拍旅程，在某个 beat 依赖一个术语之前先把它 grounded。\n- writing-fragments: Writing, explore：挖掘原始 fragments，暂不施加任何结构。\n- writing-shape: Writing, exploit：把原始素材塑造成文章，一段一段地推进。",
       "version": "0.1.0",
       "category": "Productivity",
       "source": "./packages/matt-experimental"
