@@ -2,9 +2,11 @@
 
 中文 | [English](README.en.md)
 
-[![Lieflat Charts：以统一的字体、留白、线条和动效建立自己的视觉语法的数据可视化 skill](docs/assets/readme-hero-zh.png)](https://moxt.ai/zh-CN/hub?view=skill&id=lieflat-charts)
+[![Lieflat Charts：以统一的字体、留白、线条和动效建立自己的视觉语法的数据可视化 skill](docs/assets/readme-hero-zh.png)](https://moxt.ai/zh-CN/hub?view=skill&id=lieflat-charts&utm_source=github&utm_medium=readme&utm_campaign=lieflat-charts)
 
-Lieflat Charts 是一套遵循 Agent Skills 格式的数据可视化与报告生成 skill，可供 moxt、Claude Code、Codex 及其他兼容 `SKILL.md` 的 AI agent 使用。本 skill 在 [moxt.ai](https://moxt.ai) 制作，默认把数据做成有编辑感的图表；只有用户明确要求报告、年报、月报、白皮书、海报或 brief 时，才从 12 套中英文整页模板生成可发布的 HTML 报告。
+Lieflat Charts 是一套遵循 Agent Skills 格式的数据可视化、PPT 演示与整页报告生成 skill，可供 moxt、Claude Code、Codex 及其他兼容 `SKILL.md` 的 AI agent 使用。本 skill 在 [moxt.ai](https://moxt.ai?utm_source=github&utm_medium=readme&utm_campaign=lieflat-charts) 制作，同时提供 PPT 模式和报告模式，但默认产出图表；用户明确要求一套 PPT、幻灯片或可翻页汇报时，才进入 PPT 模式，生成 HTML 或 PDF 格式的 PPT；用户明确要求报告、年报、月报、白皮书、海报或 brief 时，才生成整页 HTML 报告。
+
+演示模式在用户明确要求做图表 PPT 后触发：Agent 选择合适的图表类型与色彩（Mono 或三套彩色预设），自动生成带入场动效、支持左右翻页的 HTML 格式 PPT；数据与图型仍根据用户材料确定。
 
 它以统一的字体、留白、线条和动效建立自己的视觉语法，包括以下几种视觉风格：
 
@@ -129,38 +131,43 @@ Mono 黑白灰是稳定的保底方案，同时也有彩色模式，目前支持
 
 ## 最新更新
 
+### 增加了演示模式
+
+16:9 横向单文件 HTML 演示，支持左右方向键翻页、总览视图和逐页打印。用户明确要求做图表 PPT 后，Agent 会根据数据形状从 `catalog.md` 选择合适的图表类型，并按数据语义在 Mono 和三套彩色预设（青瓷蓝 porcelain、椰林绿 palm、编辑部红 wire）中锁定一套全局色系，自动生成带有入场动效（弹出、淡入、描线，尊重 `prefers-reduced-motion`）的 HTML 格式 PPT。
+
+每套色系提供中文、英文双版完整模板（19 页：封面、目录、章节页、图表页、大数字结论、阅读说明等）。模板负责画布、字体、留白、翻页和打印；下面的截图只展示排版参考，示例数据不会自动带入真实成品。
+
+<table>
+  <tr>
+    <td width="50%"><img src="docs/assets/presentations/presentation-zh-cover.png" alt="演示模式中文模板封面预览" width="100%"></td>
+    <td width="50%"><img src="docs/assets/presentations/presentation-zh-metrics.png" alt="演示模式中文模板四指标页面预览" width="100%"></td>
+  </tr>
+  <tr><td colspan="2"><img src="docs/assets/presentations/presentation-zh-dark.png" alt="演示模式中文模板深色图表页面预览" width="100%"></td></tr>
+</table>
+
+模板入口：[`templates/presentations/index.html`](templates/presentations/index.html) · [`presentation-catalog.md`](presentation-catalog.md)
+
+完整版彩色模板（每色系中英双版，19 页）：
+
+- [`complete-porcelain.html`](templates/presentations/complete-porcelain.html) / [`complete-porcelain-zh.html`](templates/presentations/complete-porcelain-zh.html) — 青瓷蓝
+- [`complete-palm.html`](templates/presentations/complete-palm.html) / [`complete-palm-zh.html`](templates/presentations/complete-palm-zh.html) — 椰林绿
+- [`complete-wire.html`](templates/presentations/complete-wire.html) / [`complete-wire-zh.html`](templates/presentations/complete-wire-zh.html) — 编辑部红
+
+另有 Mono 基础版：[`presentation.zh.html`](templates/presentations/presentation.zh.html) / [`presentation.en.html`](templates/presentations/presentation.en.html)。
+
 ### 增加了报告模式
 
 现在可以在单张图表之外，直接从 12 套整页报告模板生成 HTML 报告。每套模板都提供中文版和英文版，覆盖调研报告、研究简报、业务数据报告、财报与金融经济分析、产品记录、dashboard、海报，以及运动、旅行和年度生活数据记录等从工作到个人的需求。模板名称代表版式性格，不是使用场景的限制；同一套模板可以根据数据结构迁移到不同类型的报告。
 
-<table>
-  <tr>
-    <td width="25%"><img src="docs/assets/reports/report-03.png" alt="报告模板 03 年度数据报告 / 年度海报" width="100%"><br><strong>R03 · 年度数据报告 / 年度海报</strong></td>
-    <td width="25%"><img src="docs/assets/reports/report-09.png" alt="报告模板 09 业务数据 / 财务经营 Dashboard" width="100%"><br><strong>R09 · 业务数据 / 财务经营 Dashboard</strong></td>
-    <td width="25%"><img src="docs/assets/reports/report-08.png" alt="报告模板 08 人群与社会经济数据一页" width="100%"><br><strong>R08 · 人群 / 社会经济数据一页</strong></td>
-    <td width="25%"><img src="docs/assets/reports/report-12-v3.png" alt="报告模板 12 周期数据快报 / 监控摘要" width="100%"><br><strong>R12 · 周期数据快报 / 监控摘要</strong></td>
-  </tr>
-  <tr>
-    <td width="25%"><img src="docs/assets/reports/report-01.png" alt="报告模板 01 调研报告 / 研究一页" width="100%"><br><strong>R01 · 调研报告 / 研究一页</strong></td>
-    <td width="25%"><img src="docs/assets/reports/report-05.png" alt="报告模板 05 项目 / 产品影响力故事" width="100%"><br><strong>R05 · 项目 / 产品影响力故事</strong></td>
-    <td width="25%"><img src="docs/assets/reports/report-10.png" alt="报告模板 10 个人数据 / 运动 / 旅行记录" width="100%"><br><strong>R10 · 个人数据 / 运动 / 旅行记录</strong></td>
-    <td width="25%"><img src="docs/assets/reports/report-07.png" alt="报告模板 07 调研 / 市场数据拼贴海报" width="100%"><br><strong>R07 · 调研 / 市场数据拼贴海报</strong></td>
-  </tr>
-  <tr>
-    <td width="25%"><img src="docs/assets/reports/report-02.png" alt="报告模板 02 年度复盘 / 业绩回顾" width="100%"><br><strong>R02 · 年度复盘 / 业绩回顾</strong></td>
-    <td width="25%"><img src="docs/assets/reports/report-11.png" alt="报告模板 11 研究 / 金融经济简报卡" width="100%"><br><strong>R11 · 研究 / 金融经济简报卡</strong></td>
-    <td width="25%"><img src="docs/assets/reports/report-04.png" alt="报告模板 04 月度业务 / 财务经营报告" width="100%"><br><strong>R04 · 月度业务 / 财务经营报告</strong></td>
-    <td width="25%"><img src="docs/assets/reports/report-06.png" alt="报告模板 06 长周期产品 / 业务年鉴" width="100%"><br><strong>R06 · 长周期产品 / 业务年鉴</strong></td>
-  </tr>
-</table>
+报告模式的图表槽位仍按 `catalog.md` 选择真实图型；报告模板索引见 [`report-catalog.md`](report-catalog.md) 和 [`templates/reports/index.html`](templates/reports/index.html)。
 
 ## 零门槛快速使用
 
 ### 推荐在 Moxt 中使用
 
-[![在 Moxt 中使用 Lieflat Charts](docs/assets/moxt-quick-start-zh.png)](https://moxt.ai/zh-CN/hub?view=skill&id=lieflat-charts)
+[![在 Moxt 中使用 Lieflat Charts](docs/assets/moxt-quick-start-zh.png)](https://moxt.ai/zh-CN/hub?view=skill&id=lieflat-charts&utm_source=github&utm_medium=readme&utm_campaign=lieflat-charts)
 
-Lieflat Charts 在 [Moxt](https://moxt.ai/zh-CN/hub?view=skill&id=lieflat-charts) 中完成设计、测试和持续迭代。它的设计规则、模板结构与文件工作流，都是围绕 Moxt 的 Agent 协作方式反复打磨的。
+Lieflat Charts 在 [Moxt](https://moxt.ai/zh-CN/hub?view=skill&id=lieflat-charts&utm_source=github&utm_medium=readme&utm_campaign=lieflat-charts) 中完成设计、测试和持续迭代。它的设计规则、模板结构与文件工作流，都是围绕 Moxt 的 Agent 协作方式反复打磨的。
 
 因此，在 Moxt 中使用时，Agent 能更顺畅地读取完整的设计规范、理解 Lieflat Charts 的视觉语言、调用对应模板，并在同一个工作区中持续预览和修改结果，更稳定地执行这套设计。
 
@@ -250,6 +257,7 @@ catalog.md 和 mono-tokens.js 是否存在。
 | **Glance** | 18 | 周报、dashboard、监控、汇报；需要快速排序和比较 | Chart.js / ECharts |
 | **Interactive** | 3 | 网络、路径、多段流向和高密度关系数据 | ECharts / SVG |
 | **Color Presets** | 3 套 / 15 个样张 | 需要颜色区分数据维度，或为 Mono 加一个受控视线落点 | 基于原模板换肤 |
+| **Presentation Mode** | 4 套 / 中英双版 | 16:9 可翻页动效演示（Mono + 三套彩色）；模板只负责排版，图型与色系由用户数据决定 | 单文件 HTML |
 | **Report Templates** | 12 套 / 中英双版 | 调研、年报、月报、仪表盘、海报、简报和个人记录等完整整页报告 | 单文件 HTML |
 
 ### Lupi Editorial
@@ -289,17 +297,19 @@ catalog.md 和 mono-tokens.js 是否存在。
 ├── SKILL.md                 # Agent 使用的工作流与规则
 ├── catalog.md               # 49 个图型的数据契约索引
 ├── report-catalog.md        # 12 套整页报告模板的场景索引
+├── presentation-catalog.md  # 演示模式 P01–P10 版式索引
 ├── mono-tokens.js           # 共享视觉 token
 ├── color-presets.js         # 三套内置彩色预设
 ├── templates/               # Lupi、Basics、Glance、交互与报告模板
 │   ├── color/               # 彩色换肤样张
+│   ├── presentations/       # 16:9 演示模板：Mono 基础版 + 三套彩色完整版，中英文双版
 │   └── reports/             # 12 套报告模板，每套中英文双版
 ├── examples/                # 真实公开数据案例
 ├── docs/assets/             # README 模板截图与动态预览
 └── scripts/validate.mjs     # 发布前检查
 ```
 
-直接打开 `templates/` 下的 HTML 文件即可查看 gallery；打开 `templates/reports/index.html` 可浏览报告模板并进入中英文版本。报告模式先从 `report-catalog.md` 选整页骨架，再为各图表槽位复用 `catalog.md` 中的真实图型。Lupi 和 Basics 主要使用原生 SVG，F13 Treemap 使用 ECharts；Glance、Circular、Force 以及报告模板 R11/R12 通过 CDN 加载 Chart.js 或 ECharts，需要联网才能完整显示。
+直接打开 `templates/` 下的 HTML 文件即可查看 gallery；打开 `templates/presentations/index.html` 可浏览演示模板（Mono 基础版 + 三套彩色完整版）；打开 `templates/reports/index.html` 可浏览报告模板并进入中英文版本。报告模式先从 `report-catalog.md` 选整页骨架，再为各图表槽位复用 `catalog.md` 中的真实图型。Lupi 和 Basics 主要使用原生 SVG，F13 Treemap 使用 ECharts；Glance、Circular、Force 以及报告模板 R11/R12 通过 CDN 加载 Chart.js 或 ECharts，需要联网才能完整显示。
 
 ## License
 

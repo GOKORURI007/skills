@@ -28,7 +28,7 @@
     },
     {
       "name": "visual-design",
-      "description": "图表、图像生成与网页视觉设计。\n技能：\n- gpt-image-2: 面向 GPT Image 2 的图像生成 / 编辑技能。\n- lieflat-charts: 一套模板驱动的数据可视化与报告生成 skill，既能严格从 Lupi、Basics、Glance、Maps 与 Interactive gallery 的真实实现生成 HTML 图表，也能从 12 套中英文整页报告模板生成可发布的 HTML 报告；以 Mono 为保底，能按数据语义自动选择内置彩色预设，也支持用户明确…\n- web-design-engineer: 使用 HTML、CSS、JavaScript 或 React 创建和改进网页、仪表盘、原型及数据可视化。",
+      "description": "图表、图像生成与网页视觉设计。\n技能：\n- gpt-image-2: 面向 GPT Image 2 的图像生成 / 编辑技能。\n- lieflat-charts: 一套模板驱动的数据可视化、PPT 演示与整页报告生成 skill，既能严格从 Lupi、Basics、Glance、Maps 与 Interactive gallery 的真实实现生成 HTML 图表，也能从 Presentation Mode 生成 HTML/PDF 演示，或从报告模板生成整页 HTML 报告；以…\n- web-design-engineer: 使用 HTML、CSS、JavaScript 或 React 创建和改进网页、仪表盘、原型及数据可视化。",
       "version": "0.1.0",
       "category": "Design",
       "source": "./packages/visual-design"

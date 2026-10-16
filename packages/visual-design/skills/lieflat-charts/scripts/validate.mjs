@@ -34,6 +34,17 @@ const required = [
   'color-presets.js',
   'agents/openai.yaml',
   'report-catalog.md',
+  'presentation-catalog.md',
+  'references/presentation.md',
+  'templates/presentations/index.html',
+  'templates/presentations/presentation.zh.html',
+  'templates/presentations/presentation.en.html',
+  'templates/presentations/complete-porcelain.html',
+  'templates/presentations/complete-porcelain-zh.html',
+  'templates/presentations/complete-palm.html',
+  'templates/presentations/complete-palm-zh.html',
+  'templates/presentations/complete-wire.html',
+  'templates/presentations/complete-wire-zh.html',
   'templates/reports/index.html',
   ...requiredColorTemplates,
 ];
@@ -89,7 +100,7 @@ function walk(dir) {
 }
 
 function rel(file) {
-  return path.relative(root, file);
+  return path.relative(root, file).split(path.sep).join('/');
 }
 
 function lineNumber(source, index) {
@@ -179,6 +190,15 @@ for (const backup of ['F17 Candlestick', 'F15 Tick Box', 'L20 Parallel Coordinat
 if (!catalogSource.includes('主力与后备')) failures.push('catalog.md 缺少主力/后备说明');
 for (const role of ['`BG`', '`TXT`', '`MUT`', '`GRID`', '`DATA`']) {
   if (!skillSource.includes(role)) failures.push(`SKILL.md 的 custom 色板规则缺少角色 ${role}`);
+}
+
+const presentationCatalogSource = fs.readFileSync(path.join(root, 'presentation-catalog.md'), 'utf8');
+for (const marker of ['| P01 |', '| P04 |', '| P08 |', 'presentation.zh.html', 'presentation.en.html', 'complete-porcelain.html', 'complete-palm.html', 'complete-wire.html']) {
+  if (!presentationCatalogSource.includes(marker)) failures.push(`presentation-catalog.md 缺少 ${marker}`);
+}
+const presentationReference = fs.readFileSync(path.join(root, 'references/presentation.md'), 'utf8');
+for (const marker of ['1600 × 900', 'prefers-reduced-motion', 'catalog.md']) {
+  if (!presentationReference.includes(marker)) failures.push(`references/presentation.md 缺少 ${marker}`);
 }
 
 const reportCatalogSource = fs.readFileSync(path.join(root, 'report-catalog.md'), 'utf8');
@@ -278,7 +298,8 @@ for (const file of textFiles) {
     failures.push(`${rel(file)} 检测到 Math.random()，请改用确定性 rnd()`);
   }
 
-  const colorTemplate = relative.match(/^templates\/color\/.+-(porcelain|palm|wire)\.html$/);
+  const colorTemplate = relative.match(/^templates\/color\/.+-(porcelain|palm|wire)\.html$/)
+    ?? relative.match(/^templates\/presentations\/complete-(porcelain|palm|wire)(?:-zh)?\.html$/);
   if (colorTemplate) {
     const allowed = presetChannels.get(colorTemplate[1]);
     const literalPattern = /#(?:[0-9a-fA-F]{6}|[0-9a-fA-F]{3})\b|rgba?\(\s*\d{1,3}\s*,\s*\d{1,3}\s*,\s*\d{1,3}(?:\s*,\s*(?:0|1|0?\.\d+))?\s*\)/g;
@@ -289,7 +310,7 @@ for (const file of textFiles) {
         failures.push(`${relative}:${lineNumber(source, match.index)} 颜色 ${match[0]} 不属于 ${colorTemplate[1]} 预设`);
       }
     }
-  } else if (relative !== 'color-presets.js' && !relative.startsWith('templates/reports/')) {
+  } else if (relative !== 'color-presets.js' && !relative.startsWith('templates/reports/') && relative !== 'templates/presentations/index.html') {
     for (const match of source.matchAll(/#[0-9a-fA-F]{6}\b/g)) {
       const hex = match[0];
       const channels = [
