@@ -31,71 +31,71 @@
       "skills": [
         {
           "path": "skills/engineering/ask-matt",
-          "target": "packages/matt-engineering/skills/ask-matt"
+          "target": "packages/engineering/skills/ask-matt"
         },
         {
           "path": "skills/engineering/code-review",
-          "target": "packages/matt-engineering/skills/code-review"
+          "target": "packages/engineering/skills/code-review"
         },
         {
           "path": "skills/engineering/codebase-design",
-          "target": "packages/matt-engineering/skills/codebase-design"
+          "target": "packages/engineering/skills/codebase-design"
         },
         {
           "path": "skills/engineering/diagnosing-bugs",
-          "target": "packages/matt-engineering/skills/diagnosing-bugs"
+          "target": "packages/engineering/skills/diagnosing-bugs"
         },
         {
           "path": "skills/engineering/domain-modeling",
-          "target": "packages/matt-engineering/skills/domain-modeling"
+          "target": "packages/engineering/skills/domain-modeling"
         },
         {
           "path": "skills/engineering/grill-with-docs",
-          "target": "packages/matt-engineering/skills/grill-with-docs"
+          "target": "packages/engineering/skills/grill-with-docs"
         },
         {
           "path": "skills/engineering/implement",
-          "target": "packages/matt-engineering/skills/implement"
+          "target": "packages/engineering/skills/implement"
         },
         {
           "path": "skills/engineering/improve-codebase-architecture",
-          "target": "packages/matt-engineering/skills/improve-codebase-architecture"
+          "target": "packages/engineering/skills/improve-codebase-architecture"
         },
         {
           "path": "skills/engineering/prototype",
-          "target": "packages/matt-engineering/skills/prototype"
+          "target": "packages/engineering/skills/prototype"
         },
         {
           "path": "skills/engineering/research",
-          "target": "packages/matt-engineering/skills/research"
+          "target": "packages/engineering/skills/research"
         },
         {
           "path": "skills/engineering/setup-matt-pocock-skills",
-          "target": "packages/matt-engineering/skills/setup-matt-pocock-skills"
+          "target": "packages/engineering/skills/setup-matt-pocock-skills"
         },
         {
           "path": "skills/engineering/tdd",
-          "target": "packages/matt-engineering/skills/tdd"
+          "target": "packages/engineering/skills/tdd"
         },
         {
           "path": "skills/engineering/to-spec",
-          "target": "packages/matt-engineering/skills/to-spec"
+          "target": "packages/engineering/skills/to-spec"
         },
         {
           "path": "skills/engineering/to-tickets",
-          "target": "packages/matt-engineering/skills/to-tickets"
+          "target": "packages/engineering/skills/to-tickets"
         },
         {
           "path": "skills/engineering/triage",
-          "target": "packages/matt-engineering/skills/triage"
+          "target": "packages/engineering/skills/triage"
         },
         {
           "path": "skills/engineering/wayfinder",
-          "target": "packages/matt-engineering/skills/wayfinder"
+          "target": "packages/engineering/skills/wayfinder"
         },
         {
           "path": "skills/engineering/wizard",
-          "target": "packages/matt-engineering/skills/wizard"
+          "target": "packages/engineering/skills/wizard"
         },
         {
           "path": "skills/in-progress/claude-handoff",
@@ -111,15 +111,15 @@
         },
         {
           "path": "skills/in-progress/writing-beats",
-          "target": "packages/matt-experimental/skills/writing-beats"
+          "target": "packages/writing/skills/writing-beats"
         },
         {
           "path": "skills/in-progress/writing-fragments",
-          "target": "packages/matt-experimental/skills/writing-fragments"
+          "target": "packages/writing/skills/writing-fragments"
         },
         {
           "path": "skills/in-progress/writing-shape",
-          "target": "packages/matt-experimental/skills/writing-shape"
+          "target": "packages/writing/skills/writing-shape"
         },
         {
           "path": "skills/misc/git-guardrails-claude-code",
@@ -135,35 +135,35 @@
         },
         {
           "path": "skills/misc/setup-pre-commit",
-          "target": "packages/matt-misc/skills/setup-pre-commit"
+          "target": "packages/engineering/skills/setup-pre-commit"
         },
         {
           "path": "skills/productivity/grill-me",
-          "target": "packages/matt-productivity/skills/grill-me"
+          "target": "packages/engineering/skills/grill-me"
         },
         {
           "path": "skills/productivity/grilling",
-          "target": "packages/matt-productivity/skills/grilling"
+          "target": "packages/engineering/skills/grilling"
         },
         {
           "path": "skills/productivity/handoff",
-          "target": "packages/matt-productivity/skills/handoff"
+          "target": "packages/engineering/skills/handoff"
         },
         {
           "path": "skills/productivity/teach",
-          "target": "packages/matt-productivity/skills/teach"
+          "target": "packages/engineering/skills/teach"
         },
         {
           "path": "skills/productivity/to-questionnaire",
-          "target": "packages/matt-productivity/skills/to-questionnaire"
+          "target": "packages/engineering/skills/to-questionnaire"
         },
         {
           "path": "skills/productivity/wait-what",
-          "target": "packages/matt-productivity/skills/wait-what"
+          "target": "packages/engineering/skills/wait-what"
         },
         {
           "path": "skills/productivity/writing-for-agents",
-          "target": "packages/matt-productivity/skills/writing-for-agents"
+          "target": "packages/engineering/skills/writing-for-agents"
         }
       ]
     },
@@ -199,7 +199,7 @@
       "skills": [
         {
           "path": ".",
-          "target": "packages/proposals/skills/planners-proposal-system"
+          "target": "packages/writing/skills/planners-proposal-system"
         }
       ]
     },

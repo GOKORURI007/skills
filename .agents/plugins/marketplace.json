@@ -65,18 +65,6 @@
       "category": "Productivity"
     },
     {
-      "name": "proposals",
-      "source": {
-        "source": "local",
-        "path": "./packages/proposals"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
       "name": "knowledge",
       "source": {
         "source": "local",
@@ -89,22 +77,10 @@
       "category": "Productivity"
     },
     {
-      "name": "matt-productivity",
+      "name": "engineering",
       "source": {
         "source": "local",
-        "path": "./packages/matt-productivity"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
-      "name": "matt-engineering",
-      "source": {
-        "source": "local",
-        "path": "./packages/matt-engineering"
+        "path": "./packages/engineering"
       },
       "policy": {
         "installation": "AVAILABLE",

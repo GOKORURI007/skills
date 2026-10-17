@@ -19,10 +19,10 @@ apm view dev-tools@ruri-skills
 apm install writing@ruri-skills --target codex
 
 # 或在首次安装时只选几个成员；所有分类都支持 --skill
-apm install matt-productivity@ruri-skills --skill grilling --skill writing-for-agents --target codex
+apm install engineering@ruri-skills --skill grilling --skill writing-for-agents --target codex
 
 # 后续追加一个成员
-apm install matt-productivity@ruri-skills --skill teach --target codex
+apm install engineering@ruri-skills --skill teach --target codex
 ```
 
 `--target` 可换成 `claude`、`opencode` 等，多个目标用逗号分隔，例如 `--target codex,claude`。支持的全局目标可加 `--global`。这些远程命令需要此次原生集合及镜像内容推送到 `master` 后才能使用。
@@ -62,32 +62,26 @@ apm update --target codex
 
 ## 捆绑包与成员
 
-市场仅提供 11 个分类集合，共 54 个顶层技能。每个分类通过 `<分类名称>@ruri-skills` 安装；`--skill` 使用成员名称或相对路径。
+市场仅提供 9 个分类集合，共 54 个顶层技能。每个分类通过 `<分类名称>@ruri-skills` 安装；`--skill` 使用成员名称或相对路径。
 
 | 分类组合包 | 用途 | 成员数 |
 | --- | --- | --- |
-| `dev-tools` | 开发与 Git 工具 | 7 |
+| `dev-tools` | 开发与 Git 工具 | 3 |
 | `obsidian` | Obsidian 笔记 | 1 |
-| `writing` | 写作与文章 | 3 |
+| `writing` | 写作与文章 | 7 |
 | `visual-design` | 图表与视觉设计 | 3 |
 | `presentations` | 演示与 PPT | 4 |
-| `proposals` | 策划与提案 | 1 |
 | `knowledge` | 知识检索 | 1 |
-| `matt-productivity` | Matt Pocock · Productivity | 7 |
-| `matt-engineering` | Matt Pocock · Engineering | 17 |
-| `matt-misc` | Matt Pocock · Misc | 4 |
-| `matt-experimental` | Matt Pocock · In progress | 6 |
+| `engineering` | 软件工程、Git 与 agent 协作 | 29 |
+| `matt-misc` | Matt Pocock · Misc | 3 |
+| `matt-experimental` | Matt Pocock · In progress | 3 |
 
 ### 开发与 Git 工具
 
 | 技能名称 | 来源 |
 | --- | --- |
 | `add-external-skill` | 本仓库 |
-| `create-codetour` | 本仓库 |
 | `create-scoop-manifest` | 本仓库 |
-| `gh-debug-action` | 本仓库 |
-| `git-commit` | 本仓库 |
-| `git-squash` | 本仓库 |
 | `setup-ruri-dev-standard` | 本仓库 |
 
 ### Obsidian 笔记
@@ -103,6 +97,10 @@ apm update --target codex
 | `writing-dna-skill` | [larashero3-dotcom/writing-dna-skill](https://github.com/larashero3-dotcom/writing-dna-skill) |
 | `lieflat-less-ai-tone` | [larashero3-dotcom/lieflat-less-ai-tone](https://github.com/larashero3-dotcom/lieflat-less-ai-tone) |
 | `beautiful-article` | [ConardLi/garden-skills](https://github.com/ConardLi/garden-skills) · `skills/beautiful-article` |
+| `writing-beats` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/writing-beats` |
+| `writing-fragments` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/writing-fragments` |
+| `writing-shape` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/writing-shape` |
+| `planners-proposal-system` | [thePlannerIvan/Planners-Proposal-System](https://github.com/thePlannerIvan/Planners-Proposal-System) |
 
 ### 图表与视觉设计
 
@@ -121,51 +119,45 @@ apm update --target codex
 | `web-video-presentation` | [ConardLi/garden-skills](https://github.com/ConardLi/garden-skills) · `skills/web-video-presentation` |
 | `planners-ppt-hell` | [thePlannerIvan/planners-ppt-hell](https://github.com/thePlannerIvan/planners-ppt-hell) |
 
-### 策划与提案
-
-| 技能名称 | 来源 |
-| --- | --- |
-| `planners-proposal-system` | [thePlannerIvan/Planners-Proposal-System](https://github.com/thePlannerIvan/Planners-Proposal-System) |
-
 ### 知识检索
 
 | 技能名称 | 来源 |
 | --- | --- |
 | `kb-retriever` | [ConardLi/garden-skills](https://github.com/ConardLi/garden-skills) · `skills/kb-retriever` |
 
-### Matt Pocock · Productivity
-
-| 技能名称 | 来源 |
-| --- | --- |
-| `grill-me` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/grill-me` |
-| `grilling` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/grilling` |
-| `handoff` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/handoff` |
-| `teach` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/teach` |
-| `to-questionnaire` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/to-questionnaire` |
-| `wait-what` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/wait-what` |
-| `writing-for-agents` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/writing-for-agents` |
-
-### Matt Pocock · Engineering
+### 软件工程、Git 与 agent 协作
 
 | 技能名称 | 来源 |
 | --- | --- |
 | `ask-matt` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/ask-matt` |
 | `code-review` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/code-review` |
 | `codebase-design` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/codebase-design` |
+| `create-codetour` | 本仓库 |
 | `diagnosing-bugs` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/diagnosing-bugs` |
 | `domain-modeling` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/domain-modeling` |
+| `gh-debug-action` | 本仓库 |
+| `git-commit` | 本仓库 |
+| `git-squash` | 本仓库 |
+| `grill-me` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/grill-me` |
 | `grill-with-docs` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/grill-with-docs` |
+| `grilling` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/grilling` |
+| `handoff` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/handoff` |
 | `implement` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/implement` |
 | `improve-codebase-architecture` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/improve-codebase-architecture` |
 | `prototype` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/prototype` |
 | `research` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/research` |
 | `setup-matt-pocock-skills` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/setup-matt-pocock-skills` |
+| `setup-pre-commit` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/misc/setup-pre-commit` |
 | `tdd` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/tdd` |
+| `teach` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/teach` |
+| `to-questionnaire` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/to-questionnaire` |
 | `to-spec` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/to-spec` |
 | `to-tickets` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/to-tickets` |
 | `triage` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/triage` |
+| `wait-what` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/wait-what` |
 | `wayfinder` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/wayfinder` |
 | `wizard` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/engineering/wizard` |
+| `writing-for-agents` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/productivity/writing-for-agents` |
 
 ### Matt Pocock · Misc
 
@@ -174,7 +166,6 @@ apm update --target codex
 | `git-guardrails-claude-code` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/misc/git-guardrails-claude-code` |
 | `migrate-to-shoehorn` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/misc/migrate-to-shoehorn` |
 | `scaffold-exercises` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/misc/scaffold-exercises` |
-| `setup-pre-commit` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/misc/setup-pre-commit` |
 
 ### Matt Pocock · In progress
 
@@ -183,9 +174,6 @@ apm update --target codex
 | `claude-handoff` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/claude-handoff` |
 | `loop-me` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/loop-me` |
 | `setup-ts-deep-modules` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/setup-ts-deep-modules` |
-| `writing-beats` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/writing-beats` |
-| `writing-fragments` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/writing-fragments` |
-| `writing-shape` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/writing-shape` |
 
 ## 维护
 
