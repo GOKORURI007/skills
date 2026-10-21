@@ -35,7 +35,7 @@ marketplace:
         技能：
         - beautiful-article: 把用户提供的素材（网页 URL / PDF / DOCX / Markdown / 纯文本 / 截图 / 粘贴材料）编辑、设计成一篇美丽的、可离线打开和分享的**单文件 HTML 网页文章**。
         - lieflat-less-ai-tone: 按 SKILL.md 明确列出的规则识别并改写写作中的 AI 痕迹。
-        - planners-proposal-system: 从 Brief、研究资料和已有分析出发，与用户共创策略判断，组织有说服力的 Storyline 和结构参考，交给 planners-bypage 展开逐页内容。
+        - planners-proposal-system: 消化 Brief 与研究资料，与用户讨论策略判断，组织每页一句主张和支撑要点的 Storyline，交付可直接编辑、批注与管理版本的审阅页，再交给 planners-bypage 展开内容。
         - writing-beats: Writing, exploit——把原始素材组装成一段节拍旅程，在某个 beat 依赖一个术语之前先把它 grounded。
         - writing-dna-skill: 从至少 20 篇完整文章中蒸馏可复用的写作 DNA，分析语言、文章结构、选题逻辑、素材策略、认知框架和视觉风格，并生成 Writing-DNA.md；按该 DNA 写作时会读取全部蒸馏产物和 5 篇相关原文。
         - writing-fragments: Writing, explore：挖掘原始 fragments，暂不施加任何结构。
