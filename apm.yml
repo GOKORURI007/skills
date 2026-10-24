@@ -59,7 +59,7 @@ marketplace:
         技能：
         - guizang-ppt-skill: 生成横向翻页网页 PPT（单 HTML 文件），含 WebGL 背景、演讲者视图、观众屏同步、讲稿备注、章节幕封、数据大字报、图片网格等模板。
         - html-ppt-skill: HTML PPT Studio — author professional static HTML presentations in many styles, layouts, and animations, all driven by templates.
-        - planners-ppt-hell: 制作与持续修改 SVG 页面工作台，从逐页内容稿或 video-idea-system 的 visual-plan.json 与素材出发，输出可编辑 PPT 或固定版本的视频画面快照。
+        - planners-ppt-hell: 制作与持续修改 SVG 页面工作台，从逐页内容稿或 video-idea-system 的 visual-plan.json 与素材出发，输出可编辑 PPT 或视频 SVG 文件。
         - web-video-presentation: 把一篇文章或口播稿，做成"看起来像视频"的点击驱动 16:9 网页演示，可选合成口播音频。
       category: "Productivity"
     - name: knowledge
