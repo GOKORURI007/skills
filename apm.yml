@@ -34,7 +34,7 @@ marketplace:
         写作风格分析、编辑与文章发布。
         技能：
         - beautiful-article: 把用户提供的素材（网页 URL / PDF / DOCX / Markdown / 纯文本 / 截图 / 粘贴材料）编辑、设计成一篇美丽的、可离线打开和分享的**单文件 HTML 网页文章**。
-        - lieflat-less-ai-tone: 按 SKILL.md 明确列出的规则识别并改写写作中的 AI 痕迹。
+        - lieflat-less-ai-tone: 三层去 AI 味：脚本检测出分级报告（A 机械改/B 建议改/C 只报告/X 已否决/F 指纹）+ 语义层判读（同义重命名/衔接连环/结论冒号/同构三连），先向用户交付专业、可读的改前报告，列出本篇指标、研究显著性、原文例句和具体改法；收到用户回复后按白名单规则改写，复测并生成前后对比报告（默认 Markdown，与…
         - planners-proposal-system: 消化 Brief 与研究资料，与用户讨论策略判断，组织每页一句主张和支撑要点的 Storyline，交付可直接编辑、批注与管理版本的审阅页，再交给 planners-bypage 展开内容。
         - ruri-research-writing: 起草和修改开题报告、论文等学术正文，去除围绕预设误读展开的澄清，以直接论述和流畅段落推进研究内容。
         - writing-beats: Writing, exploit——把原始素材组装成一段节拍旅程，在某个 beat 依赖一个术语之前先把它 grounded。
