@@ -13,6 +13,7 @@
   "summaries": {
     "add-external-skill": "将上游技能加入本仓库的自动同步集合。",
     "html-ppt": "基于模板制作支持多种风格、布局和动画的 HTML 演示文稿。",
-    "web-design-engineer": "使用 HTML、CSS、JavaScript 或 React 创建和改进网页、仪表盘、原型及数据可视化。"
+    "web-design-engineer": "使用 HTML、CSS、JavaScript 或 React 创建和改进网页、仪表盘、原型及数据可视化。",
+    "archify": "将想法、计划或代码库转为可交互的独立 HTML 图表与单页讲解，支持架构、流程、时序等图形及导出。"
   }
 }

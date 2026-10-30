@@ -229,6 +229,15 @@
           "target": "packages/writing/skills/lieflat-less-ai-tone"
         }
       ]
+    },
+    {
+      "repository": "tt-a1i/archify",
+      "skills": [
+        {
+          "path": "archify",
+          "target": "packages/writing/skills/archify"
+        }
+      ]
     }
   ]
 }
