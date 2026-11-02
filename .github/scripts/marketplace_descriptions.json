@@ -8,12 +8,16 @@
     "knowledge": "知识检索与问答。",
     "matt-misc": "Matt Pocock 开发工具与维护技能（中文版）。",
     "matt-experimental": "Matt Pocock 实验性技能（中文版）。",
-    "engineering": "软件工程、Git 与 agent 协作技能。"
+    "engineering": "软件工程、Git 与 agent 协作技能。",
+    "academic": "学术研究、论文写作、审稿与出版级科研绘图。",
+    "ai-research-skills": "Orchestra Research AI 研究与工程技能，覆盖研究构思、模型训练、评估、部署及论文写作。"
   },
   "summaries": {
     "add-external-skill": "将上游技能加入本仓库的自动同步集合。",
     "html-ppt": "基于模板制作支持多种风格、布局和动画的 HTML 演示文稿。",
     "web-design-engineer": "使用 HTML、CSS、JavaScript 或 React 创建和改进网页、仪表盘、原型及数据可视化。",
-    "archify": "将想法、计划或代码库转为可交互的独立 HTML 图表与单页讲解，支持架构、流程、时序等图形及导出。"
+    "archify": "将想法、计划或代码库转为可交互的独立 HTML 图表与单页讲解，支持架构、流程、时序等图形及导出。",
+    "academic-research-suite": "支持学术调研、文献综述、论文写作与审稿、研究筛选及实验工作流。",
+    "scientific-figure-making": "使用 Matplotlib 制作论文、幻灯片和报告所需的出版级科研图表。"
   }
 }

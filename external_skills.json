@@ -238,6 +238,421 @@
           "target": "packages/writing/skills/archify"
         }
       ]
+    },
+    {
+      "repository": "Imbad0202/academic-research-skills-codex",
+      "skills": [
+        {
+          "path": "skills/academic-research-suite",
+          "target": "packages/academic/skills/academic-research-suite"
+        }
+      ]
+    },
+    {
+      "repository": "ChenLiu-1996/figures4papers",
+      "skills": [
+        {
+          "path": "scientific-figure-making",
+          "target": "packages/academic/skills/scientific-figure-making"
+        }
+      ]
+    },
+    {
+      "repository": "Orchestra-Research/AI-Research-SKILLs",
+      "skills": [
+        {
+          "path": "0-autoresearch-skill",
+          "target": "packages/ai-research-skills/skills/autoresearch"
+        },
+        {
+          "path": "01-model-architecture/litgpt",
+          "target": "packages/ai-research-skills/skills/litgpt"
+        },
+        {
+          "path": "01-model-architecture/mamba",
+          "target": "packages/ai-research-skills/skills/mamba"
+        },
+        {
+          "path": "01-model-architecture/nanogpt",
+          "target": "packages/ai-research-skills/skills/nanogpt"
+        },
+        {
+          "path": "01-model-architecture/rwkv",
+          "target": "packages/ai-research-skills/skills/rwkv"
+        },
+        {
+          "path": "01-model-architecture/torchtitan",
+          "target": "packages/ai-research-skills/skills/torchtitan"
+        },
+        {
+          "path": "02-tokenization/huggingface-tokenizers",
+          "target": "packages/ai-research-skills/skills/huggingface-tokenizers"
+        },
+        {
+          "path": "02-tokenization/sentencepiece",
+          "target": "packages/ai-research-skills/skills/sentencepiece"
+        },
+        {
+          "path": "03-fine-tuning/axolotl",
+          "target": "packages/ai-research-skills/skills/axolotl"
+        },
+        {
+          "path": "03-fine-tuning/llama-factory",
+          "target": "packages/ai-research-skills/skills/llama-factory"
+        },
+        {
+          "path": "03-fine-tuning/peft",
+          "target": "packages/ai-research-skills/skills/peft"
+        },
+        {
+          "path": "03-fine-tuning/unsloth",
+          "target": "packages/ai-research-skills/skills/unsloth"
+        },
+        {
+          "path": "04-mechanistic-interpretability/nnsight",
+          "target": "packages/ai-research-skills/skills/nnsight"
+        },
+        {
+          "path": "04-mechanistic-interpretability/pyvene",
+          "target": "packages/ai-research-skills/skills/pyvene"
+        },
+        {
+          "path": "04-mechanistic-interpretability/saelens",
+          "target": "packages/ai-research-skills/skills/saelens"
+        },
+        {
+          "path": "04-mechanistic-interpretability/transformer-lens",
+          "target": "packages/ai-research-skills/skills/transformer-lens"
+        },
+        {
+          "path": "05-data-processing/nemo-curator",
+          "target": "packages/ai-research-skills/skills/nemo-curator"
+        },
+        {
+          "path": "05-data-processing/ray-data",
+          "target": "packages/ai-research-skills/skills/ray-data"
+        },
+        {
+          "path": "06-post-training/grpo-rl-training",
+          "target": "packages/ai-research-skills/skills/grpo-rl-training"
+        },
+        {
+          "path": "06-post-training/miles",
+          "target": "packages/ai-research-skills/skills/miles"
+        },
+        {
+          "path": "06-post-training/openrlhf",
+          "target": "packages/ai-research-skills/skills/openrlhf"
+        },
+        {
+          "path": "06-post-training/simpo",
+          "target": "packages/ai-research-skills/skills/simpo"
+        },
+        {
+          "path": "06-post-training/slime",
+          "target": "packages/ai-research-skills/skills/slime"
+        },
+        {
+          "path": "06-post-training/torchforge",
+          "target": "packages/ai-research-skills/skills/torchforge"
+        },
+        {
+          "path": "06-post-training/trl-fine-tuning",
+          "target": "packages/ai-research-skills/skills/trl-fine-tuning"
+        },
+        {
+          "path": "06-post-training/verl",
+          "target": "packages/ai-research-skills/skills/verl"
+        },
+        {
+          "path": "07-safety-alignment/constitutional-ai",
+          "target": "packages/ai-research-skills/skills/constitutional-ai"
+        },
+        {
+          "path": "07-safety-alignment/llamaguard",
+          "target": "packages/ai-research-skills/skills/llamaguard"
+        },
+        {
+          "path": "07-safety-alignment/nemo-guardrails",
+          "target": "packages/ai-research-skills/skills/nemo-guardrails"
+        },
+        {
+          "path": "07-safety-alignment/prompt-guard",
+          "target": "packages/ai-research-skills/skills/prompt-guard"
+        },
+        {
+          "path": "08-distributed-training/accelerate",
+          "target": "packages/ai-research-skills/skills/accelerate"
+        },
+        {
+          "path": "08-distributed-training/deepspeed",
+          "target": "packages/ai-research-skills/skills/deepspeed"
+        },
+        {
+          "path": "08-distributed-training/megatron-core",
+          "target": "packages/ai-research-skills/skills/megatron-core"
+        },
+        {
+          "path": "08-distributed-training/pytorch-fsdp2",
+          "target": "packages/ai-research-skills/skills/pytorch-fsdp2"
+        },
+        {
+          "path": "08-distributed-training/pytorch-lightning",
+          "target": "packages/ai-research-skills/skills/pytorch-lightning"
+        },
+        {
+          "path": "08-distributed-training/ray-train",
+          "target": "packages/ai-research-skills/skills/ray-train"
+        },
+        {
+          "path": "09-infrastructure/lambda-labs",
+          "target": "packages/ai-research-skills/skills/lambda-labs"
+        },
+        {
+          "path": "09-infrastructure/modal",
+          "target": "packages/ai-research-skills/skills/modal"
+        },
+        {
+          "path": "09-infrastructure/skypilot",
+          "target": "packages/ai-research-skills/skills/skypilot"
+        },
+        {
+          "path": "10-optimization/awq",
+          "target": "packages/ai-research-skills/skills/awq"
+        },
+        {
+          "path": "10-optimization/bitsandbytes",
+          "target": "packages/ai-research-skills/skills/bitsandbytes"
+        },
+        {
+          "path": "10-optimization/flash-attention",
+          "target": "packages/ai-research-skills/skills/flash-attention"
+        },
+        {
+          "path": "10-optimization/gguf",
+          "target": "packages/ai-research-skills/skills/gguf"
+        },
+        {
+          "path": "10-optimization/gptq",
+          "target": "packages/ai-research-skills/skills/gptq"
+        },
+        {
+          "path": "10-optimization/hqq",
+          "target": "packages/ai-research-skills/skills/hqq"
+        },
+        {
+          "path": "10-optimization/ml-training-recipes",
+          "target": "packages/ai-research-skills/skills/ml-training-recipes"
+        },
+        {
+          "path": "11-evaluation/bigcode-evaluation-harness",
+          "target": "packages/ai-research-skills/skills/bigcode-evaluation-harness"
+        },
+        {
+          "path": "11-evaluation/lm-evaluation-harness",
+          "target": "packages/ai-research-skills/skills/lm-evaluation-harness"
+        },
+        {
+          "path": "11-evaluation/nemo-evaluator",
+          "target": "packages/ai-research-skills/skills/nemo-evaluator"
+        },
+        {
+          "path": "12-inference-serving/llama-cpp",
+          "target": "packages/ai-research-skills/skills/llama-cpp"
+        },
+        {
+          "path": "12-inference-serving/sglang",
+          "target": "packages/ai-research-skills/skills/sglang"
+        },
+        {
+          "path": "12-inference-serving/tensorrt-llm",
+          "target": "packages/ai-research-skills/skills/tensorrt-llm"
+        },
+        {
+          "path": "12-inference-serving/vllm",
+          "target": "packages/ai-research-skills/skills/vllm"
+        },
+        {
+          "path": "13-mlops/mlflow",
+          "target": "packages/ai-research-skills/skills/mlflow"
+        },
+        {
+          "path": "13-mlops/swanlab",
+          "target": "packages/ai-research-skills/skills/swanlab"
+        },
+        {
+          "path": "13-mlops/tensorboard",
+          "target": "packages/ai-research-skills/skills/tensorboard"
+        },
+        {
+          "path": "13-mlops/weights-and-biases",
+          "target": "packages/ai-research-skills/skills/weights-and-biases"
+        },
+        {
+          "path": "14-agents/a-evolve",
+          "target": "packages/ai-research-skills/skills/a-evolve"
+        },
+        {
+          "path": "14-agents/autogpt",
+          "target": "packages/ai-research-skills/skills/autogpt"
+        },
+        {
+          "path": "14-agents/crewai",
+          "target": "packages/ai-research-skills/skills/crewai"
+        },
+        {
+          "path": "14-agents/langchain",
+          "target": "packages/ai-research-skills/skills/langchain"
+        },
+        {
+          "path": "14-agents/llamaindex",
+          "target": "packages/ai-research-skills/skills/llamaindex"
+        },
+        {
+          "path": "15-rag/chroma",
+          "target": "packages/ai-research-skills/skills/chroma"
+        },
+        {
+          "path": "15-rag/faiss",
+          "target": "packages/ai-research-skills/skills/faiss"
+        },
+        {
+          "path": "15-rag/pinecone",
+          "target": "packages/ai-research-skills/skills/pinecone"
+        },
+        {
+          "path": "15-rag/qdrant",
+          "target": "packages/ai-research-skills/skills/qdrant"
+        },
+        {
+          "path": "15-rag/sentence-transformers",
+          "target": "packages/ai-research-skills/skills/sentence-transformers"
+        },
+        {
+          "path": "16-prompt-engineering/dspy",
+          "target": "packages/ai-research-skills/skills/dspy"
+        },
+        {
+          "path": "16-prompt-engineering/guidance",
+          "target": "packages/ai-research-skills/skills/guidance"
+        },
+        {
+          "path": "16-prompt-engineering/instructor",
+          "target": "packages/ai-research-skills/skills/instructor"
+        },
+        {
+          "path": "16-prompt-engineering/outlines",
+          "target": "packages/ai-research-skills/skills/outlines"
+        },
+        {
+          "path": "17-observability/langsmith",
+          "target": "packages/ai-research-skills/skills/langsmith"
+        },
+        {
+          "path": "17-observability/phoenix",
+          "target": "packages/ai-research-skills/skills/phoenix"
+        },
+        {
+          "path": "18-multimodal/audiocraft",
+          "target": "packages/ai-research-skills/skills/audiocraft"
+        },
+        {
+          "path": "18-multimodal/blip-2",
+          "target": "packages/ai-research-skills/skills/blip-2"
+        },
+        {
+          "path": "18-multimodal/clip",
+          "target": "packages/ai-research-skills/skills/clip"
+        },
+        {
+          "path": "18-multimodal/cosmos-policy",
+          "target": "packages/ai-research-skills/skills/cosmos-policy"
+        },
+        {
+          "path": "18-multimodal/llava",
+          "target": "packages/ai-research-skills/skills/llava"
+        },
+        {
+          "path": "18-multimodal/openpi",
+          "target": "packages/ai-research-skills/skills/openpi"
+        },
+        {
+          "path": "18-multimodal/openvla-oft",
+          "target": "packages/ai-research-skills/skills/openvla-oft"
+        },
+        {
+          "path": "18-multimodal/segment-anything",
+          "target": "packages/ai-research-skills/skills/segment-anything"
+        },
+        {
+          "path": "18-multimodal/stable-diffusion",
+          "target": "packages/ai-research-skills/skills/stable-diffusion"
+        },
+        {
+          "path": "18-multimodal/whisper",
+          "target": "packages/ai-research-skills/skills/whisper"
+        },
+        {
+          "path": "19-emerging-techniques/knowledge-distillation",
+          "target": "packages/ai-research-skills/skills/knowledge-distillation"
+        },
+        {
+          "path": "19-emerging-techniques/long-context",
+          "target": "packages/ai-research-skills/skills/long-context"
+        },
+        {
+          "path": "19-emerging-techniques/model-merging",
+          "target": "packages/ai-research-skills/skills/model-merging"
+        },
+        {
+          "path": "19-emerging-techniques/model-pruning",
+          "target": "packages/ai-research-skills/skills/model-pruning"
+        },
+        {
+          "path": "19-emerging-techniques/moe-training",
+          "target": "packages/ai-research-skills/skills/moe-training"
+        },
+        {
+          "path": "19-emerging-techniques/speculative-decoding",
+          "target": "packages/ai-research-skills/skills/speculative-decoding"
+        },
+        {
+          "path": "20-ml-paper-writing/academic-plotting",
+          "target": "packages/ai-research-skills/skills/academic-plotting"
+        },
+        {
+          "path": "20-ml-paper-writing/ml-paper-writing",
+          "target": "packages/ai-research-skills/skills/ml-paper-writing"
+        },
+        {
+          "path": "20-ml-paper-writing/presenting-conference-talks",
+          "target": "packages/ai-research-skills/skills/presenting-conference-talks"
+        },
+        {
+          "path": "20-ml-paper-writing/systems-paper-writing",
+          "target": "packages/ai-research-skills/skills/systems-paper-writing"
+        },
+        {
+          "path": "21-research-ideation/brainstorming-research-ideas",
+          "target": "packages/ai-research-skills/skills/brainstorming-research-ideas"
+        },
+        {
+          "path": "21-research-ideation/creative-thinking-for-research",
+          "target": "packages/ai-research-skills/skills/creative-thinking-for-research"
+        },
+        {
+          "path": "22-agent-native-research-artifact/compiler",
+          "target": "packages/ai-research-skills/skills/compiler"
+        },
+        {
+          "path": "22-agent-native-research-artifact/research-manager",
+          "target": "packages/ai-research-skills/skills/research-manager"
+        },
+        {
+          "path": "22-agent-native-research-artifact/rigor-reviewer",
+          "target": "packages/ai-research-skills/skills/rigor-reviewer"
+        }
+      ]
     }
   ]
 }

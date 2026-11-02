@@ -62,7 +62,7 @@ apm update --target codex
 
 ## 捆绑包与成员
 
-市场仅提供 9 个分类集合，共 56 个顶层技能。每个分类通过 `<分类名称>@ruri-skills` 安装；`--skill` 使用成员名称或相对路径。
+市场仅提供 11 个分类集合，共 156 个顶层技能。每个分类通过 `<分类名称>@ruri-skills` 安装；`--skill` 使用成员名称或相对路径。
 
 | 分类组合包 | 用途 | 成员数 |
 | --- | --- | --- |
@@ -72,9 +72,11 @@ apm update --target codex
 | `visual-design` | 图表与视觉设计 | 3 |
 | `presentations` | 演示与 PPT | 4 |
 | `knowledge` | 知识检索 | 1 |
+| `academic` | 学术研究与科研绘图 | 2 |
 | `engineering` | 软件工程、Git 与 agent 协作 | 29 |
 | `matt-misc` | Matt Pocock · Misc | 3 |
 | `matt-experimental` | Matt Pocock · In progress | 3 |
+| `ai-research-skills` | AI 研究与工程（Orchestra Research） | 98 |
 
 ### 开发与 Git 工具
 
@@ -127,6 +129,21 @@ apm update --target codex
 | --- | --- |
 | `kb-retriever` | [ConardLi/garden-skills](https://github.com/ConardLi/garden-skills) · `skills/kb-retriever` |
 
+### 学术研究与科研绘图
+
+| 技能名称 | 来源 |
+| --- | --- |
+| `academic-research-suite` | [Imbad0202/academic-research-skills-codex](https://github.com/Imbad0202/academic-research-skills-codex) · `skills/academic-research-suite` |
+| `scientific-figure-making` | [ChenLiu-1996/figures4papers](https://github.com/ChenLiu-1996/figures4papers) · `scientific-figure-making` |
+
+```powershell
+apm install academic@ruri-skills --target codex
+# 或仅安装科研绘图技能
+apm install academic@ruri-skills --skill scientific-figure-making --target codex
+```
+
+`academic-research-suite` 通过统一入口路由到内置研究工作流；完整保留其 `ars/`、模板与配套资源，不将内部工作流拆成独立技能。
+
 ### 软件工程、Git 与 agent 协作
 
 | 技能名称 | 来源 |
@@ -177,6 +194,116 @@ apm update --target codex
 | `loop-me` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/loop-me` |
 | `setup-ts-deep-modules` | [vinvcn/mattpocock-skills-zh-CN](https://github.com/vinvcn/mattpocock-skills-zh-CN) · `skills/in-progress/setup-ts-deep-modules` |
 
+### AI 研究与工程（Orchestra Research）
+
+来自 [Orchestra-Research/AI-Research-SKILLs](https://github.com/Orchestra-Research/AI-Research-SKILLs)，保留完整技能目录、配套资源和许可证。按上游实际 `SKILL.md` 清单收录 98 个技能，目录名用于 `--skill` 选择。
+
+```powershell
+apm install ai-research-skills@ruri-skills --target codex
+apm install ai-research-skills@ruri-skills --skill vllm --skill ml-paper-writing --target codex
+```
+
+| 技能名称 | 上游目录 |
+| --- | --- |
+| `autoresearch` | `0-autoresearch-skill` |
+| `litgpt` | `01-model-architecture/litgpt` |
+| `mamba` | `01-model-architecture/mamba` |
+| `nanogpt` | `01-model-architecture/nanogpt` |
+| `rwkv` | `01-model-architecture/rwkv` |
+| `torchtitan` | `01-model-architecture/torchtitan` |
+| `huggingface-tokenizers` | `02-tokenization/huggingface-tokenizers` |
+| `sentencepiece` | `02-tokenization/sentencepiece` |
+| `axolotl` | `03-fine-tuning/axolotl` |
+| `llama-factory` | `03-fine-tuning/llama-factory` |
+| `peft` | `03-fine-tuning/peft` |
+| `unsloth` | `03-fine-tuning/unsloth` |
+| `nnsight` | `04-mechanistic-interpretability/nnsight` |
+| `pyvene` | `04-mechanistic-interpretability/pyvene` |
+| `saelens` | `04-mechanistic-interpretability/saelens` |
+| `transformer-lens` | `04-mechanistic-interpretability/transformer-lens` |
+| `nemo-curator` | `05-data-processing/nemo-curator` |
+| `ray-data` | `05-data-processing/ray-data` |
+| `grpo-rl-training` | `06-post-training/grpo-rl-training` |
+| `miles` | `06-post-training/miles` |
+| `openrlhf` | `06-post-training/openrlhf` |
+| `simpo` | `06-post-training/simpo` |
+| `slime` | `06-post-training/slime` |
+| `torchforge` | `06-post-training/torchforge` |
+| `trl-fine-tuning` | `06-post-training/trl-fine-tuning` |
+| `verl` | `06-post-training/verl` |
+| `constitutional-ai` | `07-safety-alignment/constitutional-ai` |
+| `llamaguard` | `07-safety-alignment/llamaguard` |
+| `nemo-guardrails` | `07-safety-alignment/nemo-guardrails` |
+| `prompt-guard` | `07-safety-alignment/prompt-guard` |
+| `accelerate` | `08-distributed-training/accelerate` |
+| `deepspeed` | `08-distributed-training/deepspeed` |
+| `megatron-core` | `08-distributed-training/megatron-core` |
+| `pytorch-fsdp2` | `08-distributed-training/pytorch-fsdp2` |
+| `pytorch-lightning` | `08-distributed-training/pytorch-lightning` |
+| `ray-train` | `08-distributed-training/ray-train` |
+| `lambda-labs` | `09-infrastructure/lambda-labs` |
+| `modal` | `09-infrastructure/modal` |
+| `skypilot` | `09-infrastructure/skypilot` |
+| `awq` | `10-optimization/awq` |
+| `bitsandbytes` | `10-optimization/bitsandbytes` |
+| `flash-attention` | `10-optimization/flash-attention` |
+| `gguf` | `10-optimization/gguf` |
+| `gptq` | `10-optimization/gptq` |
+| `hqq` | `10-optimization/hqq` |
+| `ml-training-recipes` | `10-optimization/ml-training-recipes` |
+| `bigcode-evaluation-harness` | `11-evaluation/bigcode-evaluation-harness` |
+| `lm-evaluation-harness` | `11-evaluation/lm-evaluation-harness` |
+| `nemo-evaluator` | `11-evaluation/nemo-evaluator` |
+| `llama-cpp` | `12-inference-serving/llama-cpp` |
+| `sglang` | `12-inference-serving/sglang` |
+| `tensorrt-llm` | `12-inference-serving/tensorrt-llm` |
+| `vllm` | `12-inference-serving/vllm` |
+| `mlflow` | `13-mlops/mlflow` |
+| `swanlab` | `13-mlops/swanlab` |
+| `tensorboard` | `13-mlops/tensorboard` |
+| `weights-and-biases` | `13-mlops/weights-and-biases` |
+| `a-evolve` | `14-agents/a-evolve` |
+| `autogpt` | `14-agents/autogpt` |
+| `crewai` | `14-agents/crewai` |
+| `langchain` | `14-agents/langchain` |
+| `llamaindex` | `14-agents/llamaindex` |
+| `chroma` | `15-rag/chroma` |
+| `faiss` | `15-rag/faiss` |
+| `pinecone` | `15-rag/pinecone` |
+| `qdrant` | `15-rag/qdrant` |
+| `sentence-transformers` | `15-rag/sentence-transformers` |
+| `dspy` | `16-prompt-engineering/dspy` |
+| `guidance` | `16-prompt-engineering/guidance` |
+| `instructor` | `16-prompt-engineering/instructor` |
+| `outlines` | `16-prompt-engineering/outlines` |
+| `langsmith` | `17-observability/langsmith` |
+| `phoenix` | `17-observability/phoenix` |
+| `audiocraft` | `18-multimodal/audiocraft` |
+| `blip-2` | `18-multimodal/blip-2` |
+| `clip` | `18-multimodal/clip` |
+| `cosmos-policy` | `18-multimodal/cosmos-policy` |
+| `llava` | `18-multimodal/llava` |
+| `openpi` | `18-multimodal/openpi` |
+| `openvla-oft` | `18-multimodal/openvla-oft` |
+| `segment-anything` | `18-multimodal/segment-anything` |
+| `stable-diffusion` | `18-multimodal/stable-diffusion` |
+| `whisper` | `18-multimodal/whisper` |
+| `knowledge-distillation` | `19-emerging-techniques/knowledge-distillation` |
+| `long-context` | `19-emerging-techniques/long-context` |
+| `model-merging` | `19-emerging-techniques/model-merging` |
+| `model-pruning` | `19-emerging-techniques/model-pruning` |
+| `moe-training` | `19-emerging-techniques/moe-training` |
+| `speculative-decoding` | `19-emerging-techniques/speculative-decoding` |
+| `academic-plotting` | `20-ml-paper-writing/academic-plotting` |
+| `ml-paper-writing` | `20-ml-paper-writing/ml-paper-writing` |
+| `presenting-conference-talks` | `20-ml-paper-writing/presenting-conference-talks` |
+| `systems-paper-writing` | `20-ml-paper-writing/systems-paper-writing` |
+| `brainstorming-research-ideas` | `21-research-ideation/brainstorming-research-ideas` |
+| `creative-thinking-for-research` | `21-research-ideation/creative-thinking-for-research` |
+| `compiler` | `22-agent-native-research-artifact/compiler` |
+| `research-manager` | `22-agent-native-research-artifact/research-manager` |
+| `rigor-reviewer` | `22-agent-native-research-artifact/rigor-reviewer` |
+
 ## 维护
 
 - `apm.yml` 是市场目录的权威配置，只登记分类；两份 marketplace JSON 由 APM 生成。
@@ -218,5 +345,15 @@ packages/<分类>/skills/                    自有技能、外部镜像及配�
 ```
 
 ## 验证范围
+
+### Windows 本地安装路径
+
+APM 0.35.0 在安装时会先将完整集合复制到项目下的 `apm_modules/.apm-resolution-staging/...`。当 Windows 的 `LongPathsEnabled` 为 `0` 时，临时路径超过传统长度限制可能报 `WinError 3`，即使源文件存在也会失败；`--skill` 选择发生在复制之后，因此单项安装也可能受影响。
+
+本机复现中，首个失败目标路径长 269 个字符。`academic` 的最长包内相对路径为 167 个字符，仅缩短到常规临时目录仍不足。使用磁盘根目录下的短项目路径（本次为 `C:/fb8a` 和 `C:/sf8a`）可完成复制；长期使用可由管理员启用 Windows 长路径支持后重启相关进程。本次未修改系统设置或 APM 程序。
+
+整包还会触发 APM 的隐藏字符检查：当前镜像的 9 处严重告警来自 `ars/shared/contracts/` 下三个 JSON Schema 中用于检测隐藏字符的正则表达式（`audit/cross_document_source_manifest.schema.json`、`evidence/evidence_row_v1_2.schema.json`、`passport/preregistration_artifact.schema.json`）。本次逐项复核后使用 `--force` 验证整包；单独安装 `scientific-figure-making` 无需此选项。上游内容更新后应重新审查告警，不应默认跳过检查。
+
+`academic` 已同步两个上游技能的完整目录及许可证，通过现有 11 项测试、市场离线检查、目录生成一致性检查。2026-11-02 使用 APM 0.35.0 完成 Windows 本地安装验证：整包部署 2 个技能、2,665 个文件；`--skill scientific-figure-making` 仅部署所选技能的 7 个文件，选择保存在清单和锁文件中。两种安装均退出成功，部署文件均与源文件逐字节一致。整包使用了上文说明的已复核告警覆盖选项，单项安装未使用覆盖选项。
 
 已从 10 个上游默认分支同步 47 个外部技能。临时项目中已完成全部 11 个分类、54 个技能的本地 APM 安装；另验证了写作集合的 `--skill` 选择安装、修改 `skills:` 后清理取消选择的技能，以及更新后仍保留该选择。同步测试覆盖资源保留、旧文件清理、下载或源路径失败时保留镜像，以及路径与重复目标检查。线上 marketplace 安装及 GitHub Actions 执行仍需推送后验证。

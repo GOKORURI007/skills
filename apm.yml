@@ -128,3 +128,117 @@ marketplace:
         - loop-me: 在这个工作区中，就我想构建的工作流规格访谈我。
         - setup-ts-deep-modules: 在 TypeScript repo 中接入 dependency-cruiser，让每个 package 成为 deep module：implementation 隐藏在 subfolders 中，只能通过 entry-point files 访问。
       category: "Productivity"
+    - name: academic
+      source: "./packages/academic"
+      version: "0.1.0"
+      description: |-
+        学术研究、论文写作、审稿与出版级科研绘图。
+        技能：
+        - academic-research-suite: 支持学术调研、文献综述、论文写作与审稿、研究筛选及实验工作流。
+        - scientific-figure-making: 使用 Matplotlib 制作论文、幻灯片和报告所需的出版级科研图表。
+      category: "Productivity"
+    - name: ai-research-skills
+      source: "./packages/ai-research-skills"
+      version: "0.1.0"
+      description: |-
+        Orchestra Research AI 研究与工程技能，覆盖研究构思、模型训练、评估、部署及论文写作。
+        技能：
+        - a-evolve: Provides guidance for automatically evolving and optimizing AI agents across any domain using LLM-driven evolution algorithms.
+        - academic-plotting: Generates publication-quality figures for ML papers from research context.
+        - accelerate: Simplest distributed training API.
+        - audiocraft: PyTorch library for audio generation including text-to-music (MusicGen) and text-to-sound (AudioGen).
+        - autogpt: Autonomous AI agent platform for building and deploying continuous agents.
+        - autoresearch: Orchestrates end-to-end autonomous AI research projects using a two-loop architecture.
+        - awq: Activation-aware weight quantization for 4-bit LLM compression with 3x speedup and minimal accuracy loss.
+        - axolotl: Expert guidance for fine-tuning LLMs with Axolotl - YAML configs, 100+ models, LoRA/QLoRA, DPO/KTO/ORPO/GRPO, multimodal support
+        - bigcode-evaluation-harness: Evaluates code generation models across HumanEval, MBPP, MultiPL-E, and 15+ benchmarks with pass@k metrics.
+        - bitsandbytes: Quantizes LLMs to 8-bit or 4-bit for 50-75% memory reduction with minimal accuracy loss.
+        - blip-2: Vision-language pre-training framework bridging frozen image encoders and LLMs.
+        - brainstorming-research-ideas: Guides researchers through structured ideation frameworks to discover high-impact research directions.
+        - chroma: Open-source embedding database for AI applications.
+        - clip: OpenAI's model connecting vision and language.
+        - compiler: Compiles any research input — PDF papers, GitHub repositories, experiment logs, code directories, or raw notes — into a complete Agent-Native Research Artifact…
+        - constitutional-ai: Anthropic's method for training harmless AI through self-improvement.
+        - cosmos-policy: Evaluates NVIDIA Cosmos Policy on LIBERO and RoboCasa simulation environments.
+        - creative-thinking-for-research: Applies cognitive science frameworks for creative thinking to CS and AI research ideation.
+        - crewai: Multi-agent orchestration framework for autonomous AI collaboration.
+        - deepspeed: Expert guidance for distributed training with DeepSpeed - ZeRO optimization stages, pipeline parallelism, FP16/BF16/FP8, 1-bit Adam, sparse attention
+        - dspy: Build complex AI systems with declarative programming, optimize prompts automatically, create modular RAG systems and agents with DSPy - Stanford NLP's framewo…
+        - faiss: Facebook's library for efficient similarity search and clustering of dense vectors.
+        - flash-attention: Optimizes transformer attention with Flash Attention for 2-4x speedup and 10-20x memory reduction.
+        - gguf: GGUF format and llama.cpp quantization for efficient CPU/GPU inference.
+        - gptq: Post-training 4-bit quantization for LLMs with minimal accuracy loss.
+        - grpo-rl-training: Expert guidance for GRPO/RL fine-tuning with TRL for reasoning and task-specific model training
+        - guidance: Control LLM output with regex and grammars, guarantee valid JSON/XML/code generation, enforce structured formats, and build multi-step workflows with Guidance…
+        - hqq: Half-Quadratic Quantization for LLMs without calibration data.
+        - huggingface-tokenizers: Fast tokenizers optimized for research and production.
+        - instructor: Extract structured data from LLM responses with Pydantic validation, retry failed extractions automatically, parse complex JSON with type safety, and stream pa…
+        - knowledge-distillation: Compress large language models using knowledge distillation from teacher to student models.
+        - lambda-labs: Reserved and on-demand GPU cloud instances for ML training and inference.
+        - langchain: Framework for building LLM-powered applications with agents, chains, and RAG.
+        - langsmith: LLM observability platform for tracing, evaluation, and monitoring.
+        - litgpt: Implements and trains LLMs using Lightning AI's LitGPT with 20+ pretrained architectures (Llama, Gemma, Phi, Qwen, Mistral).
+        - llama-cpp: Runs LLM inference on CPU, Apple Silicon, and consumer GPUs without NVIDIA hardware.
+        - llama-factory: Expert guidance for fine-tuning LLMs with LLaMA-Factory - WebUI no-code, 100+ models, 2/3/4/5/6/8-bit QLoRA, multimodal support
+        - llamaguard: Meta's 7-8B specialized moderation model for LLM input/output filtering.
+        - llamaindex: Data framework for building LLM applications with RAG.
+        - llava: Large Language and Vision Assistant.
+        - lm-evaluation-harness: Evaluates LLMs across 60+ academic benchmarks (MMLU, HumanEval, GSM8K, TruthfulQA, HellaSwag).
+        - long-context: Extend context windows of transformer models using RoPE, YaRN, ALiBi, and position interpolation techniques.
+        - mamba: State-space model with O(n) complexity vs Transformers' O(n²).
+        - megatron-core: Trains large language models (2B-462B parameters) using NVIDIA Megatron-Core with advanced parallelism strategies.
+        - miles: Provides guidance for enterprise-grade RL training using miles, a production-ready fork of slime.
+        - ml-paper-writing: Write publication-ready ML/AI papers for NeurIPS, ICML, ICLR, ACL, AAAI, COLM.
+        - ml-training-recipes: Battle-tested PyTorch training recipes for all domains — LLMs, vision, diffusion, medical imaging, protein/drug discovery, spatial omics, genomics.
+        - mlflow: Track ML experiments, manage model registry with versioning, deploy models to production, and reproduce experiments with MLflow - framework-agnostic ML lifecyc…
+        - modal: Serverless GPU cloud platform for running ML workloads.
+        - model-merging: Merge multiple fine-tuned models using mergekit to combine capabilities without retraining.
+        - model-pruning: Reduce LLM size and accelerate inference using pruning techniques like Wanda and SparseGPT.
+        - moe-training: Train Mixture of Experts (MoE) models using DeepSpeed or HuggingFace.
+        - nanogpt: Educational GPT implementation in ~300 lines.
+        - nemo-curator: GPU-accelerated data curation for LLM training.
+        - nemo-evaluator: Evaluates LLMs across 100+ benchmarks from 18+ harnesses (MMLU, HumanEval, GSM8K, safety, VLM) with multi-backend execution.
+        - nemo-guardrails: NVIDIA's runtime safety framework for LLM applications.
+        - nnsight: Provides guidance for interpreting and manipulating neural network internals using nnsight with optional NDIF remote execution.
+        - openpi: Fine-tune and serve Physical Intelligence OpenPI models (pi0, pi0-fast, pi0.5) using JAX or PyTorch backends for robot policy inference across ALOHA, DROID, an…
+        - openrlhf: High-performance RLHF framework with Ray+vLLM acceleration.
+        - openvla-oft: Fine-tunes and evaluates OpenVLA-OFT and OpenVLA-OFT+ policies for robot action generation with continuous action heads, LoRA adaptation, and FiLM conditioning…
+        - outlines: Guarantee valid JSON/XML/code structure during generation, use Pydantic models for type-safe outputs, support local models (Transformers, vLLM), and maximize i…
+        - peft: Parameter-efficient fine-tuning for LLMs using LoRA, QLoRA, and 25+ methods.
+        - phoenix: Open-source AI observability platform for LLM tracing, evaluation, and monitoring.
+        - pinecone: Managed vector database for production AI applications.
+        - presenting-conference-talks: Generates conference presentation slides (Beamer LaTeX PDF and editable PPTX) from a compiled paper with speaker notes and talk script.
+        - prompt-guard: Meta's 86M prompt injection and jailbreak detector.
+        - pytorch-fsdp2: Adds PyTorch FSDP2 (fully_shard) to training scripts with correct init, sharding, mixed precision/offload config, and distributed checkpointing.
+        - pytorch-lightning: High-level PyTorch framework with Trainer class, automatic distributed training (DDP/FSDP/DeepSpeed), callbacks system, and minimal boilerplate.
+        - pyvene: Provides guidance for performing causal interventions on PyTorch models using pyvene's declarative intervention framework.
+        - qdrant: High-performance vector similarity search engine for RAG and semantic search.
+        - ray-data: Scalable data processing for ML workloads.
+        - ray-train: Distributed training orchestration across clusters.
+        - research-manager: Records research provenance as a post-task epilogue, scanning conversation history at the end of a coding or research session to extract decisions, experiments…
+        - rigor-reviewer: Performs ARA Seal Level 2 semantic epistemic review on Agent-Native Research Artifacts, scoring six dimensions (evidence relevance, falsifiability, scope calib…
+        - rwkv: RNN+Transformer hybrid with O(n) inference.
+        - saelens: Provides guidance for training and analyzing Sparse Autoencoders (SAEs) using SAELens to decompose neural network activations into interpretable features.
+        - segment-anything: Foundation model for image segmentation with zero-shot transfer.
+        - sentence-transformers: Framework for state-of-the-art sentence, text, and image embeddings.
+        - sentencepiece: Language-independent tokenizer treating text as raw Unicode.
+        - sglang: Fast structured generation and serving for LLMs with RadixAttention prefix caching.
+        - simpo: Simple Preference Optimization for LLM alignment.
+        - skypilot: Multi-cloud orchestration for ML workloads with automatic cost optimization.
+        - slime: Provides guidance for LLM post-training with RL using slime, a Megatron+SGLang framework.
+        - speculative-decoding: Accelerate LLM inference using speculative decoding, Medusa multiple heads, and lookahead decoding techniques.
+        - stable-diffusion: State-of-the-art text-to-image generation with Stable Diffusion models via HuggingFace Diffusers.
+        - swanlab: Provides guidance for experiment tracking with SwanLab.
+        - systems-paper-writing: Comprehensive guide for writing systems papers targeting OSDI, SOSP, ASPLOS, NSDI, and EuroSys.
+        - tensorboard: Visualize training metrics, debug models with histograms, compare experiments, visualize model graphs, and profile performance with TensorBoard - Google's ML v…
+        - tensorrt-llm: Optimizes LLM inference with NVIDIA TensorRT for maximum throughput and lowest latency.
+        - torchforge: Provides guidance for PyTorch-native agentic RL using torchforge, Meta's library separating infra from algorithms.
+        - torchtitan: Provides PyTorch-native distributed LLM pretraining using torchtitan with 4D parallelism (FSDP2, TP, PP, CP).
+        - transformer-lens: Provides guidance for mechanistic interpretability research using TransformerLens to inspect and manipulate transformer internals via HookPoints and activation…
+        - trl-fine-tuning: Fine-tune LLMs using reinforcement learning with TRL - SFT for instruction tuning, DPO for preference alignment, PPO/GRPO for reward optimization, and reward m…
+        - unsloth: Expert guidance for fast fine-tuning with Unsloth - 2-5x faster training, 50-80% less memory, LoRA/QLoRA optimization
+        - verl: Provides guidance for training LLMs with reinforcement learning using verl (Volcano Engine RL).
+        - vllm: Serves LLMs with high throughput using vLLM's PagedAttention and continuous batching.
+        - weights-and-biases: Track ML experiments with automatic logging, visualize training in real-time, optimize hyperparameters with sweeps, and manage model registry with W&B - collab…
+        - whisper: OpenAI's general-purpose speech recognition model.
+      category: "Development"
