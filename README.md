@@ -62,13 +62,13 @@ apm update --target codex
 
 ## 捆绑包与成员
 
-市场仅提供 11 个分类集合，共 156 个顶层技能。每个分类通过 `<分类名称>@ruri-skills` 安装；`--skill` 使用成员名称或相对路径。
+市场仅提供 11 个分类集合，共 157 个顶层技能。每个分类通过 `<分类名称>@ruri-skills` 安装；`--skill` 使用成员名称或相对路径。
 
 | 分类组合包 | 用途 | 成员数 |
 | --- | --- | --- |
 | `dev-tools` | 开发与 Git 工具 | 3 |
 | `obsidian` | Obsidian 笔记 | 1 |
-| `writing` | 写作与文章 | 9 |
+| `writing` | 写作与文章 | 10 |
 | `visual-design` | 图表与视觉设计 | 3 |
 | `presentations` | 演示与 PPT | 4 |
 | `knowledge` | 知识检索 | 1 |
@@ -97,6 +97,7 @@ apm update --target codex
 | 技能名称 | 来源 |
 | --- | --- |
 | `ruri-research-writing` | 本仓库 |
+| `gemini-polish` | 本仓库 |
 | `archify` | [tt-a1i/archify](https://github.com/tt-a1i/archify) 的 `archify` |
 | `writing-dna-skill` | [larashero3-dotcom/writing-dna-skill](https://github.com/larashero3-dotcom/writing-dna-skill) |
 | `lieflat-less-ai-tone` | [larashero3-dotcom/lieflat-less-ai-tone](https://github.com/larashero3-dotcom/lieflat-less-ai-tone) |
