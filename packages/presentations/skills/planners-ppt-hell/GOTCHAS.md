@@ -398,6 +398,33 @@
 - **证据**：`verify` 修前 `valid: false`（3 个包有问题）→ 修后 `valid: true`（5 个包全过）；`test_repaired_pack_still_applies` 证明修好之后文档里的 `apply` 真能跑通。
 - **状态**：已升级（2026-10-20）
 
+### G-41 CSS 通用族被当成字体名写进 PPT，导出后整页字形走样
+
+- **module**：`scripts/native_svg_to_ppt.py`（`_set_run_font_family`）、`scripts/test/test_converter_font_family.py`
+- **现象**：页面写 `font-family="system-ui, -apple-system, 'PingFang SC', sans-serif"`，导出的 PDF 里汉字变成楷体/衬线一类的替身字形；转换、导出、复核全程不报错，只有人眼能看出来。
+- **原因**：`_set_run_font_family` 把 `font-family` 的第一位原样写进 DrawingML 的 `typeface`。`system-ui` / `-apple-system` / `sans-serif` 是 CSS 通用族，不是任何机器上的字体名，PowerPoint 与 LibreOffice 只能自行替换。
+- **行为修正**：解析首位；命中通用族或为空直接判转换失败（`error()`），消息带元素 `data-workbench-id` 与文字片段，要求写具体字体名。只把真实字体名写进 typeface。
+- **证据**：2026-11-11 真实提案（19 页）导出 PDF 后字形整体错误；修后同样两页转换 `OK`，PDF 内嵌 Hiragino Sans GB。新增 3 个用例：通用族报错并点名元素、显式字体仍生效、判失败时不留 PPTX。
+- **状态**：已升级（2026-11-11）
+
+### G-42 「已有新版本」被写成常驻横幅，状态提示分不清目的
+
+- **module**：`assets/review/review.html`（`updatedPages` / `#updatedNote` / `note()` / `assetFor`）
+- **现象**：右栏一直挂着「这一页已有新版本。」，页面轨道上一直亮着蓝点；同一句「取不到资源：…」红字常驻，看起来像在反复报同一件事，却不知道要做什么。
+- **原因**：`updatedPages` 只 add 从不 delete，横幅把它当持久状态渲染；`note()` 对 error/warn 不设过期；`assetFor` 取失败不缓存，每次重建缩略图都重报一次。
+- **行为修正**：`updatedPages` 改成未读语义——页面被看到时 delete 并给一条会自动消失的通知，蓝点随之清除；`note()` 按类型过期（error 8s / warn 6s / ok 3.2s）；预览按旧版本 404 时退回取当前版本，仍失败就在画面中央显示「预览还没生成」占位并只提示一次。
+- **证据**：2026-11-11 工作台截图（同一页横幅反复出现 + p21 预览 404 红字常驻）；改后内联 JS 语法检查通过，store/surface/v5 共 92 项测试通过。
+- **状态**：已升级（2026-11-11）
+
+### G-43 人改过的字被保护，位置却没有，被下一次「排版调整」搬走
+
+- **module**：`scripts/workbench_store.py`（`apply_edits` / `lost_edits`）、`assets/review/review.html`
+- **现象**：用户在某页改了两句话、把文字块放在自己选的位置；过一会模型按「两边对应」重排，文字逐字没变，位置从 y=723 挪到 611。用户看到的是「我改过的地方又被改回去了」。
+- **原因**：人保存的 guard 只记 `text`；位置只有在拖动元素（`attributes`/`transform`）时才入 guard。文字编辑里的换行排版、或拖动之外的落位，都不会被视为「位置归人」。同时页面标题与 `page_content.json` 基线不跟随人改字，同一句文案在三处各有一版，进一步坐实「改回去了」的错觉。
+- **行为修正**：文字编辑自动钉住 `x`/`y`/`transform`；老修订按当前几何隐式补齐（`with_implicit_geometry`）；人保存后同步标题与基线（`sync_human_copy`）；保存排队重渲位图（`render_revision.py`）；工作台闲时静默合并宿主新版本，不在人书写时抢 DOM。
+- **证据**：2026-11-11 cny_deck Page 4（`p07_page4`）右卡文字 y=723→611；Page 1（`p04_page1`）标题/基线仍是旧句。修后 store 39 项、核心 154 项、浏览器 9 项通过（含「宿主前进后自动跟上」新用例）。
+- **状态**：已升级（2026-11-11）
+
 ---
 ---
 

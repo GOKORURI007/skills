@@ -4,6 +4,30 @@
 
 看每一条时问三件事：**边界怎么变了**、**哪些 module 被牵动**、**删掉了什么**。
 
+## 2026-11-11 · 用户改动优先：锁定位置、保存即重渲、自动同步
+
+| 做了什么 | 为什么 | 影响了哪些 module | 删了什么 |
+|---|---|---|---|
+| 人改字时把该元素的几何（`x`/`y`/`transform`）一并入 guard；老修订的纯文字 guard 按当前几何隐式补齐 | 只钉文字时，模型一次「排版调整」就能把用户排好的位置挪走（Page 4 右卡 723→611），人看到的是「我改过的又被改回去了」 | `scripts/workbench_store.py`（`apply_edits` / `with_implicit_geometry` / `save_page`）、`scripts/test/test_workbench_store.py` | 「文字受保护、位置自由」的缺口 |
+| 人保存后排队 `render_revision.py` 重渲该页位图；旧版本只归档、不覆盖当前预览 | 保存只落 SVG，位图要等模型跑 check 才更新，人看到的是旧画面 | `scripts/render_revision.py`（新）、`workbench_store._queue_render` | 保存回执恒为 `rendered: false` 的静默状态 |
+| 工作台定时问 state，闲下来时静默合并新版本；人在打字/拖动/框选/有未落盘输入时不搬 DOM，也不提前报冲突 | 以前只靠宿主推 changed 事件，推丢了就只能让人手动点刷新；现在冲突要等保存真的被拒才算 | `assets/review/review.html`（`syncFromHost` / `busyWithInput` / 轮询）、`workbench-tools.js` 不变 | 「刷新按钮 = 唯一同步路径」、检测到宿主前进就立刻弹冲突 |
+| 人改字后同步更新页面标题与文案基线 | 轨道标题与 copy audit 继续挂着旧句子，同一句文案在画布、标题、基线三处各有一版 | `workbench_store.sync_human_copy`、`_internal/01_content/page_content.json` | 只改画布、标题与基线不跟随 |
+
+**边界怎么变了**：用户改过的元素 = 文字 + 位置都由用户定；模型要动，必须拿到页面反馈里针对该元素的显式授权。显示层不再需要人手动刷新，也不再在用户书写时抢占交互。
+
+**回归**：`scripts.test.test_workbench_store` 39 项、workbench store/pipeline/tools/human_edit_guard/review_surface/v5 共 154 项通过；浏览器套件 `test_review_reported_bugs` 9 项（含新增「宿主前进后自动跟上」）通过。
+
+## 2026-11-11 · 字体链路与提醒语义（来自 cny_deck 真实提案）
+
+| 做了什么 | 为什么 | 影响了哪些 module | 删了什么 |
+|---|---|---|---|
+| 转换器解析 `font-family` 首位，命中 CSS 通用族或空值直接判失败并点名元素 | 通用族不是字体名，写进 `typeface` 只会被替换；交付 PDF 字形走样时没有任何一步报错 | `scripts/native_svg_to_ppt.py`（`_set_run_font_family`）、`scripts/test/test_converter_font_family.py`（新）、`references/domain/svg_to_ppt_rules.md` | 「首位原样写入 typeface」与空值静默默认 `Microsoft YaHei` 的回退 |
+| 工作台「已有新版本」从未读标记改为看即消；`note()` 按类型过期；预览取不到时退回当前版本并在画面中央占位 | 同一页横幅反复出现、红字常驻，看起来像反复报同一件事却不说要做什么 | `assets/review/review.html`（`updatedPages` / `#updatedNote` / `note()` / `assetFor` / `#previewMissing`） | 右栏常驻横幅 `#updatedNote`；error/warn 永不过期的提示；按旧版本取预览失败时的红色错误刷屏 |
+
+**边界怎么变了**：字体名成为转换契约的一部分（页面必须写具体字体），不再是"尽力而为"；工作台的状态提示一律「有动作才出现、看过即清、过时即散」。
+
+**回归**：`python3 -m unittest scripts.test.test_converter_font_family scripts.test.test_workbench_store scripts.test.test_review_surface scripts.test.test_v5` → 95 项通过；真实 19 页中抽两页转换 `OK`，PDF 字体为 Hiragino Sans GB。
+
 ## 2026-10-23 · 活跃规则对齐
 
 方向文件记录本次实际选择，具体视频约束按需填写；控制器提示与验收同步移除固定字段要求。视频默认交付已保存 SVG 与关联素材，快照能力保留为固定版本交接选项。README、入口与 eval 对齐，退役视频审阅批准门、强制快照交付及模板一概禁用的旧描述。存储、转换和快照格式保持不变。
