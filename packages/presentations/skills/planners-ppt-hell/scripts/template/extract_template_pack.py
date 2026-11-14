@@ -43,6 +43,8 @@ from pathlib import Path
 
 from PIL import Image, ImageDraw
 
+from layout_catalog import catalog_from_pdf, catalog_from_pptx, write_catalog
+
 try:
     from pptx import Presentation
     from pptx.enum.shapes import MSO_SHAPE_TYPE
@@ -735,6 +737,7 @@ def run_extract_template_pack(source, project, output_visuals=None, dpi=144, max
     pages = []
     render_method = ""
     pptx_facts = None
+    layout_catalog = None
 
     if source_path.is_dir():
         img_files = sorted(
@@ -753,6 +756,7 @@ def run_extract_template_pack(source, project, output_visuals=None, dpi=144, max
 
     elif suffix == ".pdf":
         pages = render_pdf_to_pngs(source_path, visuals_dir, dpi=dpi, max_pages=max_pages)
+        layout_catalog = catalog_from_pdf(source_path)
         render_method = "pdf_to_png"
 
     elif suffix == ".pptx":
@@ -760,6 +764,7 @@ def run_extract_template_pack(source, project, output_visuals=None, dpi=144, max
             raise RuntimeError("python-pptx is required to process .pptx files.")
         prs = Presentation(str(source_path))
         pptx_facts = extract_pptx_facts_and_assets(source_path, prs, assets_dir)
+        layout_catalog = catalog_from_pptx(source_path)
         pages, render_method = render_pptx_to_pngs(source_path, prs, visuals_dir, dpi=dpi, max_pages=max_pages)
 
     elif suffix in RASTER_SUFFIXES:
@@ -802,15 +807,21 @@ def run_extract_template_pack(source, project, output_visuals=None, dpi=144, max
         "rendered_page_count": len(page_entries),
         "visual_palette_sampling": visual_palette,
         "pptx_structural_facts": pptx_facts,
+        # 版式目录只有一个来源：同目录的 layout_catalog.json。facts 里只记指针，不复制一份。
+        "layout_catalog": "layout_catalog.json" if layout_catalog else None,
         "next_step_instruction": (
-            "Step 2 (Multimodal Synthesis): View `contact_sheet.png` and representative `page_NNN.png` files "
-            "alongside `visual_palette_sampling` and `pptx_structural_facts`. Then author the 4-piece Template Pack "
-            "(`tokens.css`, `skyline_shell.svg`, `primitives/*.svg`, `SPEC.md` + `anchors/`)."
+            "Step 2 (Scaffold): run `python scripts/template/scaffold_template_pack.py --project <project>` to write "
+            "tokens/SPEC/skyline_shell/layouts.json plus previews/anchors from the native layout catalog. "
+            "Step 3 (Author): for each layout in `template_pack/layouts.json`, view its representative source page and "
+            "slot boxes, then author `primitives/<layout_id>.svg`; replace the scaffold shell. "
+            "Step 4: review and publish."
         ),
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
     facts_path = pack_dir / "extraction_facts.json"
     facts_path.write_text(json.dumps(extraction_facts, ensure_ascii=False, indent=2), encoding="utf-8")
+    if layout_catalog:
+        write_catalog(project_path, layout_catalog)
     return facts_path
 
 
