@@ -16,7 +16,7 @@ marketplace:
         开发、Git 和仓库维护。
         技能：
         - add-external-skill: 将上游技能加入本仓库的自动同步集合。
-        - create-scoop-manifest: 为 Windows 应用生成 Scoop bucket manifest(bucket/<appname>.json),让它可以通过 Scoop 包管理器安装。
+        - create-scoop-manifest: 为 Windows 应用生成 Scoop bucket manifest(bucket/appname.json),让它可以通过 Scoop 包管理器安装。
         - setup-ruri-dev-standard: 为仓库初始化极简与可控工程开发规范（Minimalist Development Guidelines）——创建根目录的 DEVELOPMENT.md，并在 AGENTS.md / CLAUDE.md 中登记指向它的 context pointer。
       category: "Development"
     - name: obsidian
