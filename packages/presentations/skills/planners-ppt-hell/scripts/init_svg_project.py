@@ -43,7 +43,7 @@ STARTER_FILES = {
     f"{INTERNAL_ROOT}/00_project/flow_events.jsonl": "",
 }
 
-# visual-plan.json（上游 video-idea-system 的画面契约）的字段。这个清单只属于这一层
+# visual-plan.json（既有视频画面契约）的字段。这个清单只属于这一层
 # 适配器：ppt-hell 的核心（project_state、校验器、审阅、转换）不认识它。
 PLAN_SCREEN_KEYS = {
     "screen_id", "beat_id", "title", "question", "must_show", "must_express",

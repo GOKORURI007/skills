@@ -19,12 +19,12 @@
   │     → 挑模板或现场扒模板 → AI 设计每页 SVG → 看图自查 → 打开审阅台改图
   │     → 出口 ①：原生可编辑 PowerPoint（final_deck.pptx + 演讲者备注）
   │
-  └─ 路线 B（做视频静态画面）：video-idea-system 的 visual-plan.json（或已定稿上屏稿）
-        → 对照风格参考（私有风格库或通用洁净风格）绘制 9:16 / 16:9 静态 SVG
-        → 出口 ②：直接交付已保存 SVG 与素材目录 → 交给 video-craft 做动效合成
+  └─ 路线 B（做 PPT 类视频静态关键帧）：已定稿上屏稿（或兼容既有 visual-plan.json）
+        → 绘制 1920×1080 静态 SVG 关键帧
+        → 出口 ②：直接交付已保存 SVG 与素材目录 → 交给 video-craft 单向读取
 ```
 
-*(注：若你的新视频还没有 `visual-plan.json` 与口播定稿，请先从 [`video-idea-system`](https://github.com/thePlannerIvan/video-idea-system) 开始；只需要写逐页文案先不急着排版，请用 [`planners-bypage`](https://github.com/thePlannerIvan/planners-bypage)。)*
+*(注：只需要写逐页文案先不急着排版，请用 [`planners-bypage`](https://github.com/thePlannerIvan/planners-bypage)。)*
 
 ---
 
@@ -110,7 +110,7 @@ playwright install chromium             # 用于把 SVG 渲染成真实 PNG 预�
 **做视频静态关键帧：**
 
 ```text
-使用 $planners-ppt-hell 根据上游的 visual-plan.json 和 assets 生成视频录制前的静态 SVG 画面。
+使用 $planners-ppt-hell 根据已定稿上屏稿生成 PPT 类视频所需的静态关键帧 SVG。
 ```
 
 ### 真实运行时依赖
@@ -118,7 +118,6 @@ playwright install chromium             # 用于把 SVG 渲染成真实 PNG 预�
 - **核心环境**：Python 3（见 `scripts/requirements.txt` + Playwright Chromium）与 Node.js 20+（审阅宿主）。
 - **代码级自动加载底座**（缺了会自动拉取至 `~/.planners-modules/`）：[`planners-review-core`](https://github.com/thePlannerIvan/planners-review-core)（看图审阅台）、按需校验使用的 [`planners-source-index`](https://github.com/thePlannerIvan/planners-source-index) 与 [`planners-fact-check`](https://github.com/thePlannerIvan/planners-fact-check)。（**不依赖 `planners-report-kit`**。）
 - **按需协同的同行 Skill**（环境中存在时自动参考）：[`slide-copy`](https://github.com/thePlannerIvan/slide-copy)（微调页面文案）、[`planners-method-wiki`](https://github.com/thePlannerIvan/planners-method-wiki)（补充论证关系）。
-- **视频风格库优雅降级**：若本机配置了私有风格库 `~/.config/planners/video-vault` 会自动挂载；开源无该目录时会自动降级为内置通用洁净风格 `default-clean`。
 
 ---
 
@@ -172,5 +171,4 @@ planners-ppt-hell/
 ## 相关项目
 
 - [Planners Bypage](https://github.com/thePlannerIvan/planners-bypage) —— 上游多源资料整理、逐页文案与配图包
-- [Video Idea System](https://github.com/thePlannerIvan/video-idea-system) —— 短视频选题、口播稿与 `visual-plan.json` 入口
-- [Video Craft](https://github.com/thePlannerIvan/video-craft) —— 接收静态画面或素材剪辑合成最终成片
+- [Video Craft](https://github.com/thePlannerIvan/video-craft) —— 接收 PPT 类视频静态关键帧 SVG 或素材剪辑合成最终成片

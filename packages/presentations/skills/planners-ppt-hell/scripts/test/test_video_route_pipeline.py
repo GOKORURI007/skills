@@ -318,5 +318,82 @@ class RouteTerminalStateTests(unittest.TestCase):
         self.assertIn("beat-01", payload["pages"])
 
 
+class VideoVaultDecouplingTests(unittest.TestCase):
+    """Ticket #05: planners-ppt-hell must be completely decoupled from _video-vault."""
+
+    SKILL_ROOT = SCRIPTS.parent
+
+    def test_resolve_video_vault_script_is_removed(self):
+        self.assertFalse((SCRIPTS / "resolve_video_vault.py").exists())
+
+    def test_video_route_doc_is_slim_static_keyframe_svg_contract_only(self):
+        doc_path = self.SKILL_ROOT / "references" / "workflow" / "03_video_route.md"
+        text = doc_path.read_text(encoding="utf-8")
+        lines = text.splitlines()
+        self.assertLessEqual(len(lines), 22, f"03_video_route.md should be ~18 lines, got {len(lines)}")
+        for required in (
+            "1920",
+            "1080",
+            'viewBox="0 0 1920 1080"',
+            'overflow="hidden"',
+            "video-craft",
+            ".svg",
+            "snapshot.json",
+        ):
+            self.assertIn(required, text)
+        for forbidden in (
+            "_video-vault",
+            "video-vault",
+            "resolve_video_vault",
+            "page.md",
+            "video-idea-system",
+            "default-clean",
+            "frames/*.json",
+            "extract_style",
+            "production_mode",
+            "footage-montage",
+            "PIP",
+            "人物窗",
+            "字幕",
+        ):
+            self.assertNotIn(forbidden, text)
+
+    def test_no_vault_or_idea_system_coupling_remains_in_active_docs_and_scripts(self):
+        import re
+
+        forbidden_patterns = (
+            re.compile(r"resolve_video_vault"),
+            re.compile(r"_?video-vault"),
+            re.compile(r"video_vault"),
+            re.compile(r"video-idea-system"),
+            re.compile(r"default-clean"),
+            re.compile(r"(?<![A-Za-z0-9-])page\.md"),
+        )
+        scan_files = [
+            self.SKILL_ROOT / "SKILL.md",
+            self.SKILL_ROOT / "README.md",
+            self.SKILL_ROOT / "GLOSSARY.md",
+            self.SKILL_ROOT / "GOTCHAS.md",
+        ]
+        for folder in (self.SKILL_ROOT / "references", self.SKILL_ROOT / "scripts"):
+            for path in folder.rglob("*"):
+                if not path.is_file():
+                    continue
+                if path.name == "maintenance-history.md":
+                    continue
+                if (self.SKILL_ROOT / "scripts" / "test") in path.parents:
+                    continue
+                if path.suffix in {".md", ".py"}:
+                    scan_files.append(path)
+
+        hits = []
+        for path in scan_files:
+            content_text = path.read_text(encoding="utf-8")
+            for pattern in forbidden_patterns:
+                if pattern.search(content_text):
+                    hits.append(f"{path.relative_to(self.SKILL_ROOT)} matched {pattern.pattern}")
+        self.assertEqual(hits, [])
+
+
 if __name__ == "__main__":
     unittest.main()

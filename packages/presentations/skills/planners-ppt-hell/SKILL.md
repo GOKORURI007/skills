@@ -31,7 +31,6 @@ description: 制作与持续修改 SVG 视觉工作台（默认直接打开审�
 | `python3 scripts/workbench_store.py --root <project>` | 页面版本与任务唯一入口：`--state` 查页序、当前修订版与待办 `tasks`；`--command-json` 经 JSON stdin 提交 `get`、`checkout`、`save`（保护用户直改文字与坐标 `guards`，支持记录 `layout_id`）、`add_page`、`delete_page`、`order`、`task`、`resolve`。 |
 | `python3 scripts/orchestrate/ppt_pipeline.py <project> <cmd>` | 无状态编排 CLI：`frames`（测图片槽位）、`check --summary`（渲染 PNG + 几何防线校验 + 文案对表）、`review [--surface-only]`（生成并打开/刷新 `Workbench`）、`export [--snapshot <path>]`（按需冻结快照并转 PPTX）、`template-select` / `template-review`。 |
 | `python3 scripts/template/template_library.py` | 模板库管理：`list`、`apply <project> --template-id <id>`、`publish`、`refresh <template_id>`（直接修改包文件后重算 `manifest.json` 哈希与原语列表）、`verify`（全库完整性门禁）。配合 `extract_template_pack.py`、`scaffold_template_pack.py`、`apply_layout_selection.py`、`layout_index.py` 使用。 |
-| `python3 scripts/resolve_video_vault.py --style <style_id>` | 解析视频风格包（优先挂载 `~/.config/planners/video-vault/styles/<style_id>/`，无私有库自动降级为 `default-clean`）。 |
 
 ---
 
@@ -40,17 +39,17 @@ description: 制作与持续修改 SVG 视觉工作台（默认直接打开审�
 - **恢复或新建**：已有项目直接跑 `workbench_store.py --root <project> --state` 恢复当前页序、修订版与待办任务；新项目按输入源运行 `init_svg_project.py`（Bypage 衔接见 [02_content_stage.md](references/workflow/02_content_stage.md)）：
   - **Bypage 逐页稿**：现行 `planners-doc/2` 交付（`.planners/by-page.md` + `by-page.assets.json` + `fact-audit.json`）用 `--source <Project>/.planners/by-page.md --route slides` 初始化，整理正文、制作说明与登记图片进 `_internal/01_content/page_content.json`，沿用同一 `project-memory.md`、权威 `source-index.json` 与 `fact-audit.json`；旧版 `bypage-production/1` JSON 包用 `import_bypage.py`。
   - **直接材料**：按复杂度整理进 `page_content.json`，或多源研究时先委派 `planners-bypage`。
-  - **视频关键帧**：有 `visual-plan.json` 用 `--assets` + `--plan` 初始化并保留 `screen_id`；仅有已定稿上屏稿用 `--source <上屏稿.md> --route video`（未定稿新片回 `video-idea-system`）。详见 [03_video_route.md](references/workflow/03_video_route.md)。
+  - **视频关键帧**：有已定稿上屏稿用 `--source <上屏稿.md> --route video`（或兼容既有 `--assets` + `--plan` 初始化并保留 `screen_id`）。详见 [03_video_route.md](references/workflow/03_video_route.md)。
 - **Completion Criterion**：来源与画幅可读，每页拥有稳定 `page_key` 与 `page_content.json` 记录，全部源图片已登记且零静默遗漏。
 
 ## 2. 定方向与模板（`Direction & Template`）
 
 - **确认秩序与密度基调**：一次确认画幅与视觉来源（用户已指明则直接执行），将本次选择写入 `_internal/01_content/design_direction.md`。
 - **角色分工（`Template Pack vs. Page Composition`）**：
-  - **模板管皮肤与参考骨架**：已选 `Template Pack`（或视频风格 `page.md`）时，色彩、字体、容器形式（发丝线 vs. 卡片/色条）与现成原语（`primitives/*.svg`）100% 服从模板；
+  - **模板管皮肤与参考骨架**：已选 `Template Pack` 时，色彩、字体、容器形式（发丝线 vs. 卡片/色条）与现成原语（`primitives/*.svg`）100% 服从模板；
   - **页面构图力学管层级、双密度与原型**：开画前结合 [page_composition.md](references/domain/page_composition.md)，由模型按每页内容体量动态适配**高密咨询台账（`High-Density Consulting Ledger & Grid`）**或**低密聚光灯留白（`Low-Density Spotlight & Manifesto`）**，并按需选用 9 大拓扑原型。
-- **选用、快提或入库模板**：见 [01_template_intake.md](references/workflow/01_template_intake.md)。开画前必须实际查看所选模板/风格的 `SPEC.md` 与样张（或 `extract_template_pack.py` 生成的 `contact_sheet.png`）。
-- **Completion Criterion**：`design_direction.md` 已落盘，所选模板/风格的规范文档与参考样张已实际查看。
+- **选用、快提或入库模板**：见 [01_template_intake.md](references/workflow/01_template_intake.md)。开画前必须实际查看所选模板的 `SPEC.md` 与样张（或 `extract_template_pack.py` 生成的 `contact_sheet.png`）。
+- **Completion Criterion**：`design_direction.md` 已落盘，所选模板的规范文档与参考样张已实际查看。
 
 ## 3. 工作台制作与审阅交付（`Workbench & Review` — 默认终点）
 

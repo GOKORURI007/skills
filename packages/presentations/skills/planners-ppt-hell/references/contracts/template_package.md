@@ -31,7 +31,7 @@
 
 索引只读，不改变包哈希与批准。新包发布前严格校验（tokens 是合法单值、SPEC 无空表格、每个版式有预览与 primitive、primitive 不引用未声明 tokens）；旧包不回溯。整套模板的切换、逐页版式请求与执行见 [页面制作](../workflow/04_svg_stage.md) 与 [工作台](../workflow/07_visual_review.md)。
 
-视频关键帧风格的视觉来源与规范见 [视频静态关键帧路线](../workflow/03_video_route.md)（由 `~/.config/planners/video-vault` 或内置 `default-clean` 基线提供），不再与商业 PPT 模板包共用同一契约或强迫同包格式；动作与合成字段仍引用 `video-craft` 契约。
+本模板契约仅约束商业 PPT 模板包；视频静态关键帧 SVG 的导出规范见 [视频静态关键帧路线](../workflow/03_video_route.md)，本 Skill 不维护视频风格库，也不与视频风格或时间轴契约耦合。
 
 ## 审阅版本与发布
 
